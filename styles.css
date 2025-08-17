@@ -1,0 +1,37 @@
+
+:root{
+  --bg: #0b0b0c;
+  --card:#121214;
+  --text:#ffffff;
+  --muted:#a1a1aa;
+  --accent:#ff2d2d;
+  --accent2:#ff5a5a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Arial}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:20;background:rgba(11,11,12,.6);backdrop-filter:blur(8px);border-bottom:1px solid #161617}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+.brand{display:flex;gap:12px;align-items:center}
+.brand img{height:28px;width:auto}
+.brand .name{font-weight:800;letter-spacing:.2px}
+.brand .slogan{display:block;color:var(--muted);font-size:11px;margin-top:1px}
+nav a{opacity:.9;margin-left:16px;font-size:14px}
+nav a:hover{opacity:1}
+.hero{padding:72px 0 24px}
+h1{font-size: clamp(28px, 4.8vw, 52px); line-height:1.05; margin:0 0 14px 0; font-weight:900;}
+p.lead{color:#e8e8ee;opacity:.9;font-size:clamp(15px,1.9vw,20px);max-width:760px}
+.btn{display:inline-block;padding:14px 20px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff;font-weight:800;letter-spacing:.2px;box-shadow:0 6px 18px rgba(255,45,45,.25);transition:transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn.outline{background:transparent;border:1px solid #2a2a2d}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0}
+.card{background:var(--card);border:1px solid #1a1a1c;border-radius:20px;padding:18px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.card h3{margin:0 0 8px 0;font-size:16px}
+.card p{margin:0;color:#d6d6de;opacity:.9;font-size:14px}
+.footer{padding:28px 0 42px;color:#a1a1aa;border-top:1px solid #151518;margin-top:36px;font-size:13px}
+.badge{display:inline-flex;gap:6px;align-items:center;font-size:12px;color:#d7d7df;background:#17171a;border:1px solid #202024;border-radius:999px;padding:6px 10px}
+.whats{display:inline-flex;gap:8px;align-items:center}
+.small{font-size:12px;color:#a1a1aa}
+.logo-stack{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.logo-stack img{height:18px;opacity:.85}

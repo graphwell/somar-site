@@ -1,0 +1,5 @@
+[[headers]]
+  for = "/og-image.jpg"
+  [headers.values]
+    Content-Type = "image/jpeg"
+    Cache-Control = "public, max-age=604800"

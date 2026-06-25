@@ -1,0 +1,468 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automação WhatsApp com IA em Fortaleza | Somar.IA</title>
+    <meta name="description" content="IA que atende, qualifica e vende 24h no WhatsApp para empresas em Fortaleza e no Ceará. Implementação em 7 dias e análise gratuita com a Somar.IA.">
+    <link rel="canonical" href="https://somar.ia.br/automacao-whatsapp-ia/">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://somar.ia.br/automacao-whatsapp-ia/">
+    <meta property="og:title" content="Automação WhatsApp com IA em Fortaleza | Somar.IA">
+    <meta property="og:description" content="IA que atende, qualifica e vende 24h no WhatsApp para empresas em Fortaleza e no Ceará. Implementação em 7 dias e análise gratuita.">
+    <meta property="og:image" content="https://somar.ia.br/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Somar.IA">
+    <link rel="stylesheet" href="../lp-styles.css">
+    <link rel="icon" type="image/png" href="../Logo Somar.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: #00ff88;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.4rem 1.1rem;
+            border-radius: 99px;
+            margin-bottom: 1.5rem;
+            display: block;
+            text-align: center;
+        }
+        .benefits-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin: 3rem 0;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            transition: border-color 0.3s;
+        }
+        .benefit-item:hover {
+            border-color: #00ff88;
+        }
+        .benefit-icon {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+        .benefit-text strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 0.3rem;
+        }
+        .benefit-text span {
+            font-size: 0.95rem;
+            color: #a0a0a0;
+        }
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .stat-box {
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 16px;
+            padding: 2rem 1rem;
+        }
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #00ff88;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.88rem;
+            color: #a0a0a0;
+            margin-top: 0.5rem;
+        }
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .testimonial-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+        .testimonial-stars {
+            color: #00ff88;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .testimonial-text {
+            font-size: 1rem;
+            color: #d0d0d0;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .author-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00ff88, #005bbf);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #000;
+            flex-shrink: 0;
+        }
+        .author-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #fff;
+        }
+        .author-company {
+            font-size: 0.82rem;
+            color: #a0a0a0;
+        }
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-align: left;
+            padding: 1.4rem 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .faq-icon {
+            color: #00ff88;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            transition: transform 0.3s;
+        }
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.3s;
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding-bottom: 1.4rem;
+        }
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            font-weight: 800;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 0.8rem;
+        }
+        .section-sub {
+            text-align: center;
+            color: #a0a0a0;
+            font-size: 1rem;
+            margin-bottom: 3rem;
+        }
+        .cta-section {
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            border-radius: 24px;
+            padding: 3.5rem 2.5rem;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.8rem;
+        }
+        .cta-section p {
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: #25D366;
+            color: #fff;
+            padding: 1.25rem 2.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.15rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
+        }
+        .btn-whatsapp:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5);
+        }
+        .btn-whatsapp svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+        @media (max-width: 640px) {
+            .stats-row { grid-template-columns: 1fr; }
+            .stat-box { padding: 1.5rem 1rem; }
+            .cta-section { padding: 2.5rem 1.5rem; }
+            .btn-whatsapp { width: 100%; justify-content: center; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+
+    <header>
+        <img src="https://somar.ia.br/Logo%20Somar.webp" alt="Somar.IA" class="logo-lp" fetchpriority="high">
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <span class="hero-badge">Automação WhatsApp com IA</span>
+            <h1>Pare de perder clientes por falta de resposta no WhatsApp</h1>
+            <p>IA que atende, qualifica e vende 24h — implementação em até 7 dias</p>
+            <div class="cta-wrap">
+                <a href="https://wa.me/5511925203237?text=Quero%20saber%20como%20automatizar%20meu%20WhatsApp%20com%20IA" class="btn-whatsapp" target="_blank" onclick="gtagConversion()">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Falar no WhatsApp agora
+                </a>
+            </div>
+        </section>
+
+        <!-- PROVA SOCIAL -->
+        <section class="social-proof">
+            <p>Empresas que já automatizaram com a Somar.IA</p>
+            <div class="social-icons">
+                <div class="icon-segment">🏥 Clínicas</div>
+                <div class="icon-segment">🏠 Imobiliárias</div>
+                <div class="icon-segment">🏫 Escolas</div>
+                <div class="icon-segment">🛒 E-commerces</div>
+            </div>
+        </section>
+
+        <!-- NÚMEROS -->
+        <section>
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">Das dúvidas respondidas automaticamente</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">24h</div>
+                    <div class="stat-label">Disponível 7 dias por semana</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">&lt;30s</div>
+                    <div class="stat-label">Tempo médio de resposta</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFÍCIOS -->
+        <section>
+            <h2 class="section-title">O que muda no seu negócio</h2>
+            <p class="section-sub">Três resultados que você sente na primeira semana</p>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-text">
+                        <strong>Resposta imediata 24/7</strong>
+                        <span>Nenhum cliente fica sem resposta — nem às 2h da manhã, nem no domingo. A IA responde na hora certa, no tom certo.</span>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div class="benefit-text">
+                        <strong>Qualifica o lead antes de chegar em você</strong>
+                        <span>A IA filtra curiosos de compradores sérios. Você só fala com quem já está pronto para fechar — seu tempo vale mais.</span>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div class="benefit-text">
+                        <strong>Sem contratar atendente</strong>
+                        <span>A IA substitui o volume de atendimento inicial sem encargos trabalhistas. Escala quando você cresce, sem custo proporcional.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA INTERMEDIÁRIO -->
+        <section style="margin-bottom: 4rem;">
+            <div class="cta-wrap">
+                <a href="https://wa.me/5511925203237?text=Quero%20automatizar%20meu%20WhatsApp%20com%20IA" class="btn-whatsapp" target="_blank" onclick="gtagConversion()">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Falar no WhatsApp agora
+                </a>
+            </div>
+        </section>
+
+        <!-- DEPOIMENTOS -->
+        <section>
+            <h2 class="section-title">O que nossos clientes dizem</h2>
+            <p class="section-sub">Resultados reais de quem já automatizou</p>
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Antes a gente perdia lead toda hora porque não tinha como responder rápido. Depois da IA da Somar, o atendimento virou diferencial. Os clientes ficam impressionados com a agilidade."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">C</div>
+                        <div>
+                            <div class="author-name">Carlos M.</div>
+                            <div class="author-company">Patrol Segurança</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"A implementação foi surpreendentemente rápida. Em menos de uma semana já estava funcionando e a equipe ficou aliviada — o volume de mensagens repetitivas caiu demais."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div>
+                            <div class="author-name">Ana P.</div>
+                            <div class="author-company">Gráfica Flash</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section>
+            <h2 class="section-title">Perguntas frequentes</h2>
+            <p class="section-sub">Tire suas dúvidas antes de falar com a gente</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Quanto tempo leva para implantar?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Em média 5 a 7 dias úteis. Fazemos o mapeamento do seu atendimento, configuramos os fluxos, treinamos a IA com os dados da sua empresa e integramos ao seu WhatsApp oficial. Você acompanha tudo em tempo real.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        A IA substitui minha equipe de atendimento?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Não — ela amplifica sua equipe. A IA cuida do volume repetitivo (perguntas frequentes, qualificação de lead, agendamentos) e passa para um humano só quando necessário. Sua equipe foca no que realmente importa: fechar vendas.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Precisa de contrato longo ou tem fidelidade?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        Temos planos mensais sem fidelidade mínima. Você paga enquanto estiver usando e gerando resultado. Nosso foco é que você queira continuar porque está lucrando — não porque está preso em contrato.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section style="margin-bottom: 2rem;">
+            <div class="cta-section">
+                <h2>Pronto para parar de perder clientes?</h2>
+                <p>Fale agora com um especialista e receba uma proposta personalizada para o seu negócio.</p>
+                <a href="https://wa.me/5511925203237?text=Quero%20automatizar%20meu%20WhatsApp%20com%20IA" class="btn-whatsapp" target="_blank" onclick="gtagConversion()">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Falar no WhatsApp agora
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FLOAT WHATSAPP -->
+    <a href="https://wa.me/5511925203237?text=Quero%20automatizar%20meu%20WhatsApp%20com%20IA" class="whatsapp-float" target="_blank" aria-label="Falar no WhatsApp" onclick="gtagConversion()">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="35" height="35">
+    </a>
+
+        <footer>
+        <p>© 2026 Somar.IA — Todos os direitos reservados.</p>
+        <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6;">SOMMAR SOLUÇÕES DIGITAIS — CNPJ: 65.771.133/0001-07 — Brasil</p>
+        <p style="margin-top:0.5rem;font-size:0.85rem;">
+            <a href="https://wa.me/5585992556672" target="_blank" style="color:#00ff88;text-decoration:none;">Nordeste: (85) 99255-6672</a>
+            &nbsp;|&nbsp;
+            <a href="https://wa.me/5511925203237" target="_blank" style="color:#00ff88;text-decoration:none;">(11) 92520-3237</a>
+        </p>
+    </footer>
+
+    <!-- Google Tag Manager -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=AW-18061457090"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-18061457090');
+    </script>
+
+    <!-- Google Ads — Conversao Lead WhatsApp (ID: 7625448439) -->
+    <script>
+        function gtagConversion() {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-18061457090/QxcbCPe3jLQcEMLtr6RD',
+                'value': 1.0,
+                'currency': 'BRL'
+            });
+        }
+    </script>
+
+    <!-- FAQ accordion -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
+            });
+        });
+    </script>
+</body>
+</html>

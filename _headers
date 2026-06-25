@@ -1,0 +1,12 @@
+/og-image.jpg
+  Content-Type: image/jpeg
+  Cache-Control: public, max-age=86400
+
+/*.jpg
+  Cache-Control: public, max-age=604800
+
+/*.webp
+  Cache-Control: public, max-age=604800
+
+/*.png
+  Cache-Control: public, max-age=604800

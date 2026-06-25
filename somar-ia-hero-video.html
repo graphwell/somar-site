@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Somar.IA — Hero Animation</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #000;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+canvas { display: block; }
+</style>
+</head>
+<body>
+<script>
+// ============================================================
+// SOMAR.IA — HERO ANIMATION
+// Filosofia: "Neural Flow" — A dor do cliente como força vetorial
+// que atrai agentes inteligentes até a solução emergir.
+// Partículas representam problemas empresariais; nós vermelhos
+// são os agentes da Somar.IA convergindo para resolvê-los.
+// ============================================================
+
+let particles = [];
+let nodes = [];
+let connections = [];
+let t = 0;
+
+const COLORS = {
+  bg: [0, 0, 0],
+  red: [220, 50, 50],
+  redDim: [160, 30, 30],
+  white: [255, 255, 255],
+  gray: [80, 80, 80],
+  grayDim: [30, 30, 30],
+  accent: [220, 50, 50]
+};
+
+class Particle {
+  constructor() {
+    this.reset();
+  }
+  reset() {
+    this.x = random(width);
+    this.y = random(height);
+    this.vx = random(-0.4, 0.4);
+    this.vy = random(-0.4, 0.4);
+    this.size = random(1, 2.5);
+    this.alpha = random(40, 140);
+    this.life = random(0, TWO_PI);
+    this.speed = random(0.005, 0.015);
+    this.attracted = false;
+    this.target = null;
+    this.attractForce = 0;
+  }
+  update() {
+    this.life += this.speed;
+
+    // Noise-based drift
+    let nx = noise(this.x * 0.003, this.y * 0.003, t * 0.3);
+    let ny = noise(this.x * 0.003 + 100, this.y * 0.003 + 100, t * 0.3);
+    let angle = nx * TWO_PI * 2;
+    this.vx += cos(angle) * 0.015;
+    this.vy += sin(angle) * 0.015;
+
+    // Attract toward nearest node occasionally
+    if (frameCount % 120 === int(this.life * 10) % 120) {
+      let nearest = null;
+      let minD = 999;
+      for (let n of nodes) {
+        let d = dist(this.x, this.y, n.x, n.y);
+        if (d < minD) { minD = d; nearest = n; }
+      }
+      if (nearest && minD < 200) {
+        this.target = nearest;
+        this.attracted = true;
+        this.attractForce = random(0.02, 0.06);
+      }
+    }
+
+    if (this.attracted && this.target) {
+      let dx = this.target.x - this.x;
+      let dy = this.target.y - this.y;
+      let d = sqrt(dx * dx + dy * dy);
+      if (d < 8) {
+        this.attracted = false;
+        this.target = null;
+        this.reset();
+        return;
+      }
+      this.vx += (dx / d) * this.attractForce;
+      this.vy += (dy / d) * this.attractForce;
+    }
+
+    // Speed limit
+    let speed = sqrt(this.vx * this.vx + this.vy * this.vy);
+    if (speed > 1.8) {
+      this.vx = (this.vx / speed) * 1.8;
+      this.vy = (this.vy / speed) * 1.8;
+    }
+
+    this.x += this.vx;
+    this.y += this.vy;
+
+    // Wrap
+    if (this.x < -10) this.x = width + 10;
+    if (this.x > width + 10) this.x = -10;
+    if (this.y < -10) this.y = height + 10;
+    if (this.y > height + 10) this.y = -10;
+  }
+  draw() {
+    let pulse = sin(this.life) * 0.5 + 0.5;
+    let a = this.alpha * (0.6 + pulse * 0.4);
+    if (this.attracted) {
+      stroke(COLORS.red[0], COLORS.red[1], COLORS.red[2], a * 1.4);
+      strokeWeight(this.size * 1.3);
+    } else {
+      stroke(COLORS.white[0], COLORS.white[1], COLORS.white[2], a * 0.5);
+      strokeWeight(this.size);
+    }
+    point(this.x, this.y);
+  }
+}
+
+class Node {
+  constructor(x, y, isPrimary) {
+    this.x = x;
+    this.y = y;
+    this.isPrimary = isPrimary;
+    this.r = isPrimary ? random(6, 10) : random(3, 6);
+    this.pulse = random(TWO_PI);
+    this.pulseSpeed = random(0.01, 0.025);
+    this.floatOffset = random(TWO_PI);
+    this.floatAmp = random(4, 12);
+    this.floatSpeed = random(0.005, 0.012);
+    this.ox = x;
+    this.oy = y;
+    this.connections = [];
+  }
+  update() {
+    this.pulse += this.pulseSpeed;
+    this.floatOffset += this.floatSpeed;
+    this.x = this.ox + sin(this.floatOffset) * this.floatAmp;
+    this.y = this.oy + cos(this.floatOffset * 0.7) * (this.floatAmp * 0.5);
+  }
+  draw() {
+    let p = sin(this.pulse) * 0.5 + 0.5;
+    let r = this.r + p * 3;
+
+    if (this.isPrimary) {
+      // Outer glow
+      noStroke();
+      for (let i = 4; i > 0; i--) {
+        fill(COLORS.red[0], COLORS.red[1], COLORS.red[2], 8 * i);
+        ellipse(this.x, this.y, r * 2 + i * 7, r * 2 + i * 7);
+      }
+      // Core
+      fill(COLORS.red[0], COLORS.red[1], COLORS.red[2], 230);
+      noStroke();
+      ellipse(this.x, this.y, r * 2, r * 2);
+      // Inner bright
+      fill(255, 180, 180, 200);
+      ellipse(this.x, this.y, r * 0.7, r * 0.7);
+    } else {
+      // Secondary node
+      noStroke();
+      fill(COLORS.red[0], COLORS.red[1], COLORS.red[2], 15 + p * 10);
+      ellipse(this.x, this.y, r * 2 + 6, r * 2 + 6);
+      fill(COLORS.red[0], COLORS.red[1], COLORS.red[2], 130 + p * 80);
+      ellipse(this.x, this.y, r * 2, r * 2);
+    }
+  }
+}
+
+class Connection {
+  constructor(a, b) {
+    this.a = a;
+    this.b = b;
+    this.life = 0;
+    this.maxLife = random(180, 360);
+    this.phase = random(TWO_PI);
+    this.active = true;
+  }
+  update() {
+    this.life++;
+    if (this.life > this.maxLife) this.active = false;
+  }
+  draw() {
+    let progress = this.life / this.maxLife;
+    let fade = progress < 0.15 ? progress / 0.15 :
+               progress > 0.85 ? (1 - progress) / 0.15 : 1;
+
+    let pulse = sin(this.life * 0.05 + this.phase) * 0.5 + 0.5;
+    let alpha = 35 * fade * (0.5 + pulse * 0.5);
+
+    stroke(COLORS.red[0], COLORS.red[1], COLORS.red[2], alpha);
+    strokeWeight(0.5 + pulse * 0.5);
+    line(this.a.x, this.a.y, this.b.x, this.b.y);
+
+    // Data packet traveling along connection
+    if (fade > 0.5) {
+      let tp = (sin(this.life * 0.03 + this.phase) * 0.5 + 0.5);
+      let px = lerp(this.a.x, this.b.x, tp);
+      let py = lerp(this.a.y, this.b.y, tp);
+      noStroke();
+      fill(255, 150, 150, 120 * fade);
+      ellipse(px, py, 3, 3);
+    }
+  }
+}
+
+// Grid connection lines (background structure)
+class GridLine {
+  constructor() {
+    this.reset();
+  }
+  reset() {
+    this.x1 = random(width);
+    this.y1 = random(height);
+    let angle = random(TWO_PI);
+    let len = random(40, 160);
+    this.x2 = this.x1 + cos(angle) * len;
+    this.y2 = this.y1 + sin(angle) * len;
+    this.alpha = random(5, 20);
+    this.life = 0;
+    this.maxLife = random(120, 300);
+  }
+  update() {
+    this.life++;
+    if (this.life > this.maxLife) this.reset();
+  }
+  draw() {
+    let p = this.life / this.maxLife;
+    let fade = p < 0.2 ? p / 0.2 : p > 0.8 ? (1 - p) / 0.2 : 1;
+    stroke(60, 60, 60, this.alpha * fade);
+    strokeWeight(0.3);
+    line(this.x1, this.y1, this.x2, this.y2);
+  }
+}
+
+let gridLines = [];
+
+function setup() {
+  let cnv = createCanvas(windowWidth, windowHeight);
+  cnv.parent(document.body);
+  colorMode(RGB, 255, 255, 255, 255);
+  noiseSeed(42);
+
+  // Create nodes — layout forming a subtle neural network
+  let cx = width / 2;
+  let cy = height / 2;
+
+  // Central primary node (the "solution")
+  nodes.push(new Node(cx, cy, true));
+
+  // Ring of secondary nodes
+  let count = 7;
+  let radii = [width * 0.22, width * 0.32];
+  for (let ri = 0; ri < radii.length; ri++) {
+    let r = radii[ri];
+    for (let i = 0; i < count; i++) {
+      let angle = (TWO_PI / count) * i + (ri * PI / count);
+      let nx = cx + cos(angle) * r * (1 + random(-0.15, 0.15));
+      let ny = cy + sin(angle) * r * (0.6 + random(-0.1, 0.1));
+      nodes.push(new Node(nx, ny, false));
+    }
+  }
+
+  // Particles
+  for (let i = 0; i < 280; i++) {
+    particles.push(new Particle());
+  }
+
+  // Grid lines
+  for (let i = 0; i < 60; i++) {
+    let gl = new GridLine();
+    gl.life = int(random(gl.maxLife)); // stagger
+    gridLines.push(gl);
+  }
+}
+
+function draw() {
+  // Dark fade trail
+  background(0, 0, 0, 25);
+
+  t = frameCount * 0.004;
+
+  // Grid lines
+  for (let gl of gridLines) {
+    gl.update();
+    gl.draw();
+  }
+
+  // Update and cull connections
+  connections = connections.filter(c => c.active);
+  for (let c of connections) {
+    c.update();
+    c.draw();
+  }
+
+  // Occasionally spawn connections between nodes
+  if (frameCount % 40 === 0 && nodes.length > 1) {
+    let a = nodes[int(random(nodes.length))];
+    let b = nodes[int(random(nodes.length))];
+    if (a !== b && dist(a.x, a.y, b.x, b.y) < width * 0.45) {
+      // Only add if not too many already
+      if (connections.length < 25) {
+        connections.push(new Connection(a, b));
+      }
+    }
+  }
+
+  // Particles
+  for (let p of particles) {
+    p.update();
+    p.draw();
+  }
+
+  // Nodes (draw last, on top)
+  for (let n of nodes) {
+    n.update();
+    n.draw();
+  }
+
+  // Subtle vignette
+  noFill();
+  for (let i = 0; i < 5; i++) {
+    let alpha = 18 * (1 - i / 5);
+    stroke(0, 0, 0, alpha);
+    strokeWeight(60 - i * 10);
+    noFill();
+    rect(0, 0, width, height);
+  }
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+</script>
+</body>
+</html>

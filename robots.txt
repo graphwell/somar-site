@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://somar.ia.br/sitemap.xml

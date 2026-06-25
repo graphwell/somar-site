@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somar.IA | Automações Inteligentes</title>
+    <meta name="description" content="Automatize. Escale. Cresça. Desbloqueie seu futuro com a Somar.IA.">
+    <link rel="canonical" href="https://somar.ia.br/links.html">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://somar.ia.br/links.html">
+    <meta property="og:title" content="Somar.IA | Automações Inteligentes">
+    <meta property="og:description" content="Automação com IA para empresas em Fortaleza e no Ceará. Agentes inteligentes, chatbots WhatsApp e sistemas sob medida pela Somar.IA.">
+    <meta property="og:image" content="https://somar.ia.br/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Somar.IA">
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-base: #050505;
+            --text-primary: #ffffff;
+            --text-secondary: #999999;
+            --red-glow: rgba(255, 42, 42, 0.15);
+            --red-accent: #ff2a2a;
+            --card-bg: rgba(25, 25, 25, 0.4);
+            --card-border: rgba(255, 255, 255, 0.06);
+            --hover-bg: rgba(35, 35, 35, 0.6);
+            --hover-border: rgba(255, 42, 42, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+            position: relative;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            background-image: 
+                radial-gradient(circle at 50% 0%, var(--red-glow), transparent 40%),
+                linear-gradient(to bottom, #000000, #0a0a0a);
+        }
+
+        /* Animated subtle grid overlay for tech feel */
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: 0;
+            opacity: 0.4;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        /* Top Section */
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1.5rem;
+            animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .logo-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        /* Discrete red glow behind logo */
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: var(--red-accent);
+            filter: blur(50px);
+            opacity: 0.3;
+            border-radius: 50%;
+            animation: pulseGlow 4s infinite alternate;
+        }
+
+        .logo {
+            width: 180px;
+            height: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .titles {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            background: linear-gradient(180deg, #ffffff 0%, #aaaaaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            letter-spacing: 0.02em;
+        }
+
+        /* Buttons Section */
+        .links-container {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 1.1rem 1.5rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Shimmer effect */
+        .link-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+            transition: 0.5s;
+        }
+
+        .link-btn:hover::after {
+            left: 100%;
+            transition: 0.5s ease-in-out;
+        }
+
+        .link-btn:hover {
+            background: var(--hover-bg);
+            border-color: var(--hover-border);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 42, 42, 0.1);
+        }
+
+        .btn-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1;
+        }
+
+        /* Icons */
+        .link-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .link-btn:hover .link-icon {
+            background: rgba(255, 42, 42, 0.1);
+        }
+
+        .link-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: #cccccc;
+            transition: fill 0.3s ease;
+        }
+        
+        .link-btn:hover .link-icon svg {
+            fill: var(--red-accent);
+        }
+
+        .arrow-icon {
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .arrow-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--text-secondary);
+        }
+
+        .link-btn:hover .arrow-icon {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .link-btn:hover .arrow-icon svg {
+            fill: var(--red-accent);
+        }
+
+        /* QR Experience & Footer */
+        .footer {
+            margin-top: 1rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+            animation-delay: 0.8s;
+        }
+
+        .qr-experience {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            font-style: italic;
+            position: relative;
+            display: inline-block;
+        }
+
+        .qr-experience::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--red-accent), transparent);
+            border-radius: 2px;
+            opacity: 0.6;
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: #666;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* Staggered animation delays for buttons */
+        .links-container .link-btn:nth-child(1) { animation-delay: 0.2s; }
+        .links-container .link-btn:nth-child(2) { animation-delay: 0.3s; }
+        .links-container .link-btn:nth-child(3) { animation-delay: 0.4s; }
+        .links-container .link-btn:nth-child(4) { animation-delay: 0.5s; }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.2; transform: scale(1); }
+            100% { opacity: 0.4; transform: scale(1.2); }
+        }
+
+        @media (max-width: 400px) {
+            .container { padding: 0 0.5rem; }
+            h1 { font-size: 1.4rem; }
+            .link-btn { padding: 1rem 1.2rem; }
+            .logo { width: 150px; }
+        }
+
+        #starfield {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .glow-bg {
+            position: fixed;
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 400px;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.04) 0%, rgba(180,10,10,0.08) 40%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .btn {
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: relative;
+        }
+        .btn-expand { flex-direction: column; align-items: stretch; padding: 0; overflow: hidden; cursor: pointer; }
+        .btn-expand .btn-header { display: flex; align-items: center; gap: 14px; padding: 16px 20px; }
+        .btn-expand .chevron { margin-left: auto; opacity: 0.5; transition: transform 0.25s; }
+        .btn-expand.open .chevron { transform: rotate(180deg); }
+        .sub-contacts { display: none; flex-direction: column; border-top: 1px solid #222; }
+        .btn-expand.open .sub-contacts { display: flex; }
+        .sub-contact { display: flex; align-items: center; gap: 12px; padding: 13px 20px; text-decoration: none; color: #ddd; font-size: 0.88rem; border-bottom: 1px solid #1a1a1a; transition: background 0.15s; }
+        .sub-contact:last-child { border-bottom: none; }
+        .sub-contact:hover { background: #1c1c1c; }
+        .sub-contact .name { font-weight: 600; color: #fff; display: block; font-size: 0.9rem; }
+        .sub-contact .number { color: #888; font-size: 0.8rem; display: block; }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                border-color: #222;
+                box-shadow: none;
+            }
+            50% {
+                border-color: rgba(255,255,255,0.25);
+                box-shadow: 0 0 12px rgba(255,255,255,0.08);
+            }
+        }
+
+        .btn:nth-child(1) { animation: pulse-glow 2.8s ease-in-out infinite; }
+        .btn:nth-child(2) { animation: pulse-glow 2.8s ease-in-out infinite 0.7s; }
+        .btn:nth-child(3) { animation: pulse-glow 2.8s ease-in-out infinite 1.4s; }
+        .btn:nth-child(4) { animation: pulse-glow 2.8s ease-in-out infinite 2.1s; }
+
+        .btn:hover {
+            animation: none;
+            border-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+    <div class="glow-bg"></div>
+    <div class="grid-overlay"></div>
+    
+    <div class="container">
+        <!-- Topo -->
+        <header class="header">
+            <div class="logo-container">
+                <img src="Logo%20Somar.webp" alt="Somar.IA" class="logo">
+            </div>
+            <div class="titles">
+                <h1>Automatize. Escale. Cresça.</h1>
+                <p class="subtitle">Desbloqueie seu futuro.</p>
+            </div>
+        </header>
+
+        <!-- Botões -->
+        <main class="links-container">
+            <!-- Atendimento Nordeste -->
+            <div class="btn btn-expand" id="nordeste-btn" onclick="toggleNordeste()">
+                <div class="btn-header">
+                    <span class="link-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    </span>
+                    <span>Atendimento Nordeste</span>
+                    <svg class="chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <polyline points="6 9 12 15 18 9"/>
+                    </svg>
+                </div>
+                <div class="sub-contacts">
+                    <a class="sub-contact" href="https://wa.me/5585991973927" target="_blank" rel="noopener">
+                        <div>
+                            <span class="name">Gabriel Marcelo</span>
+                            <span class="number">(85) 99197-3927</span>
+                        </div>
+                    </a>
+                    <a class="sub-contact" href="https://wa.me/5585996948987" target="_blank" rel="noopener">
+                        <div>
+                            <span class="name">Renato Carvalho</span>
+                            <span class="number">(85) 99694-8987</span>
+                        </div>
+                    </a>
+                    <a class="sub-contact" href="https://wa.me/5585982352343" target="_blank" rel="noopener">
+                        <div>
+                            <span class="name">Einstein Albuquerque</span>
+                            <span class="number">(85) 98235-2343</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Atendimento Sul/Sudeste -->
+            <a href="https://wa.me/message/SEUNUMEROSUL" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <div class="btn-left">
+                    <span class="link-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    </span>
+                    Atendimento Sul/Sudeste
+                </div>
+                <div class="arrow-icon">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </div>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/somar.ia" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <div class="btn-left">
+                    <span class="link-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </span>
+                    Instagram
+                </div>
+                <div class="arrow-icon">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </div>
+            </a>
+
+            <!-- Conheça a Somar.IA -->
+            <a href="/" class="link-btn">
+                <div class="btn-left">
+                    <span class="link-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 0a12 12 0 100 24 12 12 0 000-24zm5.01 7.42h-2.52c-.11-.93-.32-1.83-.62-2.68 1.4.52 2.58 1.46 3.14 2.68zM12 2.05c.83 1.55 1.43 3.33 1.66 5.37h-3.32c.23-2.04.83-3.82 1.66-5.37zm-2.87.63c-.3.85-.51 1.75-.62 2.68H5.99c.56-1.22 1.74-2.16 3.14-2.68zM2.51 12c0-.9.16-1.76.45-2.58h3.33c-.09.84-.14 1.7-.14 2.58s.05 1.74.14 2.58H2.96c-.29-.82-.45-1.68-.45-2.58zm1.03 4.58h2.52c.11.93.32 1.83.62 2.68-1.4-.52-2.58-1.46-3.14-2.68zm5.59 5.37c-.83-1.55-1.43-3.33-1.66-5.37h3.32c-.23 2.04-.83 3.82-1.66 5.37zm2.87-.63c.3-.85.51-1.75.62-2.68h2.52c-.56 1.22-1.74 2.16-3.14 2.68zm3.62-4.74h-3.33c.09-.84.14-1.7.14-2.58s-.05-1.74-.14-2.58h3.33c.29.82.45 1.68.45 2.58s-.16 1.76-.45 2.58z"/></svg>
+                    </span>
+                    Conheça a Somar.IA
+                </div>
+                <div class="arrow-icon">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                </div>
+            </a>
+        </main>
+
+        <!-- Footer / QR Experience -->
+        <footer class="footer">
+            <p class="qr-experience">Tecnologia que transforma atendimento em resultado.</p>
+            <p class="copyright">© 2025 Somar.IA — Todos os direitos reservados.<br>SOMMAR SOLUÇÕES DIGITAIS — CNPJ: 65.771.133/0001-07 — Brasil</p>
+        </footer>
+    </div>
+
+<script>
+(function () {
+  const canvas = document.getElementById('starfield');
+  const ctx = canvas.getContext('2d');
+  let W, H, stars = [];
+
+  function resize() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+
+  function randomStar() {
+    const angle = Math.random() * Math.PI * 2;
+    const dist = Math.random() * 0.15; // começa perto do centro
+    return {
+      angle,
+      dist,
+      speed: Math.random() * 0.0015 + 0.0005,
+      size: Math.random() * 1.2 + 0.3,
+      alpha: Math.random() * 0.5 + 0.3
+    };
+  }
+
+  function createStars(n) {
+    stars = [];
+    for (let i = 0; i < n; i++) {
+      const s = randomStar();
+      s.dist = Math.random(); // distribuição inicial espalhada
+      stars.push(s);
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    const cx = W / 2, cy = H / 2;
+    const maxDist = Math.sqrt(cx * cx + cy * cy);
+
+    for (const s of stars) {
+      s.dist += s.speed;
+      if (s.dist > 1) {
+        Object.assign(s, randomStar());
+        continue;
+      }
+
+      const x = cx + Math.cos(s.angle) * s.dist * maxDist;
+      const y = cy + Math.sin(s.angle) * s.dist * maxDist;
+      const r = s.size * s.dist * 2.5;
+      const a = s.alpha * Math.min(s.dist * 3, 1);
+
+      ctx.beginPath();
+      ctx.arc(x, y, Math.max(r, 0.3), 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${a})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  createStars(220);
+  draw();
+  window.addEventListener('resize', () => { resize(); createStars(220); });
+})();
+
+function toggleNordeste() {
+  document.getElementById('nordeste-btn').classList.toggle('open');
+}
+</script>
+</body>
+</html>

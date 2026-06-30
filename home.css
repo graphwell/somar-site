@@ -162,14 +162,14 @@ h1, h2, h3, h4 {
 .header-inner {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 0.9rem 2rem;
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
   gap: 2rem;
 }
 
 .header-logo {
-  height: 50px;
+  height: 68px;
   width: auto;
   flex-shrink: 0;
 }
@@ -328,7 +328,7 @@ h1, h2, h3, h4 {
   margin: 0 auto;
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: 1fr 220px;
+  grid-template-columns: 1fr 270px;
   gap: 5rem;
   align-items: center;
   width: 100%;
@@ -349,8 +349,8 @@ h1, h2, h3, h4 {
 }
 
 .hero h1 {
-  font-size: clamp(2.4rem, 5.5vw, 4rem);
-  font-weight: 700;
+  font-size: clamp(2.6rem, 6.2vw, 5rem);
+  font-weight: 300;
   color: var(--text-primary);
   margin-bottom: 1.5rem;
 }
@@ -358,6 +358,12 @@ h1, h2, h3, h4 {
 .hero h1 em {
   font-style: italic;
   font-weight: 300;
+}
+
+/* Contraste de peso dentro do headline */
+.h1-heavy {
+  font-weight: 800;
+  font-style: normal;
 }
 
 .hero-sub {
@@ -384,40 +390,129 @@ h1, h2, h3, h4 {
   opacity: 0.6;
 }
 
-/* Stat cards — right side of hero */
+/* ─── Hero deco: mini iPhone + stats ────────────── */
 .hero-deco {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-.hero-stat-card {
-  background: #fff;
-  border: 1px solid var(--surface-subtle);
-  border-radius: var(--radius);
-  padding: 1rem 1.25rem;
-  transition: transform 0.3s ease;
+/* Mini iPhone frame */
+.hero-phone-mini {
+  width: 148px;
+  background: #1C1C1E;
+  border-radius: 30px;
+  padding: 8px;
+  position: relative;
+  transform: rotate(-5deg);
+  box-shadow:
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.1),
+    0 30px 60px rgba(0, 0, 0, 0.16),
+    0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease;
 }
 
-.hero-stat-card:nth-child(2) {
-  margin-left: 1rem;
+.hero-phone-mini:hover {
+  transform: rotate(-2deg) translateY(-4px);
+}
+
+.hero-phone-mini::before {          /* power button */
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: 60px;
+  width: 2px;
+  height: 28px;
+  background: #2C2C2E;
+  border-radius: 0 2px 2px 0;
+}
+
+.hero-phone-mini::after {           /* volume buttons */
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 46px;
+  width: 2px;
+  height: 20px;
+  background: #2C2C2E;
+  border-radius: 2px 0 0 2px;
+  box-shadow: 0 30px 0 #2C2C2E, 0 55px 0 #2C2C2E;
+}
+
+.hero-phone-mini-screen {
+  border-radius: 23px;
+  overflow: hidden;
+  aspect-ratio: 9 / 19.5;
+  background: #000;
+  position: relative;
+}
+
+.hero-phone-mini-island {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 14px;
+  background: #000;
+  border-radius: 14px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.hero-phone-mini-screen img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.hero-phone-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: -0.75rem;
+}
+
+/* Stats abaixo do phone */
+.hero-stats-row {
+  display: flex;
+  gap: 0.875rem;
+  width: 100%;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--surface-subtle);
+}
+
+.hero-stat {
+  flex: 1;
+  text-align: center;
 }
 
 .hero-stat-num {
   display: block;
   font-family: 'Fraunces', serif;
-  font-size: 1.75rem;
+  font-size: 1.35rem;
   font-weight: 700;
+  font-optical-sizing: none;
+  font-variation-settings: 'opsz' 72;
+  font-variant-numeric: lining-nums tabular-nums;
   color: var(--text-primary);
   line-height: 1;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
 }
 
 .hero-stat-label {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.6rem;
+  font-weight: 500;
   color: var(--text-secondary);
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -1170,17 +1265,37 @@ footer {
 @media (max-width: 1024px) {
   .hero-inner {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
   }
 
   .hero-deco {
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    align-items: flex-start;
+    gap: 2rem;
   }
 
-  .hero-stat-card:nth-child(2) {
-    margin-left: 0;
+  .hero-phone-mini {
+    width: 116px;
+    transform: rotate(-3deg);
+    flex-shrink: 0;
+  }
+
+  .hero-phone-mini:hover {
+    transform: rotate(-1deg) translateY(-3px);
+  }
+
+  .hero-stats-row {
+    flex-direction: column;
+    border-top: none;
+    border-left: 1px solid var(--surface-subtle);
+    padding-top: 0;
+    padding-left: 1.25rem;
+    justify-content: center;
+    flex: 1;
+  }
+
+  .hero-stat {
+    text-align: left;
   }
 
   .services-inner {
@@ -1230,6 +1345,11 @@ footer {
 
   .hero h1 {
     font-size: 2.2rem;
+  }
+
+  /* Hero deco — oculta no mobile (stats aparecem na seção 6) */
+  .hero-deco {
+    display: none;
   }
 
   /* Videos — stack vertically, no rotation */

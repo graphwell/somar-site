@@ -1,0 +1,171 @@
+/*
+ * sistemas.css — tema claro para /sistemas.html
+ * Importado após styles.css; sobrescreve o tema escuro padrão.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── Palette override ─────────────────────────────── */
+:root {
+  --bg-deep:              #FAFAF8;
+  --bg-surface:           #F0EFEA;
+  --bg-card:              #FFFFFF;
+  --accent-primary:       #C8102E;
+  --accent-primary-hover: #A00D25;
+  --text-main:            #1A1A1A;
+  --text-muted:           #4A4A4A;
+  --border-subtle:        #E8E6E0;
+  --radius-lg:            10px;
+}
+
+/* ── Body & background ────────────────────────────── */
+body {
+  background-color: #FAFAF8;
+  color: #1A1A1A;
+}
+
+.bg-glow {
+  background-color: #FAFAF8;
+}
+
+/* ── Header ───────────────────────────────────────── */
+header {
+  background: rgba(250, 250, 248, 0.95);
+  border-bottom: 1px solid #E8E6E0;
+}
+
+nav a {
+  color: #4A4A4A;
+}
+
+nav a:hover,
+nav a.active {
+  color: #1A1A1A;
+}
+
+.burger span {
+  background: #1A1A1A;
+}
+
+.nav-socials svg {
+  fill: #4A4A4A;
+}
+
+.nav-socials a:hover svg {
+  fill: #1A1A1A;
+}
+
+/* ── Page header ──────────────────────────────────── */
+.products-page-header h1 {
+  color: #1A1A1A;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 300;
+}
+
+.products-page-header p {
+  color: #4A4A4A;
+}
+
+/* ── Product grid ─────────────────────────────────── */
+.product-card {
+  background: #FFFFFF;
+  border-color: #E8E6E0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.product-card:hover {
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  border-color: #C8102E;
+}
+
+/* Garantir que conteúdo nunca se sobreponha à imagem */
+.product-image-container {
+  background: #E8E6E0;
+}
+
+.product-content {
+  background: #FFFFFF;
+  position: relative;
+  z-index: 1;
+}
+
+.product-tag {
+  background: rgba(200, 16, 46, 0.07);
+  border-color: rgba(200, 16, 46, 0.18);
+  color: #C8102E;
+  font-weight: 600;
+}
+
+/* Títulos em Fraunces, cor escura (era #fff hardcoded) */
+.product-title {
+  color: #1A1A1A;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+  font-optical-sizing: none;
+  font-variation-settings: 'opsz' 32;
+}
+
+.product-desc {
+  color: #4A4A4A;
+}
+
+.product-highlight {
+  background: #C8102E;
+}
+
+/* Overlay — ajuste de cor no tema claro */
+.product-overlay {
+  background: rgba(26, 26, 26, 0.72);
+}
+
+.product-overlay span {
+  background: #C8102E;
+}
+
+/* ── Systems footer ───────────────────────────────── */
+.systems-footer {
+  border-top-color: #E8E6E0;
+}
+
+.systems-footer h3 {
+  color: #1A1A1A;
+}
+
+/* ── Footer ───────────────────────────────────────── */
+footer {
+  background: #1A1A1A;
+}
+
+footer a,
+footer p,
+.footer-brand p,
+.footer-links h5,
+.footer-links a,
+.footer-bottom p {
+  color: rgba(250, 250, 248, 0.75);
+}
+
+.footer-bottom {
+  border-top-color: rgba(250, 250, 248, 0.1);
+}
+
+.footer-content {
+  border-bottom-color: rgba(250, 250, 248, 0.1);
+}
+
+/* ── WhatsApp float ───────────────────────────────── */
+.whatsapp-btn {
+  background: #25D366;
+}
+
+/* ── Reveal animation ─────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}

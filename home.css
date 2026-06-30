@@ -13,7 +13,7 @@
 :root {
   --bg-base:        #FAFAF8;
   --text-primary:   #1A1A1A;
-  --text-secondary: #6B6B6B;
+  --text-secondary: #4A4A4A;
   --surface-subtle: #E8E6E0;
   --accent:         #C8102E;
   --contrast-dark:  #0F0F0F;
@@ -169,7 +169,7 @@ h1, h2, h3, h4 {
 }
 
 .header-logo {
-  height: 68px;
+  height: 48px;
   width: auto;
   flex-shrink: 0;
 }
@@ -328,14 +328,14 @@ h1, h2, h3, h4 {
   margin: 0 auto;
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: 1fr 270px;
-  gap: 5rem;
-  align-items: center;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: start;
   width: 100%;
 }
 
 .hero-text {
-  max-width: 640px;
+  max-width: 780px;
 }
 
 .hero-kicker {
@@ -386,8 +386,47 @@ h1, h2, h3, h4 {
   font-size: 0.78rem;
   color: var(--text-secondary);
   line-height: 1.75;
-  max-width: 560px;
-  opacity: 0.6;
+  max-width: 660px;
+  opacity: 0.85;
+}
+
+/* ─── Stats strip — faixa de métricas abaixo do hero-seo ── */
+.hero-stats-strip {
+  display: flex;
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--surface-subtle);
+  gap: 0;
+  max-width: 520px;
+}
+
+.hero-stats-strip .hero-stat {
+  flex: 1;
+  padding: 0 1.75rem;
+  border-right: 1px solid var(--surface-subtle);
+  text-align: center;
+}
+
+.hero-stats-strip .hero-stat:first-child {
+  padding-left: 0;
+  text-align: left;
+}
+
+.hero-stats-strip .hero-stat:last-child {
+  border-right: none;
+}
+
+.hero-stats-strip .hero-stat-num {
+  font-size: 1.6rem;
+}
+
+@media (max-width: 520px) {
+  .hero-stats-strip {
+    max-width: 100%;
+  }
+  .hero-stats-strip .hero-stat {
+    padding: 0 1rem;
+  }
 }
 
 /* ─── Hero deco: mini iPhone + stats ────────────── */

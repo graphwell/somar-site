@@ -1,0 +1,168 @@
+/*
+ * lp-migration.css
+ * Migra as páginas que usavam lp-styles.css para o design system claro.
+ * Carregado DEPOIS de styles.css — sobrescreve tema escuro.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ── Variáveis ───────────────────────────────────── */
+:root {
+  --bg-deep:              #FAFAF8;
+  --bg-surface:           #F0EFEA;
+  --bg-card:              #FFFFFF;
+  --text-main:            #1A1A1A;
+  --text-muted:           #4A4A4A;
+  --border-subtle:        #E8E6E0;
+  --accent-primary:       #C8102E;
+  --accent-primary-hover: #A00D25;
+}
+
+/* ── Base ────────────────────────────────────────── */
+body {
+  background-color: #FAFAF8;
+  color: #1A1A1A;
+}
+
+.bg-glow {
+  background: #FAFAF8;
+}
+
+/* ── Header ──────────────────────────────────────── */
+header {
+  background: rgba(250, 250, 248, 0.96);
+  border-bottom: 1px solid #E8E6E0;
+  padding: 0;
+}
+
+/* ── Tipografia ──────────────────────────────────── */
+h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 300;
+  color: #1A1A1A;
+  /* remove o gradient de texto do lp-styles */
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+}
+
+h2 {
+  color: #1A1A1A;
+}
+
+h3 {
+  color: #1A1A1A;
+}
+
+.hero p {
+  color: #4A4A4A;
+}
+
+/* ── Botão primário — vermelho accent ────────────── */
+.btn-primary {
+  background-color: #C8102E;
+  color: #ffffff;
+  box-shadow: 0 4px 16px rgba(200, 16, 46, 0.18);
+}
+
+.btn-primary:hover {
+  background-color: #A00D25;
+  box-shadow: 0 8px 24px rgba(200, 16, 46, 0.28);
+  transform: translateY(-2px);
+}
+
+/* ── Cards de conteúdo ───────────────────────────── */
+.lp-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E6E0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  position: relative; /* necessário para o badge "MAIS ESCOLHIDO" */
+}
+
+.lp-card:hover {
+  border-color: #C8102E;
+  background: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.lp-card h4 {
+  color: #1A1A1A;
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 600;
+}
+
+.lp-card p {
+  color: #4A4A4A;
+}
+
+.lp-card ul li {
+  color: #4A4A4A;
+}
+
+/* ── Prova social ────────────────────────────────── */
+.social-proof p {
+  color: #4A4A4A;
+}
+
+/* ── Quiz (diagnóstico) ──────────────────────────── */
+.quiz-container {
+  background: #FFFFFF;
+  border: 1px solid #E8E6E0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.quiz-option {
+  background: #F5F4F0;
+  border: 1px solid #E8E6E0;
+  color: #1A1A1A;
+}
+
+.quiz-option:hover {
+  border-color: #C8102E;
+  background: rgba(200, 16, 46, 0.05);
+  color: #1A1A1A;
+}
+
+.quiz-option.selected {
+  background: #C8102E;
+  color: #ffffff;
+  border-color: #C8102E;
+}
+
+.quiz-progress {
+  background: #E8E6E0;
+}
+
+.quiz-progress-bar {
+  background: #C8102E;
+}
+
+/* ── Footer ──────────────────────────────────────── */
+footer {
+  background: #FAFAF8;
+  border-top: 1px solid #E8E6E0;
+}
+
+footer p {
+  color: #4A4A4A;
+}
+
+/* ── WhatsApp float ──────────────────────────────── */
+.whatsapp-float {
+  background-color: #25D366;
+}
+
+/* ── Telefones regionais no footer ───────────────── */
+.regional-phone-card {
+  background: #FFFFFF;
+  border-color: #E8E6E0;
+}
+
+.regional-phone-card:hover {
+  border-color: #C8102E;
+}
+
+.regional-phone-number {
+  color: #1A1A1A;
+}

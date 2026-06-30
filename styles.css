@@ -48,9 +48,9 @@ header {
   top: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(250, 250, 248, 0.96);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid #E8E6E0;
 }
 
 .header-bar {
@@ -63,7 +63,7 @@ header {
 }
 
 .logo-somar {
-  height: 85px; /* Increased from 60px */
+  height: 48px;
   width: auto;
   transition: transform 0.3s ease;
 }
@@ -82,12 +82,12 @@ nav a {
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: #4A4A4A;
   transition: var(--transition);
 }
 
 nav a:hover, nav a.active {
-  color: var(--text-main);
+  color: #1A1A1A;
 }
 
 .nav-socials {
@@ -95,18 +95,18 @@ nav a:hover, nav a.active {
   gap: 1rem;
   margin-left: 1rem;
   padding-left: 1rem;
-  border-left: 1px solid var(--border-subtle);
+  border-left: 1px solid #E8E6E0;
 }
 
 .nav-socials svg {
   width: 20px;
   height: 20px;
-  fill: var(--text-muted);
+  fill: #4A4A4A;
   transition: var(--transition);
 }
 
 .nav-socials a:hover svg {
-  fill: var(--text-main);
+  fill: #1A1A1A;
   transform: translateY(-2px);
 }
 
@@ -667,7 +667,7 @@ footer {
   display: block;
   width: 25px;
   height: 2px;
-  background: #fff;
+  background: #1A1A1A;
   transition: var(--transition);
 }
 

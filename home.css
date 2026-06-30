@@ -335,7 +335,7 @@ h1, h2, h3, h4 {
 }
 
 .hero-text {
-  max-width: 780px;
+  width: 100%;
 }
 
 .hero-kicker {
@@ -349,7 +349,7 @@ h1, h2, h3, h4 {
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 6.2vw, 5rem);
+  font-size: clamp(1.9rem, 5.5vw, 5rem);
   font-weight: 300;
   color: var(--text-primary);
   margin-bottom: 1.5rem;
@@ -371,7 +371,7 @@ h1, h2, h3, h4 {
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 2.25rem;
-  max-width: 500px;
+  max-width: 620px;
 }
 
 .hero-actions {
@@ -397,7 +397,7 @@ h1, h2, h3, h4 {
   padding-top: 1.75rem;
   border-top: 1px solid var(--surface-subtle);
   gap: 0;
-  max-width: 520px;
+  max-width: 560px;
 }
 
 .hero-stats-strip .hero-stat {
@@ -420,12 +420,18 @@ h1, h2, h3, h4 {
   font-size: 1.6rem;
 }
 
-@media (max-width: 520px) {
+@media (max-width: 600px) {
   .hero-stats-strip {
     max-width: 100%;
   }
   .hero-stats-strip .hero-stat {
-    padding: 0 1rem;
+    padding: 0 0.875rem;
+  }
+  .hero-stats-strip .hero-stat-num {
+    font-size: 1.3rem;
+  }
+  .hero-stats-strip .hero-stat-label {
+    font-size: 0.58rem;
   }
 }
 

@@ -31,9 +31,16 @@
             height: clamp(56px, 14vw, 72px);
         }
 
-        /* ── Hero: corrige vão vazio (herda .hero de styles.css, pensado p/ hero cheio da home) ── */
+        /* ── Hero: corrige vão vazio (herda .hero de styles.css, pensado p/ hero cheio da home) ──
+           main{padding-top:2rem} do lp-styles.css soma com o padding-top do .hero
+           abaixo, dobrando o espaço header→H1 — zera aqui (só nesta página) para
+           que o padding do .hero seja a única fonte do espaçamento. */
+        main {
+            padding-top: 0;
+        }
+
         .hero {
-            padding: 4.5rem 1.5rem 2.5rem;
+            padding: 2.5rem 1.5rem 2.5rem;
             min-height: auto;
         }
 
@@ -259,7 +266,7 @@
         @media (max-width: 768px) {
             section { margin-bottom: 3rem; }
 
-            .hero { padding: 3rem 1.25rem 2rem; }
+            .hero { padding: 2rem 1.25rem 2rem; }
 
             .videos-header { margin-bottom: 2rem; }
 

@@ -103,12 +103,19 @@ h1, h2, h3, h4 {
   border-radius: var(--radius);
   border: none;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(200, 16, 46, 0.25);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-primary:hover {
   background: #a50d25;
   transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(200, 16, 46, 0.32);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(200, 16, 46, 0.25);
 }
 
 .btn-primary:focus-visible {
@@ -564,13 +571,13 @@ h1, h2, h3, h4 {
    2. PROVA EM MOVIMENTO
 ═══════════════════════════════════════════════════ */
 .section-videos {
-  padding: 7rem 0;
+  padding: 5rem 0;
   overflow: visible;
 }
 
 .videos-header {
   max-width: var(--max-w);
-  margin: 0 auto 5rem;
+  margin: 0 auto 3.5rem;
   padding: 0 2rem;
 }
 
@@ -700,7 +707,7 @@ h1, h2, h3, h4 {
    3. O QUE FAZEMOS — editorial list
 ═══════════════════════════════════════════════════ */
 .section-services {
-  padding: 7rem 0;
+  padding: 5rem 0;
   border-top: 1px solid var(--surface-subtle);
 }
 
@@ -784,7 +791,7 @@ h1, h2, h3, h4 {
 ═══════════════════════════════════════════════════ */
 .section-cases {
   background: var(--contrast-dark);
-  padding: 7rem 0;
+  padding: 5rem 0;
 }
 
 .cases-inner {
@@ -794,7 +801,7 @@ h1, h2, h3, h4 {
 }
 
 .cases-heading {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .cases-eyebrow {
@@ -890,7 +897,7 @@ h1, h2, h3, h4 {
    5. COMO FUNCIONA — timeline
 ═══════════════════════════════════════════════════ */
 .section-process {
-  padding: 7rem 0;
+  padding: 5rem 0;
   border-top: 1px solid var(--surface-subtle);
 }
 
@@ -901,7 +908,7 @@ h1, h2, h3, h4 {
 }
 
 .process-head {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .process-head h2 {
@@ -994,7 +1001,7 @@ h1, h2, h3, h4 {
    6. STATS — tipografia editorial
 ═══════════════════════════════════════════════════ */
 .section-stats {
-  padding: 6rem 0;
+  padding: 4.5rem 0;
   background: #fff;
   border-top: 1px solid var(--surface-subtle);
   border-bottom: 1px solid var(--surface-subtle);
@@ -1039,7 +1046,7 @@ h1, h2, h3, h4 {
    7. CTA FINAL
 ═══════════════════════════════════════════════════ */
 .section-cta {
-  padding: 7rem 0;
+  padding: 5rem 0;
   position: relative;
 }
 
@@ -1368,7 +1375,7 @@ footer {
   .section-process,
   .section-stats,
   .section-cta {
-    padding: 4.5rem 0;
+    padding: 3.5rem 0;
   }
 
   /* Header */
@@ -1511,7 +1518,7 @@ footer {
 
   /* Videos header */
   .videos-header {
-    margin-bottom: 3rem;
+    margin-bottom: 2.25rem;
   }
 }
 

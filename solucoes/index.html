@@ -105,6 +105,21 @@
         .phone-card { transform: scale(0.86); opacity: 0.6; }
         .phone-card.is-active { transform: scale(1); opacity: 1; }
 
+        /* ── Convite ao swipe: pulso sutil nos celulares laterais (peek) ──
+           Anima .phone-mockup (não .phone-card) para não conflitar com o
+           scale/opacity que o JS do carrossel já aplica no .phone-card a
+           cada frame de scroll. */
+        @media (prefers-reduced-motion: no-preference) {
+            .phone-carousel.hint-active .phone-card:not(.is-active) .phone-mockup {
+                animation: swipeHintPulse 2s ease-in-out infinite;
+            }
+        }
+
+        @keyframes swipeHintPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
         .carousel-arrow {
             flex-shrink: 0;
             z-index: 2;
@@ -242,7 +257,7 @@
 
         /* ── Mobile: aperta ritmo vertical para não parecer vazio nem espremido ── */
         @media (max-width: 768px) {
-            section { margin-bottom: 3.5rem; }
+            section { margin-bottom: 3rem; }
 
             .hero { padding: 3rem 1.25rem 2rem; }
 
@@ -614,6 +629,41 @@
             const video = card.querySelector('video');
             if (video) videoObserver.observe(video);
         });
+
+        // Convite ao swipe: pulso sutil nos cards laterais nos primeiros
+        // segundos após o carrossel entrar na viewport; some na primeira
+        // interação do usuário ou após ~4.5s, o que vier primeiro.
+        const carousel = document.querySelector('.phone-carousel');
+        if (carousel && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+            let hintTimeout = null;
+
+            const stopHint = () => {
+                carousel.classList.remove('hint-active');
+                if (hintTimeout) clearTimeout(hintTimeout);
+                track.removeEventListener('scroll', stopHint);
+                track.removeEventListener('touchstart', stopHint);
+                track.removeEventListener('pointerdown', stopHint);
+                if (prevBtn) prevBtn.removeEventListener('click', stopHint);
+                if (nextBtn) nextBtn.removeEventListener('click', stopHint);
+            };
+
+            const hintObserver = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        carousel.classList.add('hint-active');
+                        hintTimeout = setTimeout(stopHint, 4500);
+                        track.addEventListener('scroll', stopHint, { once: true, passive: true });
+                        track.addEventListener('touchstart', stopHint, { once: true, passive: true });
+                        track.addEventListener('pointerdown', stopHint, { once: true });
+                        if (prevBtn) prevBtn.addEventListener('click', stopHint, { once: true });
+                        if (nextBtn) nextBtn.addEventListener('click', stopHint, { once: true });
+                        hintObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.4 });
+
+            hintObserver.observe(carousel);
+        }
     });
     </script>
 </body>

@@ -63,25 +63,103 @@
             margin: 0;
         }
 
-        .videos-grid {
+        /* ── Carrossel coverflow: destaque central + espiada lateral ── */
+        .phone-carousel {
+            position: relative;
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 3.5rem;
+            align-items: center;
         }
+
+        .videos-grid {
+            --card-w: 210px;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            gap: 3.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-padding-inline: calc(50% - var(--card-w) / 2);
+            padding-inline: calc(50% - var(--card-w) / 2);
+            padding-block: 0.5rem 1rem;
+            flex: 1 1 0%;
+            min-width: 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .videos-grid::-webkit-scrollbar { display: none; }
 
         .phone-card {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1.25rem;
-            flex-shrink: 0;
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+            will-change: transform, opacity;
         }
 
-        .phone-card:nth-child(odd) { transform: rotate(-3deg); }
-        .phone-card:nth-child(even) { transform: rotate(2deg) translateY(2rem); }
-        .phone-card:hover { transform: rotate(0deg) translateY(-4px) !important; transition: transform 0.4s ease; }
+        /* Estado inicial (antes do JS calcular a distância real do centro) */
+        .phone-card { transform: scale(0.86); opacity: 0.6; }
+        .phone-card.is-active { transform: scale(1); opacity: 1; }
+
+        .carousel-arrow {
+            flex-shrink: 0;
+            z-index: 2;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+            color: #1A1A1A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .carousel-arrow:hover { transform: scale(1.08); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18); }
+        .carousel-arrow:active { transform: scale(0.96); }
+        .carousel-arrow--prev { margin-right: -20px; }
+        .carousel-arrow--next { margin-left: -20px; }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .carousel-dot {
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-dot::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #D9D9D9;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .carousel-dot.is-active::before {
+            background: #C8102E;
+            transform: scale(1.35);
+        }
 
         .phone-mockup {
             width: 210px;
@@ -170,14 +248,12 @@
 
             .videos-header { margin-bottom: 2rem; }
 
-            .videos-grid { gap: 2.5rem; }
-
-            .phone-card:nth-child(odd),
-            .phone-card:nth-child(even) { transform: none; }
-
-            .phone-card:hover { transform: translateY(-4px) !important; }
+            .videos-grid { --card-w: 190px; gap: 1.75rem; }
 
             .phone-mockup { width: 190px; }
+
+            /* Setas não fazem sentido com touch — só desktop */
+            .carousel-arrow { display: none; }
         }
     </style>
 </head>
@@ -205,52 +281,149 @@
                 <span class="section-label">Projetos em produção</span>
                 <h2>Não é conceito.<br>Está funcionando.</h2>
             </div>
-            <div class="videos-grid">
-                <div class="phone-card">
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <div class="phone-island" aria-hidden="true"></div>
-                            <video
-                                autoplay
-                                muted
-                                loop
-                                playsinline
-                                preload="metadata"
-                                poster="../public/prints/print_synka.png"
-                                aria-label="Synka — agenda inteligente em funcionamento"
-                            >
-                                <source src="../public/videos/clinicas-preview.mp4" type="video/mp4">
-                            </video>
+            <div class="phone-carousel">
+                <button type="button" class="carousel-arrow carousel-arrow--prev" aria-label="Projeto anterior">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="videos-grid" id="phoneCarouselTrack">
+                    <div class="phone-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="phone-island" aria-hidden="true"></div>
+                                <video
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                    poster="../public/prints/print_synka.png"
+                                    aria-label="Synka — agenda inteligente em funcionamento"
+                                >
+                                    <source src="../public/videos/clinicas-preview.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="phone-info">
+                            <h3>Synka</h3>
+                            <p>Agenda inteligente para clínicas</p>
                         </div>
                     </div>
-                    <div class="phone-info">
-                        <h3>Synka</h3>
-                        <p>Agenda inteligente para clínicas</p>
-                    </div>
-                </div>
-                <div class="phone-card">
-                    <div class="phone-mockup">
-                        <div class="phone-screen">
-                            <div class="phone-island" aria-hidden="true"></div>
-                            <video
-                                autoplay
-                                muted
-                                loop
-                                playsinline
-                                preload="metadata"
-                                poster="../public/prints/print_ia_whatsapp.png"
-                                aria-label="Agente de IA conversando com cliente no WhatsApp"
-                            >
-                                <source src="../public/videos/agente-ia-conversa.mp4" type="video/mp4">
-                            </video>
+                    <div class="phone-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="phone-island" aria-hidden="true"></div>
+                                <video
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                    poster="../public/prints/print_ia_whatsapp.png"
+                                    aria-label="Agente de IA conversando com cliente no WhatsApp"
+                                >
+                                    <source src="../public/videos/agente-ia-conversa.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="phone-info">
+                            <h3>Agente de IA</h3>
+                            <p>Atendimento inteligente 24/7</p>
                         </div>
                     </div>
-                    <div class="phone-info">
-                        <h3>Agente de IA</h3>
-                        <p>Atendimento inteligente 24/7</p>
+                    <div class="phone-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="phone-island" aria-hidden="true"></div>
+                                <video
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                    poster="../public/prints/print_mesacerta.png"
+                                    aria-label="Mesa Certa — gestão de mesas e comandas em funcionamento"
+                                >
+                                    <source src="../public/videos/mesa-certa-preview.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="phone-info">
+                            <h3>Mesa Certa</h3>
+                            <p>Gestão de mesas e comandas para restaurantes</p>
+                        </div>
+                    </div>
+                    <div class="phone-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="phone-island" aria-hidden="true"></div>
+                                <video
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                    poster="../public/prints/print_domvia_v2.png"
+                                    aria-label="Domvia — plataforma de IA para corretores em funcionamento"
+                                >
+                                    <source src="../public/videos/domvia-preview.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="phone-info">
+                            <h3>Domvia</h3>
+                            <p>Plataforma de IA para corretores de imóveis</p>
+                        </div>
+                    </div>
+                    <div class="phone-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="phone-island" aria-hidden="true"></div>
+                                <video
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                    poster="../public/prints/print_fabricasonhos.png"
+                                    aria-label="Fábrica de Sonhos — pré-atendimento com IA em funcionamento"
+                                >
+                                    <source src="../public/videos/fabrica-sonhos-preview.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="phone-info">
+                            <h3>Fábrica de Sonhos</h3>
+                            <p>Pré-atendimento com IA para eventos infantis</p>
+                        </div>
+                    </div>
+                    <div class="phone-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="phone-island" aria-hidden="true"></div>
+                                <video
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                    poster="../public/prints/print_coffeebeats_v2.png"
+                                    aria-label="Coffee & Beats — cardápio digital e autoatendimento em funcionamento"
+                                >
+                                    <source src="../public/videos/coffee-beats-preview-v2.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="phone-info">
+                            <h3>Coffee & Beats</h3>
+                            <p>Cardápio digital e autoatendimento</p>
+                        </div>
                     </div>
                 </div>
+                <button type="button" class="carousel-arrow carousel-arrow--next" aria-label="Próximo projeto">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
             </div>
+            <div class="carousel-dots" role="tablist" aria-label="Selecionar projeto"></div>
         </section>
 
         <section class="solucoes-grid">
@@ -346,6 +519,102 @@
                 'currency': 'BRL'
             });
         }
+    </script>
+
+    <!-- Carrossel coverflow — "Não é conceito. Está funcionando." -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const track = document.getElementById('phoneCarouselTrack');
+        if (!track) return;
+
+        const cards = Array.from(track.querySelectorAll('.phone-card'));
+        const prevBtn = document.querySelector('.carousel-arrow--prev');
+        const nextBtn = document.querySelector('.carousel-arrow--next');
+        const dotsWrap = document.querySelector('.carousel-dots');
+
+        // Monta os dots dinamicamente a partir dos cards existentes
+        cards.forEach((card, i) => {
+            const name = card.querySelector('h3') ? card.querySelector('h3').textContent : `projeto ${i + 1}`;
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = 'carousel-dot';
+            dot.setAttribute('aria-label', `Ver ${name}`);
+            dot.addEventListener('click', () => goTo(i));
+            dotsWrap.appendChild(dot);
+        });
+        const dots = Array.from(dotsWrap.querySelectorAll('.carousel-dot'));
+
+        let activeIndex = 0;
+        let ticking = false;
+
+        function setActive(index) {
+            if (index === activeIndex) return;
+            activeIndex = index;
+            cards.forEach((card, i) => card.classList.toggle('is-active', i === index));
+            dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+        }
+
+        // Coverflow: escala/opacidade em função da distância do centro do track
+        function updateCarousel() {
+            ticking = false;
+            const trackRect = track.getBoundingClientRect();
+            const centerX = trackRect.left + trackRect.width / 2;
+            let closest = 0;
+            let closestDist = Infinity;
+
+            cards.forEach((card, i) => {
+                const r = card.getBoundingClientRect();
+                const cardCenter = r.left + r.width / 2;
+                const dist = Math.abs(cardCenter - centerX);
+                const norm = Math.min(dist / (trackRect.width / 2), 1);
+                const scale = 1 - norm * 0.14;
+                const opacity = 1 - norm * 0.4;
+                card.style.transform = `scale(${scale})`;
+                card.style.opacity = opacity;
+                if (dist < closestDist) { closestDist = dist; closest = i; }
+            });
+
+            setActive(closest);
+        }
+
+        function requestUpdate() {
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(updateCarousel);
+            }
+        }
+
+        track.addEventListener('scroll', requestUpdate, { passive: true });
+        window.addEventListener('resize', requestUpdate);
+        updateCarousel();
+        cards[0].classList.add('is-active');
+        if (dots[0]) dots[0].classList.add('is-active');
+
+        function goTo(index) {
+            const target = cards[Math.max(0, Math.min(index, cards.length - 1))];
+            target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
+
+        if (prevBtn) prevBtn.addEventListener('click', () => goTo(activeIndex - 1));
+        if (nextBtn) nextBtn.addEventListener('click', () => goTo(activeIndex + 1));
+
+        // Pausa vídeos bem distantes do centro (fora do track visível) para não travar o scroll com 6 vídeos rodando ao mesmo tempo
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                const video = entry.target;
+                if (entry.isIntersecting) {
+                    video.play().catch(() => {});
+                } else {
+                    video.pause();
+                }
+            });
+        }, { root: track, rootMargin: '0px', threshold: 0.1 });
+
+        cards.forEach((card) => {
+            const video = card.querySelector('video');
+            if (video) videoObserver.observe(video);
+        });
+    });
     </script>
 </body>
 </html>

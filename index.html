@@ -606,5 +606,159 @@
     gtag('config', 'AW-18061457090');
   </script>
 
+  <!--
+    Somar Automacao — Eventos de conversao para a campanha de Busca
+    Cole este bloco antes de </body> em TODAS as paginas do site que recebem
+    trafego pago (no minimo: home, /solucoes/, /automacao-whatsapp-ia/,
+    /diagnostico/, /contato/).
+
+    Depende do gtag.js ja carregado na pagina (o ADS_ACCOUNT_ID abaixo precisa
+    ser o MESMO usado no restante do site — nao duplique o carregamento do
+    gtag.js, so o bloco de listeners abaixo).
+
+    Antes de instalar, leia tracking/INSTALAR-GTAG.md — ha avisos especificos
+    sobre paginas que ja tem tracking de WhatsApp cravado no HTML (risco de
+    contar a mesma conversao duas vezes) e sobre paginas sem <form> real
+    (a acao "Lead Formulario" nao dispara nelas do jeito que esta hoje).
+  -->
+  <script>
+  (function () {
+    "use strict";
+
+    // PREENCHA AQUI — ID da conta Google Ads
+    // Formato: AW-XXXXXXXXX
+    // Onde encontrar: Google Ads → Admin → ID da conta (canto superior direito)
+    const ADS_ACCOUNT_ID = 'AW-XXXXXXXXX';
+
+    // PREENCHA AQUI — Labels de conversão (um por ação criada no passo anterior)
+    // Formato: string de 20 caracteres, ex: "AbCdEfGhIjKlMnOpQrSt"
+    // Onde encontrar: Google Ads → Metas → Conversões → clique na ação → Tag
+    const LABELS = {
+      contato_whatsapp:  'LABEL_WHATSAPP',
+      lead_formulario:   'LABEL_FORMULARIO',
+      contato_telefone:  'LABEL_TELEFONE',
+      engajamento_scroll: 'LABEL_SCROLL'
+    };
+
+    function gtagReady() {
+      return typeof window.gtag === "function";
+    }
+
+    function enviarConversao(label, extra) {
+      if (!gtagReady()) {
+        return;
+      }
+      var params = { send_to: ADS_ACCOUNT_ID + "/" + label };
+      if (extra) {
+        for (var k in extra) {
+          if (Object.prototype.hasOwnProperty.call(extra, k)) {
+            params[k] = extra[k];
+          }
+        }
+      }
+      window.gtag("event", "conversion", params);
+    }
+
+    // Evita registrar a mesma conversao duas vezes se o usuario clicar
+    // no mesmo elemento repetidamente na mesma sessao de pagina.
+    var jaEnviado = new WeakSet();
+
+    function marcarEnviado(el) {
+      if (jaEnviado.has(el)) {
+        return false;
+      }
+      jaEnviado.add(el);
+      return true;
+    }
+
+    // (a) Clique em link de WhatsApp — qualquer <a href="https://wa.me/...">
+    // ou "https://api.whatsapp.com/..." em qualquer lugar da pagina.
+    // Evento correspondente no Google Ads: contato_whatsapp
+    document.addEventListener("click", function (event) {
+      var el = event.target.closest('a[href^="https://wa.me/"], a[href^="https://api.whatsapp.com/"]');
+      if (el && marcarEnviado(el)) {
+        enviarConversao(LABELS.contato_whatsapp, { event_category: "contato_whatsapp" });
+      }
+    });
+
+    // (b) Clique em link de telefone — qualquer <a href="tel:...">
+    // Evento correspondente no Google Ads: contato_telefone
+    document.addEventListener("click", function (event) {
+      var el = event.target.closest('a[href^="tel:"]');
+      if (el && marcarEnviado(el)) {
+        enviarConversao(LABELS.contato_telefone, { event_category: "contato_telefone" });
+      }
+    });
+
+    // (c) Envio de formulario — qualquer <form> da pagina.
+    // Evento correspondente no Google Ads: lead_formulario
+    // Dispara no submit; se o formulario usar fetch/AJAX sem submit nativo,
+    // ajuste este listener para o evento que a pagina realmente dispara.
+    // ATENCAO: nenhuma pagina do site tem <form> real hoje — ver aviso em
+    // INSTALAR-GTAG.md antes de considerar esta acao "funcionando".
+    document.addEventListener("submit", function (event) {
+      var form = event.target;
+      if (form && form.tagName === "FORM") {
+        enviarConversao(LABELS.lead_formulario, { event_category: "lead_formulario" });
+      }
+    });
+
+    // (d) Engajamento por scroll — dispara UMA VEZ POR SESSAO quando o
+    // usuario rola alem de SCROLL_THRESHOLD da altura da pagina.
+    // Evento correspondente no Google Ads: engajamento_scroll
+    // 75% e um limiar padrao de mercado para sinalizar leitura real da
+    // pagina (nao so um bounce); ajuste se quiser outro percentual.
+    var SCROLL_THRESHOLD = 0.75;
+    var SCROLL_SESSION_KEY = "somar_ads_scroll_conversao_enviada";
+
+    function scrollJaEnviadoNaSessao() {
+      try {
+        return sessionStorage.getItem(SCROLL_SESSION_KEY) === "1";
+      } catch (e) {
+        // sessionStorage indisponivel (ex.: modo privado) -- nao trava o resto do tracking
+        return false;
+      }
+    }
+
+    function marcarScrollEnviadoNaSessao() {
+      try {
+        sessionStorage.setItem(SCROLL_SESSION_KEY, "1");
+      } catch (e) {
+        // ignora se sessionStorage nao estiver disponivel
+      }
+    }
+
+    function verificarScrollEngajamento() {
+      if (scrollJaEnviadoNaSessao()) {
+        return;
+      }
+      var alturaRolavel = document.documentElement.scrollHeight - window.innerHeight;
+      if (alturaRolavel <= 0) {
+        return;
+      }
+      var proporcaoRolada = window.scrollY / alturaRolavel;
+      if (proporcaoRolada >= SCROLL_THRESHOLD) {
+        marcarScrollEnviadoNaSessao();
+        enviarConversao(LABELS.engajamento_scroll, { event_category: "engajamento_scroll" });
+        window.removeEventListener("scroll", onScrollThrottled);
+      }
+    }
+
+    // Throttle simples via requestAnimationFrame para nao recalcular a
+    // cada pixel de scroll.
+    var scrollTicking = false;
+    function onScrollThrottled() {
+      if (!scrollTicking) {
+        scrollTicking = true;
+        requestAnimationFrame(function () {
+          verificarScrollEngajamento();
+          scrollTicking = false;
+        });
+      }
+    }
+    window.addEventListener("scroll", onScrollThrottled, { passive: true });
+  })();
+  </script>
+
 </body>
 </html>

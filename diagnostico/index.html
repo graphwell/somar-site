@@ -99,7 +99,7 @@
         </section>
     </main>
 
-    <a href="https://wa.me/5585992556672" class="whatsapp-float" target="_blank" aria-label="WhatsApp (85) 99255-6672">
+    <a href="https://wa.me/5511925203237" class="whatsapp-float" target="_blank" aria-label="WhatsApp (11) 92520-3237">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="35" height="35">
     </a>
 
@@ -150,7 +150,29 @@
             document.getElementById('step-result').classList.add('active');
             updateProgress(3);
             
-            const msg = `Olá! Fiz o diagnóstico no site. Desafio: ${answers[1]}, Equipe: ${answers[2]}, Ferramenta: ${answers[3]}. Gostaria da minha análise!`;
+            const desafios = {
+              'Atendimento lento': 'meu atendimento está lento e perco clientes por demora na resposta',
+              'Poucas vendas': 'preciso aumentar minhas vendas e converter mais leads',
+              'Processos manuais': 'minha equipe perde tempo com tarefas repetitivas e manuais'
+            };
+
+            const equipes = {
+              'Apenas eu': 'trabalho sozinho',
+              '2 a 10 pessoas': 'tenho uma equipe de 2 a 10 pessoas',
+              'Mais de 10': 'tenho mais de 10 pessoas na equipe'
+            };
+
+            const ferramentas = {
+              'WhatsApp Manual': 'uso WhatsApp manual hoje',
+              'Planilhas': 'controlo tudo em planilhas',
+              'Outros sistemas': 'já uso outros sistemas mas preciso melhorar'
+            };
+
+            const msg = `Olá! Fiz o diagnóstico da Somar.IA e preciso de ajuda. ` +
+              `Meu maior desafio é que ${desafios[answers[1]] || answers[1]}. ` +
+              `${equipes[answers[2]] || answers[2]}. ` +
+              `Atualmente ${ferramentas[answers[3]] || answers[3]}. ` +
+              `Quero saber qual solução da Somar.IA resolve meu caso.`;
             document.getElementById('whatsapp-link').href = `https://wa.me/5511925203237?text=${encodeURIComponent(msg)}`;
         }
     </script>
@@ -185,13 +207,13 @@
       // PREENCHA AQUI — ID da conta Google Ads
       // Formato: AW-XXXXXXXXX
       // Onde encontrar: Google Ads → Admin → ID da conta (canto superior direito)
-      const ADS_ACCOUNT_ID = 'AW-XXXXXXXXX';
+      const ADS_ACCOUNT_ID = 'AW-18061457090';
 
       // PREENCHA AQUI — Labels de conversão (um por ação criada no passo anterior)
       // Formato: string de 20 caracteres, ex: "AbCdEfGhIjKlMnOpQrSt"
       // Onde encontrar: Google Ads → Metas → Conversões → clique na ação → Tag
       const LABELS = {
-        contato_whatsapp:  'LABEL_WHATSAPP',
+        contato_whatsapp:  'QxcbCPe3jLQcEMLtr6RD',
         lead_formulario:   'LABEL_FORMULARIO',
         contato_telefone:  'LABEL_TELEFONE',
         engajamento_scroll: 'LABEL_SCROLL'

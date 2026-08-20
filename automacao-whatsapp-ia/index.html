@@ -21,20 +21,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../landing-v2.css">
     <style>
-        :root {
-            --bg-base:        #FAFAF8;
-            --text-primary:   #1A1A1A;
-            --text-secondary: #4A4A4A;
-            --surface-subtle: #E8E6E0;
-            --accent:         #C8102E;
-            --contrast-dark:  #0F0F0F;
-            --whatsapp:       #25D366;
-            --whatsapp-dark:  #1DA851;
-            --radius:         10px;
-            --max-w:          860px;
-        }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         html { scroll-behavior: smooth; }
@@ -63,7 +51,7 @@
             padding: 0 1.5rem 5rem;
         }
 
-        section { margin-bottom: 5rem; }
+        section { margin-bottom: 4.5rem; }
 
         .icon {
             width: 22px;
@@ -76,45 +64,31 @@
             flex-shrink: 0;
         }
 
-        /* ─── HEADER ─────────────────────────────── */
-        header {
-            padding: 2.75rem 1rem 2.25rem;
-            text-align: center;
-            border-bottom: 1px solid var(--surface-subtle);
-            margin-bottom: 3rem;
-        }
-
-        .logo-lp {
-            height: clamp(56px, 14vw, 72px);
-            width: auto;
-            margin: 0 auto;
-        }
-
         /* ─── HERO ───────────────────────────────── */
+        .hero { padding: 2.25rem 0 0.5rem; }
+
         .hero-badge {
             display: block;
-            text-align: center;
             font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.1rem;
         }
 
         .hero h1 {
-            font-size: clamp(1.85rem, 5.5vw, 3rem);
+            font-size: clamp(1.85rem, 5.5vw, 2.85rem);
             font-weight: 600;
-            text-align: center;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.1rem;
+            max-width: 640px;
         }
 
         .hero p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--text-secondary);
-            text-align: center;
-            max-width: 620px;
-            margin: 0 auto 2.25rem;
+            max-width: 560px;
+            margin: 0 0 1.75rem;
         }
 
         .cta-wrap { text-align: center; }
@@ -122,7 +96,7 @@
         .btn-whatsapp {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0.65rem;
             background: var(--whatsapp);
             color: #fff;
             padding: 1.1rem 2.5rem;
@@ -135,88 +109,21 @@
         }
 
         .btn-whatsapp:hover {
-            background: var(--whatsapp-dark);
+            background: #1DA851;
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
         }
 
         .btn-whatsapp svg {
-            width: 22px;
-            height: 22px;
+            width: 20px;
+            height: 20px;
             flex-shrink: 0;
             fill: currentColor;
         }
 
-        /* ─── PROVA SOCIAL ───────────────────────── */
-        .social-proof p {
-            text-align: center;
-            font-size: 0.78rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-secondary);
-            margin-bottom: 1.75rem;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-        }
-
-        .icon-segment {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.6rem;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        .icon-segment .icon-circle {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--surface-subtle);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-primary);
-        }
-
-        /* ─── NÚMEROS ────────────────────────────── */
-        .stats-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            text-align: center;
-        }
-
-        .stat-box {
-            background: var(--surface-subtle);
-            border-radius: var(--radius);
-            padding: 1.75rem 1rem;
-        }
-
-        .stat-number {
-            font-family: 'Fraunces', serif;
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            line-height: 1;
-        }
-
-        .stat-label {
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-            margin-top: 0.6rem;
-        }
-
-        /* ─── BENEFÍCIOS ─────────────────────────── */
+        /* ─── PROVA SOCIAL / SEGMENTOS ───────────── */
         .section-title {
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-size: clamp(1.5rem, 3.6vw, 2rem);
             font-weight: 600;
             text-align: center;
             margin-bottom: 0.6rem;
@@ -225,97 +132,9 @@
         .section-sub {
             text-align: center;
             color: var(--text-secondary);
-            font-size: 1rem;
-            margin-bottom: 2.5rem;
+            font-size: 0.98rem;
+            margin-bottom: 2.25rem;
         }
-
-        .benefits-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.1rem;
-            background: #fff;
-            border: 1px solid var(--surface-subtle);
-            border-radius: var(--radius);
-            padding: 1.5rem 1.75rem;
-            transition: border-color 0.25s ease;
-        }
-
-        .benefit-item:hover { border-color: var(--text-primary); }
-
-        .benefit-icon {
-            flex-shrink: 0;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: var(--surface-subtle);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
-        }
-
-        .benefit-text strong {
-            display: block;
-            font-family: 'Fraunces', serif;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.35rem;
-        }
-
-        .benefit-text span {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
-
-        /* ─── DEPOIMENTOS ────────────────────────── */
-        .testimonials {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.25rem;
-        }
-
-        .testimonial-card {
-            background: #fff;
-            border: 1px solid var(--surface-subtle);
-            border-radius: var(--radius);
-            padding: 1.75rem;
-        }
-
-        .testimonial-stars { color: var(--accent); font-size: 1rem; margin-bottom: 0.9rem; }
-
-        .testimonial-text {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-            margin-bottom: 1.4rem;
-            font-style: italic;
-        }
-
-        .testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
-
-        .author-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--bg-base);
-            flex-shrink: 0;
-        }
-
-        .author-name { font-weight: 700; font-size: 0.92rem; color: var(--text-primary); }
-        .author-company { font-size: 0.8rem; color: var(--text-secondary); }
 
         /* ─── FAQ ────────────────────────────────── */
         .faq-list { display: flex; flex-direction: column; }
@@ -353,26 +172,6 @@
 
         .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 1.3rem; }
 
-        /* ─── CTA FINAL ──────────────────────────── */
-        .cta-section {
-            background: var(--surface-subtle);
-            border-radius: 20px;
-            padding: 3.25rem 2rem;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: clamp(1.5rem, 3.5vw, 2rem);
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .cta-section p {
-            color: var(--text-secondary);
-            margin-bottom: 1.75rem;
-            font-size: 1rem;
-        }
-
         /* ─── FLOAT ──────────────────────────────── */
         .whatsapp-float {
             position: fixed;
@@ -393,148 +192,260 @@
         .whatsapp-float:hover { transform: scale(1.08); }
         .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
 
-        /* ─── FOOTER ─────────────────────────────── */
-        footer {
-            padding: 3rem 1.5rem;
-            text-align: center;
-            border-top: 1px solid var(--surface-subtle);
-        }
-
-        footer p { color: var(--text-secondary); font-size: 0.88rem; }
-
-        .footer-contacts {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.5rem 0.9rem;
-            font-size: 0.85rem;
-        }
-
-        .footer-contacts a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .footer-contacts a:hover { text-decoration: underline; }
-
-        .footer-legal a {
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
-
-        .footer-legal a:hover { color: var(--text-primary); }
-
         @media (max-width: 640px) {
             main { padding: 0 1.25rem 4rem; }
-            section { margin-bottom: 3.5rem; }
-            header { padding: 2rem 1rem 1.75rem; margin-bottom: 2rem; }
-            .stats-row { grid-template-columns: 1fr; gap: 0.75rem; }
-            .stat-box { padding: 1.35rem 1rem; }
-            .social-icons { gap: 1.5rem 2rem; }
-            .cta-section { padding: 2.25rem 1.25rem; }
+            section { margin-bottom: 3.25rem; }
+            .hero { padding: 1.75rem 0 0.5rem; }
+            .hero h1, .hero p { max-width: none; }
             .btn-whatsapp { width: 100%; justify-content: center; font-size: 1rem; padding: 1.1rem 1.5rem; }
-            .benefit-item { padding: 1.25rem 1.25rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="../logo_.png" alt="Somar.IA" class="logo-lp" fetchpriority="high">
+    <!-- MENU DRAWER -->
+    <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+        <button class="mobile-close" id="mobile-close" aria-label="Fechar menu">&#215;</button>
+        <a href="../">Home</a>
+        <a href="../sistemas.html">Sistemas</a>
+        <a href="../solucoes/">Soluções</a>
+        <a href="../planos/">Planos</a>
+        <a href="../como-funciona/">Como Funciona</a>
+        <a href="../diagnostico/">Diagnóstico IA</a>
+        <a href="../contato/">Fale Conosco</a>
+    </div>
+
+    <header id="site-header">
+        <div class="header-inner-v2">
+            <a href="../" aria-label="Somar.IA — página inicial">
+                <img src="../logo_.png" alt="Somar.IA" class="header-logo-v2" fetchpriority="high">
+            </a>
+            <button class="burger-btn" id="burger-btn" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </header>
 
     <main>
         <!-- HERO -->
-        <section class="hero">
-            <span class="hero-badge">Automação WhatsApp com IA</span>
-            <h1>Pare de perder clientes por falta de resposta no WhatsApp</h1>
-            <p>IA que atende, qualifica e vende 24h — implementação em até 7 dias</p>
-            <div class="cta-wrap">
-                <a href="https://wa.me/5585992556672?text=Quero%20saber%20como%20automatizar%20meu%20WhatsApp%20com%20IA%20%5Bagente%5D" class="btn-whatsapp" target="_blank">
+        <section class="hero hero-v2">
+            <div class="hero-glow" aria-hidden="true"></div>
+            <span class="hero-badge hero-anim">Automação WhatsApp com IA</span>
+            <h1 class="hero-anim">Pare de perder clientes por falta de resposta no WhatsApp</h1>
+            <p class="hero-anim">IA que atende, qualifica e vende 24h — implementação em até 7 dias</p>
+            <div class="cta-wrap hero-anim">
+                <a href="https://wa.me/5585992556672?text=Quero%20saber%20como%20automatizar%20meu%20WhatsApp%20com%20IA%20%5Bagente%5D" class="btn-whatsapp btn-sm" target="_blank">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     Falar no WhatsApp agora
                 </a>
             </div>
         </section>
 
-        <!-- PROVA SOCIAL -->
-        <section class="social-proof">
-            <p>Empresas que já automatizaram com a Somar.IA</p>
-            <div class="social-icons">
-                <div class="icon-segment">
-                    <span class="icon-circle">
-                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                    </span>
-                    Clínicas
-                </div>
-                <div class="icon-segment">
-                    <span class="icon-circle">
-                        <svg class="icon" viewBox="0 0 24 24"><path d="m3 9.5 9-7 9 7"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg>
-                    </span>
-                    Imobiliárias
-                </div>
-                <div class="icon-segment">
-                    <span class="icon-circle">
-                        <svg class="icon" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12.5V17c0 1.66 2.686 3 6 3s6-1.34 6-3v-4.5"/><path d="M22 10v6"/></svg>
-                    </span>
-                    Escolas
-                </div>
-                <div class="icon-segment">
-                    <span class="icon-circle">
-                        <svg class="icon" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M2 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L21 7H6"/></svg>
-                    </span>
-                    E-commerces
-                </div>
+        <!-- PROVA EM MOVIMENTO — carrossel de celulares -->
+        <section class="section-videos-v2">
+            <div class="videos-header-v2 reveal-v2">
+                <span class="section-label">Projetos em produção</span>
+                <h2>Não é conceito.<br>Está funcionando.</h2>
             </div>
+            <div class="phone-carousel">
+                <button type="button" class="carousel-arrow carousel-arrow--prev" aria-label="Projeto anterior">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="videos-grid" id="phoneCarouselTrack">
+                    <div class="phone-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="phone-island" aria-hidden="true"></div>
+                                <video
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                    poster="../public/prints/print_synka.png"
+                                    aria-label="Synka — agenda inteligente em funcionamento"
+                                >
+                                    <source src="../public/videos/clinicas-preview.mp4" type="video/mp4">
+                                </video>
+                                <button type="button" class="sound-toggle" aria-label="Ativar som">🔇</button>
+                            </div>
+                        </div>
+                        <div class="phone-info">
+                            <h3>Synka</h3>
+                            <p>Agenda inteligente para clínicas</p>
+                        </div>
+                    </div>
+                    <div class="phone-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="phone-island" aria-hidden="true"></div>
+                                <video
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                    poster="../public/prints/print_ia_whatsapp.png"
+                                    aria-label="Agente de IA conversando com cliente no WhatsApp"
+                                >
+                                    <source src="../public/videos/agente-ia-conversa.mp4" type="video/mp4">
+                                </video>
+                                <button type="button" class="sound-toggle" aria-label="Ativar som">🔇</button>
+                            </div>
+                        </div>
+                        <div class="phone-info">
+                            <h3>Agente de IA</h3>
+                            <p>Atendimento inteligente 24/7</p>
+                        </div>
+                    </div>
+                    <div class="phone-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="phone-island" aria-hidden="true"></div>
+                                <video
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                    poster="../public/prints/print_mesacerta.png"
+                                    aria-label="Mesa Certa — gestão de mesas e comandas em funcionamento"
+                                >
+                                    <source src="../public/videos/mesa-certa-preview.mp4" type="video/mp4">
+                                </video>
+                                <button type="button" class="sound-toggle" aria-label="Ativar som">🔇</button>
+                            </div>
+                        </div>
+                        <div class="phone-info">
+                            <h3>Mesa Certa</h3>
+                            <p>Gestão de mesas e comandas para restaurantes</p>
+                        </div>
+                    </div>
+                    <div class="phone-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="phone-island" aria-hidden="true"></div>
+                                <video
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                    poster="../public/prints/print_domvia_v2.png"
+                                    aria-label="Domvia — plataforma de IA para corretores em funcionamento"
+                                >
+                                    <source src="../public/videos/domvia-preview.mp4" type="video/mp4">
+                                </video>
+                                <button type="button" class="sound-toggle" aria-label="Ativar som">🔇</button>
+                            </div>
+                        </div>
+                        <div class="phone-info">
+                            <h3>Domvia</h3>
+                            <p>Plataforma de IA para corretores de imóveis</p>
+                        </div>
+                    </div>
+                    <div class="phone-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="phone-island" aria-hidden="true"></div>
+                                <video
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                    poster="../public/prints/print_fabricasonhos.png"
+                                    aria-label="Fábrica de Sonhos — pré-atendimento com IA em funcionamento"
+                                >
+                                    <source src="../public/videos/fabrica-sonhos-preview.mp4" type="video/mp4">
+                                </video>
+                                <button type="button" class="sound-toggle" aria-label="Ativar som">🔇</button>
+                            </div>
+                        </div>
+                        <div class="phone-info">
+                            <h3>Fábrica de Sonhos</h3>
+                            <p>Pré-atendimento com IA para eventos infantis</p>
+                        </div>
+                    </div>
+                    <div class="phone-card">
+                        <div class="phone-mockup">
+                            <div class="phone-screen">
+                                <div class="phone-island" aria-hidden="true"></div>
+                                <video
+                                    autoplay
+                                    muted
+                                    loop
+                                    playsinline
+                                    preload="metadata"
+                                    poster="../public/prints/print_coffeebeats_v2.png"
+                                    aria-label="Coffee & Beats — cardápio digital e autoatendimento em funcionamento"
+                                >
+                                    <source src="../public/videos/coffee-beats-preview-v2.mp4" type="video/mp4">
+                                </video>
+                                <button type="button" class="sound-toggle" aria-label="Ativar som">🔇</button>
+                            </div>
+                        </div>
+                        <div class="phone-info">
+                            <h3>Coffee & Beats</h3>
+                            <p>Cardápio digital e autoatendimento</p>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="carousel-arrow carousel-arrow--next" aria-label="Próximo projeto">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+            </div>
+            <div class="carousel-dots" role="tablist" aria-label="Selecionar projeto"></div>
         </section>
 
         <!-- NÚMEROS -->
-        <section>
-            <div class="stats-row">
-                <div class="stat-box">
-                    <div class="stat-number">90%</div>
-                    <div class="stat-label">Das dúvidas respondidas automaticamente</div>
+        <section class="reveal-v2">
+            <div class="stats-row-v2">
+                <div class="stat-box-v2">
+                    <div class="stat-number-v2 stat-count" data-target="90" data-suffix="%">90%</div>
+                    <div class="stat-label-v2">Das dúvidas respondidas automaticamente</div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number">24h</div>
-                    <div class="stat-label">Disponível 7 dias por semana</div>
+                <div class="stat-box-v2">
+                    <div class="stat-number-v2 stat-count" data-target="24" data-suffix="h">24h</div>
+                    <div class="stat-label-v2">Disponível 7 dias por semana</div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number">&lt;30s</div>
-                    <div class="stat-label">Tempo médio de resposta</div>
+                <div class="stat-box-v2">
+                    <div class="stat-number-v2 stat-count" data-prefix="&lt;" data-target="30" data-suffix="s">&lt;30s</div>
+                    <div class="stat-label-v2">Tempo médio de resposta</div>
                 </div>
             </div>
         </section>
 
         <!-- BENEFÍCIOS -->
-        <section>
+        <section class="reveal-v2">
             <h2 class="section-title">O que muda no seu negócio</h2>
             <p class="section-sub">Três resultados que você sente na primeira semana</p>
-            <div class="benefits-list">
-                <div class="benefit-item">
-                    <div class="benefit-icon">
+            <div class="benefits-grid-v2">
+                <div class="benefit-card-v2">
+                    <div class="benefit-icon-v2">
                         <svg class="icon" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
                     </div>
-                    <div class="benefit-text">
+                    <div>
                         <strong>Resposta imediata 24/7</strong>
                         <span>Nenhum cliente fica sem resposta — nem às 2h da manhã, nem no domingo. A IA responde na hora certa, no tom certo.</span>
                     </div>
                 </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">
+                <div class="benefit-card-v2">
+                    <div class="benefit-icon-v2">
                         <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
                     </div>
-                    <div class="benefit-text">
+                    <div>
                         <strong>Qualifica o lead antes de chegar em você</strong>
                         <span>A IA filtra curiosos de compradores sérios. Você só fala com quem já está pronto para fechar — seu tempo vale mais.</span>
                     </div>
                 </div>
-                <div class="benefit-item">
-                    <div class="benefit-icon">
+                <div class="benefit-card-v2">
+                    <div class="benefit-icon-v2">
                         <svg class="icon" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
                     </div>
-                    <div class="benefit-text">
+                    <div>
                         <strong>Sem contratar atendente</strong>
                         <span>A IA substitui o volume de atendimento inicial sem encargos trabalhistas. Escala quando você cresce, sem custo proporcional.</span>
                     </div>
@@ -543,21 +454,49 @@
         </section>
 
         <!-- CTA INTERMEDIÁRIO -->
-        <section style="margin-bottom: 4rem;">
+        <section style="margin-bottom: 3.5rem;">
             <div class="cta-wrap">
-                <a href="https://wa.me/5585992556672?text=Quero%20automatizar%20meu%20WhatsApp%20com%20IA%20%5Bagente%5D" class="btn-whatsapp" target="_blank">
+                <a href="https://wa.me/5585992556672?text=Quero%20automatizar%20meu%20WhatsApp%20com%20IA%20%5Bagente%5D" class="btn-whatsapp btn-sm" target="_blank">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                     Falar no WhatsApp agora
                 </a>
             </div>
         </section>
 
-        <!-- DEPOIMENTOS -->
-        <section>
+        <!-- PROVA SOCIAL -->
+        <section class="social-proof-v2 reveal-v2">
+            <p class="social-proof-label">Empresas que já automatizaram com a Somar.IA</p>
+            <div class="segments-row-v2">
+                <div class="segment-item-v2">
+                    <span class="segment-circle">
+                        <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </span>
+                    Clínicas
+                </div>
+                <div class="segment-item-v2">
+                    <span class="segment-circle">
+                        <svg viewBox="0 0 24 24"><path d="m3 9.5 9-7 9 7"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg>
+                    </span>
+                    Imobiliárias
+                </div>
+                <div class="segment-item-v2">
+                    <span class="segment-circle">
+                        <svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12.5V17c0 1.66 2.686 3 6 3s6-1.34 6-3v-4.5"/><path d="M22 10v6"/></svg>
+                    </span>
+                    Escolas
+                </div>
+                <div class="segment-item-v2">
+                    <span class="segment-circle">
+                        <svg viewBox="0 0 24 24"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M2 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L21 7H6"/></svg>
+                    </span>
+                    E-commerces
+                </div>
+            </div>
+
             <h2 class="section-title">O que nossos clientes dizem</h2>
             <p class="section-sub">Resultados reais de quem já automatizou</p>
-            <div class="testimonials">
-                <div class="testimonial-card">
+            <div class="testimonials-scroll">
+                <div class="testimonial-card-v2">
                     <div class="testimonial-stars">★★★★★</div>
                     <p class="testimonial-text">"Antes a gente perdia lead toda hora porque não tinha como responder rápido. Depois da IA da Somar, o atendimento virou diferencial. Os clientes ficam impressionados com a agilidade."</p>
                     <div class="testimonial-author">
@@ -568,7 +507,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
+                <div class="testimonial-card-v2">
                     <div class="testimonial-stars">★★★★★</div>
                     <p class="testimonial-text">"A implementação foi surpreendentemente rápida. Em menos de uma semana já estava funcionando e a equipe ficou aliviada — o volume de mensagens repetitivas caiu demais."</p>
                     <div class="testimonial-author">
@@ -619,12 +558,12 @@
 
         <!-- CTA FINAL -->
         <section style="margin-bottom: 2rem;">
-            <div class="cta-section">
+            <div class="cta-final-v2">
                 <h2>Pronto para parar de perder clientes?</h2>
                 <p>Fale agora com um especialista e receba uma proposta personalizada para o seu negócio.</p>
-                <a href="https://wa.me/5585992556672?text=Quero%20automatizar%20meu%20WhatsApp%20com%20IA%20%5Bagente%5D" class="btn-whatsapp" target="_blank">
+                <a href="https://wa.me/5585992556672?text=Quero%20automatizar%20meu%20WhatsApp%20com%20IA%20%5Bagente%5D" class="btn-whatsapp btn-sm" target="_blank">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    Falar no WhatsApp agora
+                    Falar no WhatsApp agora<span class="cta-arrow" aria-hidden="true">→</span>
                 </a>
             </div>
         </section>
@@ -635,21 +574,56 @@
         <svg viewBox="0 0 448 512" fill="#fff" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.1 0-65.6-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.5 2.4-11.2 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.7 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
     </a>
 
-    <footer>
-        <p>© 2025 Somar.IA — Todos os direitos reservados.</p>
-        <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.75;">SOMMAR SOLUÇÕES DIGITAIS — CNPJ: 65.771.133/0001-07 — Brasil</p>
-        <p class="footer-legal" style="margin-top:0.75rem;font-size:0.75rem;">
-            <a href="/politica-de-privacidade/">Política de Privacidade</a>
-            &nbsp;·&nbsp;
-            <a href="/termos-de-uso/">Termos de Uso</a>
-            &nbsp;·&nbsp;
-            <a href="/exclusao-de-dados/">Exclusão de Dados</a>
-        </p>
-        <p class="footer-contacts" style="margin-top:0.75rem;">
-            <a href="https://wa.me/5585992556672?text=Ol%C3%A1%21%20Vim%20do%20site%20-%20Agente%20IA" target="_blank">Nordeste: (85) 99255-6672</a>
-            <span aria-hidden="true">|</span>
-            <a href="https://wa.me/5585992556672?text=Ol%C3%A1%21%20Vim%20do%20site%20-%20Agente%20IA" target="_blank">Fale agora no WhatsApp</a>
-        </p>
+    <footer class="footer-v2">
+        <div class="footer-inner-v2">
+            <div class="footer-col-v2 footer-brand-v2">
+                <img src="../logo_.png" alt="Somar.IA" class="footer-logo-v2">
+                <p class="footer-tagline-v2">Tecnologia e inteligência artificial sob medida para empresas em Fortaleza e no Brasil.</p>
+                <div class="trust-badges-v2">
+                    <span class="trust-badge-v2"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>SSL Seguro</span>
+                    <span class="trust-badge-v2"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.9 8 11 4.6-2.1 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>CNPJ Verificado</span>
+                    <span class="trust-badge-v2"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>Atendimento no Brasil</span>
+                </div>
+            </div>
+
+            <div class="footer-col-v2">
+                <h5>Links rápidos</h5>
+                <ul>
+                    <li><a href="../sistemas.html">Sistemas</a></li>
+                    <li><a href="../solucoes/">Soluções</a></li>
+                    <li><a href="../planos/">Planos</a></li>
+                    <li><a href="../como-funciona/">Como Funciona</a></li>
+                    <li><a href="../diagnostico/">Diagnóstico IA</a></li>
+                    <li><a href="../contato/">Fale Conosco</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col-v2">
+                <h5>Contato</h5>
+                <a href="mailto:somar.solucoes.suporte@gmail.com" class="footer-tagline-v2" style="display:block;margin-bottom:0.9rem;text-decoration:none;">somar.solucoes.suporte@gmail.com</a>
+                <a href="https://wa.me/5585992556672?text=Ol%C3%A1%21%20Vim%20do%20site%20-%20Agente%20IA" class="footer-phone-card-v2" target="_blank" rel="noopener noreferrer">
+                    <div class="footer-phone-icon-v2">
+                        <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.1 0-65.6-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.5 2.4-11.2 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.7 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                    </div>
+                    <div>
+                        <span class="footer-phone-region-v2">Nordeste</span>
+                        <span class="footer-phone-number-v2">(85) 99255-6672</span>
+                    </div>
+                </a>
+                <a href="https://wa.me/5585992556672?text=Ol%C3%A1%21%20Vim%20do%20site%20-%20Agente%20IA" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;color:var(--accent);text-decoration:none;font-weight:600;">Fale agora no WhatsApp →</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom-v2">
+            <p>&copy; 2026 Somar.IA &mdash; Todos os direitos reservados.<br>SOMMAR SOLUÇÕES DIGITAIS &mdash; CNPJ: 65.771.133/0001-07 &mdash; Brasil</p>
+            <p class="footer-legal-v2">
+                <a href="/politica-de-privacidade/">Política de Privacidade</a>
+                &nbsp;·&nbsp;
+                <a href="/termos-de-uso/">Termos de Uso</a>
+                &nbsp;·&nbsp;
+                <a href="/exclusao-de-dados/">Exclusão de Dados</a>
+            </p>
+        </div>
     </footer>
 
     <!-- Google Tag Manager -->
@@ -672,6 +646,9 @@
             });
         });
     </script>
+
+    <!-- Header, menu, carrossel, contadores, reveal -->
+    <script src="../landing-v2.js"></script>
 
     <!--
       Somar Automacao — Eventos de conversao para a campanha de Busca

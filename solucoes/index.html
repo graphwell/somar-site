@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -21,16 +21,12 @@
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../lp-styles.css">
     <link rel="stylesheet" href="../lp-migration.css">
+    <link rel="stylesheet" href="../landing-v2.css">
     <link rel="icon" type="image/png" href="../Logo Somar.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ── Logo maior no header padronizado (mesmo padrão de /automacao-whatsapp-ia/) ── */
-        .logo-somar {
-            height: clamp(56px, 14vw, 72px);
-        }
-
         /* ── Hero: corrige vão vazio (herda .hero de styles.css, pensado p/ hero cheio da home) ──
            main{padding-top:2rem} do lp-styles.css soma com o padding-top do .hero
            abaixo, dobrando o espaço header→H1 — zera aqui (só nesta página) para
@@ -40,266 +36,75 @@
         }
 
         .hero {
-            padding: 2.5rem 1.5rem 2.5rem;
+            padding: 2.5rem 1.5rem 3rem;
             min-height: auto;
+            max-width: var(--max-w, 1100px);
         }
 
-        /* ── Prova em movimento — celulares com produtos reais ── */
-        .section-videos {
-            padding: 0.5rem 0 0;
+        .hero .cta-wrap { text-align: center; }
+        @media (min-width: 769px) {
+            .hero .cta-wrap { text-align: left; }
         }
 
-        .videos-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
+        .section-videos-v2 { padding: 0.5rem 1.5rem 0; }
+
+        section { padding-left: 1.5rem; padding-right: 1.5rem; }
+
+        .solucoes-grid, .diferencial, .cta-final-v2, .social-proof-v2, .section-videos-v2 {
+            max-width: var(--max-w, 1100px);
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .videos-header .section-label {
-            display: block;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #4A4A4A;
-            margin-bottom: 0.75rem;
-        }
-
-        .videos-header h2 {
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
-            font-weight: 700;
-            margin: 0;
-        }
-
-        /* ── Carrossel coverflow: destaque central + espiada lateral ── */
-        .phone-carousel {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .videos-grid {
-            --card-w: 210px;
-            display: flex;
-            flex-wrap: nowrap;
-            align-items: flex-start;
-            gap: 3.5rem;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-padding-inline: calc(50% - var(--card-w) / 2);
-            padding-inline: calc(50% - var(--card-w) / 2);
-            padding-block: 0.5rem 1rem;
-            flex: 1 1 0%;
-            min-width: 0;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .videos-grid::-webkit-scrollbar { display: none; }
-
-        .phone-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.25rem;
-            flex: 0 0 auto;
-            scroll-snap-align: center;
-            scroll-snap-stop: always;
-            will-change: transform, opacity;
-        }
-
-        /* Estado inicial (antes do JS calcular a distância real do centro) */
-        .phone-card { transform: scale(0.86); opacity: 0.6; }
-        .phone-card.is-active { transform: scale(1); opacity: 1; }
-
-        /* ── Convite ao swipe: pulso sutil nos celulares laterais (peek) ──
-           Anima .phone-mockup (não .phone-card) para não conflitar com o
-           scale/opacity que o JS do carrossel já aplica no .phone-card a
-           cada frame de scroll. */
-        @media (prefers-reduced-motion: no-preference) {
-            .phone-carousel.hint-active .phone-card:not(.is-active) .phone-mockup {
-                animation: swipeHintPulse 2s ease-in-out infinite;
-            }
-        }
-
-        @keyframes swipeHintPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-
-        .carousel-arrow {
-            flex-shrink: 0;
-            z-index: 2;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: none;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-            color: #1A1A1A;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .carousel-arrow:hover { transform: scale(1.08); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18); }
-        .carousel-arrow:active { transform: scale(0.96); }
-        .carousel-arrow--prev { margin-right: -20px; }
-        .carousel-arrow--next { margin-left: -20px; }
-
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .carousel-dot {
-            width: 44px;
-            height: 44px;
-            padding: 0;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-dot::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #D9D9D9;
-            transition: background 0.2s ease, transform 0.2s ease;
-        }
-
-        .carousel-dot.is-active::before {
-            background: #C8102E;
-            transform: scale(1.35);
-        }
-
-        .phone-mockup {
-            width: 210px;
-            background: #1C1C1E;
-            border-radius: 40px;
-            padding: 10px;
-            position: relative;
-            box-shadow:
-                inset 0 0 0 0.5px rgba(255, 255, 255, 0.1),
-                0 30px 60px rgba(0, 0, 0, 0.15),
-                0 10px 24px rgba(0, 0, 0, 0.08);
-        }
-
-        .phone-mockup::before {
-            content: '';
-            position: absolute;
-            right: -3px;
-            top: 88px;
-            width: 3px;
-            height: 40px;
-            background: #2C2C2E;
-            border-radius: 0 3px 3px 0;
-        }
-
-        .phone-mockup::after {
-            content: '';
-            position: absolute;
-            left: -3px;
-            top: 66px;
-            width: 3px;
-            height: 30px;
-            background: #2C2C2E;
-            border-radius: 3px 0 0 3px;
-            box-shadow: 0 44px 0 #2C2C2E, 0 80px 0 #2C2C2E;
-        }
-
-        .phone-screen {
-            border-radius: 31px;
-            overflow: hidden;
-            background: #000;
-            position: relative;
-            aspect-ratio: 9 / 19.5;
-        }
-
-        .phone-island {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70px;
-            height: 20px;
-            background: #000;
-            border-radius: 18px;
-            z-index: 10;
-            pointer-events: none;
-        }
-
-        .phone-screen video {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .phone-info { text-align: center; }
-
-        .phone-info h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #1A1A1A;
-            margin-bottom: 0.25rem;
-        }
-
-        .phone-info p {
-            font-size: 0.8rem;
-            color: #4A4A4A;
-            margin: 0;
-        }
+        .diferencial h2 { margin-bottom: 2rem; text-align: center; }
 
         /* ── Mobile: aperta ritmo vertical para não parecer vazio nem espremido ── */
         @media (max-width: 768px) {
             section { margin-bottom: 3rem; }
-
-            .hero { padding: 2rem 1.25rem 2rem; }
-
-            .videos-header { margin-bottom: 2rem; }
-
-            .videos-grid { --card-w: 190px; gap: 1.75rem; }
-
-            .phone-mockup { width: 190px; }
-
-            /* Setas não fazem sentido com touch — só desktop */
-            .carousel-arrow { display: none; }
+            .hero { padding: 2rem 1.25rem 2.25rem; }
         }
     </style>
 </head>
 <body>
     <div class="bg-glow"></div>
-    <header>
-        <div class="header-bar" style="justify-content:center;">
+
+    <!-- MENU DRAWER -->
+    <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+        <button class="mobile-close" id="mobile-close" aria-label="Fechar menu">&#215;</button>
+        <a href="../">Home</a>
+        <a href="../sistemas.html">Sistemas</a>
+        <a href="./">Soluções</a>
+        <a href="../planos/">Planos</a>
+        <a href="../como-funciona/">Como Funciona</a>
+        <a href="../diagnostico/">Diagnóstico IA</a>
+        <a href="../contato/">Fale Conosco</a>
+    </div>
+
+    <header id="site-header">
+        <div class="header-inner-v2">
             <a href="../" aria-label="Somar.IA — página inicial">
-                <img src="../logo_.png" alt="Somar.IA" class="logo-somar" fetchpriority="high">
+                <img src="../logo_.png" alt="Somar.IA" class="header-logo-v2" fetchpriority="high">
             </a>
+            <button class="burger-btn" id="burger-btn" aria-label="Abrir menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
     <main>
-        <section class="hero">
-            <h1>Automações inteligentes para cada desafio do seu negócio</h1>
-            <p>Da ideia à execução — criamos sistemas com IA que trabalham por você enquanto você foca no que importa.</p>
-            <div class="cta-wrap">
-                <a href="../diagnostico/" class="btn-primary">Fazer Diagnóstico Gratuito →</a>
+        <section class="hero hero-v2">
+            <div class="hero-glow" aria-hidden="true"></div>
+            <h1 class="hero-anim">Automações inteligentes para cada desafio do seu negócio</h1>
+            <p class="hero-anim">Da ideia à execução — criamos sistemas com IA que trabalham por você enquanto você foca no que importa.</p>
+            <div class="cta-wrap hero-anim">
+                <a href="../diagnostico/" class="btn-primary btn-sm">Fazer Diagnóstico Gratuito →</a>
             </div>
         </section>
 
-        <section class="section-videos">
-            <div class="videos-header">
+        <section class="section-videos-v2">
+            <div class="videos-header-v2 reveal-v2">
                 <span class="section-label">Projetos em produção</span>
                 <h2>Não é conceito.<br>Está funcionando.</h2>
             </div>
@@ -323,6 +128,7 @@
                                 >
                                     <source src="../public/videos/clinicas-preview.mp4" type="video/mp4">
                                 </video>
+                                <button type="button" class="sound-toggle" aria-label="Ativar som">🔇</button>
                             </div>
                         </div>
                         <div class="phone-info">
@@ -345,6 +151,7 @@
                                 >
                                     <source src="../public/videos/agente-ia-conversa.mp4" type="video/mp4">
                                 </video>
+                                <button type="button" class="sound-toggle" aria-label="Ativar som">🔇</button>
                             </div>
                         </div>
                         <div class="phone-info">
@@ -367,6 +174,7 @@
                                 >
                                     <source src="../public/videos/mesa-certa-preview.mp4" type="video/mp4">
                                 </video>
+                                <button type="button" class="sound-toggle" aria-label="Ativar som">🔇</button>
                             </div>
                         </div>
                         <div class="phone-info">
@@ -389,6 +197,7 @@
                                 >
                                     <source src="../public/videos/domvia-preview.mp4" type="video/mp4">
                                 </video>
+                                <button type="button" class="sound-toggle" aria-label="Ativar som">🔇</button>
                             </div>
                         </div>
                         <div class="phone-info">
@@ -411,6 +220,7 @@
                                 >
                                     <source src="../public/videos/fabrica-sonhos-preview.mp4" type="video/mp4">
                                 </video>
+                                <button type="button" class="sound-toggle" aria-label="Ativar som">🔇</button>
                             </div>
                         </div>
                         <div class="phone-info">
@@ -433,6 +243,7 @@
                                 >
                                     <source src="../public/videos/coffee-beats-preview-v2.mp4" type="video/mp4">
                                 </video>
+                                <button type="button" class="sound-toggle" aria-label="Ativar som">🔇</button>
                             </div>
                         </div>
                         <div class="phone-info">
@@ -448,58 +259,179 @@
             <div class="carousel-dots" role="tablist" aria-label="Selecionar projeto"></div>
         </section>
 
-        <section class="solucoes-grid">
-            <div class="card-grid">
-                <div class="lp-card">
-                    <h4>Automação WhatsApp</h4>
-                    <p>IA integrada para atendimento 24h, qualificação de leads e fechamento automático.</p>
-                    <a href="../automacao-whatsapp-ia/" style="color: #C8102E; display: block; margin-top: 1rem; text-decoration: none; font-weight: 600;">Saiba mais →</a>
+        <!-- NÚMEROS -->
+        <section class="reveal-v2">
+            <div class="stats-row-v2">
+                <div class="stat-box-v2">
+                    <div class="stat-number-v2 stat-count" data-target="90" data-suffix="%">90%</div>
+                    <div class="stat-label-v2">Das dúvidas respondidas automaticamente</div>
                 </div>
-                <div class="lp-card">
-                    <h4>Consultoria em IA</h4>
-                    <p>Mapeamos seu negócio e indicamos onde a IA pode reduzir mais custos e aumentar lucro.</p>
+                <div class="stat-box-v2">
+                    <div class="stat-number-v2 stat-count" data-target="24" data-suffix="h">24h</div>
+                    <div class="stat-label-v2">Disponível 7 dias por semana</div>
                 </div>
-                <div class="lp-card">
-                    <h4>Sistemas Personalizados</h4>
-                    <p>Desenvolvemos softwares exclusivos que resolvem problemas específicos da sua operação.</p>
-                </div>
-                <div class="lp-card">
-                    <h4>Criação de Plataformas Web</h4>
-                    <p>Sistemas web modernos com automação inteligente integrada e foco total em UX.</p>
-                </div>
-                <div class="lp-card">
-                    <h4>Automação de Processos</h4>
-                    <p>Conectamos suas ferramentas favoritas para que dados fluam sem intervenção humana.</p>
-                </div>
-                <div class="lp-card">
-                    <h4>Análise de Dados com IA</h4>
-                    <p>Transforme planilhas confusas em dashboards inteligentes que tomam decisões por você.</p>
+                <div class="stat-box-v2">
+                    <div class="stat-number-v2 stat-count" data-prefix="&lt;" data-target="30" data-suffix="s">&lt;30s</div>
+                    <div class="stat-label-v2">Tempo médio de resposta</div>
                 </div>
             </div>
         </section>
 
-        <section class="diferencial" style="text-align: center;">
-            <h2 style="margin-bottom: 3rem;">Por que a Somar.IA?</h2>
-            <div class="card-grid">
-                <div class="lp-card">
-                    <h4>Não vendemos software pronto</h4>
-                    <p>Cada solução é personalizada para sua realidade, sem "receitas de bolo".</p>
+        <section class="solucoes-grid reveal-v2">
+            <div class="benefits-grid-v2">
+                <div class="benefit-card-v2">
+                    <div class="benefit-icon-v2">
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    </div>
+                    <div>
+                        <h4>Automação WhatsApp</h4>
+                        <p>IA integrada para atendimento 24h, qualificação de leads e fechamento automático.</p>
+                        <a href="../automacao-whatsapp-ia/" style="color: #C8102E; display: block; margin-top: 0.75rem; text-decoration: none; font-weight: 600; font-size: 0.85rem;">Saiba mais →</a>
+                    </div>
                 </div>
-                <div class="lp-card">
-                    <h4>Foco em Resultado</h4>
-                    <p>Implementamos IA onde o retorno sobre o investimento é mais rápido.</p>
+                <div class="benefit-card-v2">
+                    <div class="benefit-icon-v2">
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3Z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
+                    </div>
+                    <div>
+                        <h4>Consultoria em IA</h4>
+                        <p>Mapeamos seu negócio e indicamos onde a IA pode reduzir mais custos e aumentar lucro.</p>
+                    </div>
                 </div>
-                <div class="lp-card">
-                    <h4>Suporte Contínuo</h4>
-                    <p>Acompanhamos a evolução da sua automação com suporte técnico incluído.</p>
+                <div class="benefit-card-v2">
+                    <div class="benefit-icon-v2">
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <div>
+                        <h4>Sistemas Personalizados</h4>
+                        <p>Desenvolvemos softwares exclusivos que resolvem problemas específicos da sua operação.</p>
+                    </div>
+                </div>
+                <div class="benefit-card-v2">
+                    <div class="benefit-icon-v2">
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+                    </div>
+                    <div>
+                        <h4>Criação de Plataformas Web</h4>
+                        <p>Sistemas web modernos com automação inteligente integrada e foco total em UX.</p>
+                    </div>
+                </div>
+                <div class="benefit-card-v2">
+                    <div class="benefit-icon-v2">
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><polyline points="21 3 21 9 15 9"/></svg>
+                    </div>
+                    <div>
+                        <h4>Automação de Processos</h4>
+                        <p>Conectamos suas ferramentas favoritas para que dados fluam sem intervenção humana.</p>
+                    </div>
+                </div>
+                <div class="benefit-card-v2">
+                    <div class="benefit-icon-v2">
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14v3M12 10v7M17 6v11"/></svg>
+                    </div>
+                    <div>
+                        <h4>Análise de Dados com IA</h4>
+                        <p>Transforme planilhas confusas em dashboards inteligentes que tomam decisões por você.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="cta-final cta-wrap">
+        <section class="diferencial reveal-v2">
+            <h2>Por que a Somar.IA?</h2>
+            <div class="benefits-grid-v2">
+                <div class="benefit-card-v2">
+                    <div class="benefit-icon-v2">
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><line x1="16" y1="8" x2="2" y2="22"/><line x1="17.5" y1="15" x2="9" y2="15"/></svg>
+                    </div>
+                    <div>
+                        <h4>Não vendemos software pronto</h4>
+                        <p>Cada solução é personalizada para sua realidade, sem "receitas de bolo".</p>
+                    </div>
+                </div>
+                <div class="benefit-card-v2">
+                    <div class="benefit-icon-v2">
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+                    </div>
+                    <div>
+                        <h4>Foco em Resultado</h4>
+                        <p>Implementamos IA onde o retorno sobre o investimento é mais rápido.</p>
+                    </div>
+                </div>
+                <div class="benefit-card-v2">
+                    <div class="benefit-icon-v2">
+                        <svg class="icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-8h3Z"/><path d="M3 19a2 2 0 0 0 2 2h1v-8H3Z"/></svg>
+                    </div>
+                    <div>
+                        <h4>Suporte Contínuo</h4>
+                        <p>Acompanhamos a evolução da sua automação com suporte técnico incluído.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROVA SOCIAL -->
+        <section class="social-proof-v2 reveal-v2">
+            <p class="social-proof-label">Empresas que já automatizaram com a Somar.IA</p>
+            <div class="segments-row-v2">
+                <div class="segment-item-v2">
+                    <span class="segment-circle">
+                        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </span>
+                    Clínicas
+                </div>
+                <div class="segment-item-v2">
+                    <span class="segment-circle">
+                        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9.5 9-7 9 7"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg>
+                    </span>
+                    Imobiliárias
+                </div>
+                <div class="segment-item-v2">
+                    <span class="segment-circle">
+                        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12.5V17c0 1.66 2.686 3 6 3s6-1.34 6-3v-4.5"/><path d="M22 10v6"/></svg>
+                    </span>
+                    Escolas
+                </div>
+                <div class="segment-item-v2">
+                    <span class="segment-circle">
+                        <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M2 3h2l2.6 12.4a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L21 7H6"/></svg>
+                    </span>
+                    E-commerces
+                </div>
+            </div>
+
+            <h2 class="section-title" style="font-size:clamp(1.5rem,3.6vw,2rem);font-weight:600;">O que nossos clientes dizem</h2>
+            <p class="section-sub" style="color:var(--text-secondary);margin-bottom:2.25rem;">Resultados reais de quem já automatizou</p>
+            <div class="testimonials-scroll">
+                <div class="testimonial-card-v2">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Antes a gente perdia lead toda hora porque não tinha como responder rápido. Depois da IA da Somar, o atendimento virou diferencial. Os clientes ficam impressionados com a agilidade."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">C</div>
+                        <div>
+                            <div class="author-name">Carlos M.</div>
+                            <div class="author-company">Patrol Segurança</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card-v2">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"A implementação foi surpreendentemente rápida. Em menos de uma semana já estava funcionando e a equipe ficou aliviada — o volume de mensagens repetitivas caiu demais."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div>
+                            <div class="author-name">Ana P.</div>
+                            <div class="author-company">Gráfica Flash</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-final-v2">
             <h2>Estamos prontos para sua demanda</h2>
             <p>Fale com um especialista e receba um orçamento personalizado.</p>
-            <a href="https://wa.me/5585992556672?text=Quero%20uma%20an%C3%A1lise%20completa%20de%20IA%20para%20minha%20empresa%20%5Bproc%5D" class="btn-primary" target="_blank">Falar com especialista agora</a>
+            <a href="https://wa.me/5585992556672?text=Quero%20uma%20an%C3%A1lise%20completa%20de%20IA%20para%20minha%20empresa%20%5Bproc%5D" class="btn-primary btn-sm" target="_blank">Falar com especialista agora<span class="cta-arrow" aria-hidden="true">→</span></a>
         </section>
     </main>
 
@@ -507,21 +439,56 @@
         <svg viewBox="0 0 448 512" width="35" fill="#fff" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.1 0-65.6-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.5 2.4-11.2 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.7 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
     </a>
 
-    <footer>
-        <p>© 2025 Somar.IA — Todos os direitos reservados.</p>
-        <p style="margin-top:0.5rem;font-size:0.8rem;opacity:0.6;">SOMMAR SOLUÇÕES DIGITAIS — CNPJ: 65.771.133/0001-07 — Brasil</p>
-        <p style="margin-top:0.5rem;font-size:0.75rem;">
-            <a href="/politica-de-privacidade/" style="color:#C8102E;text-decoration:none;">Política de Privacidade</a>
-            &nbsp;·&nbsp;
-            <a href="/termos-de-uso/" style="color:#C8102E;text-decoration:none;">Termos de Uso</a>
-            &nbsp;·&nbsp;
-            <a href="/exclusao-de-dados/" style="color:#C8102E;text-decoration:none;">Exclusão de Dados</a>
-        </p>
-        <p style="margin-top:0.5rem;font-size:0.85rem;">
-            <a href="https://wa.me/5585992556672?text=Ol%C3%A1%21%20Vim%20do%20site%20-%20Automa%C3%A7%C3%A3o%20de%20Processos" target="_blank" style="color:#C8102E;text-decoration:none;">Nordeste: (85) 99255-6672</a>
-            &nbsp;|&nbsp;
-            <a href="https://wa.me/5585992556672?text=Ol%C3%A1%21%20Vim%20do%20site%20-%20Automa%C3%A7%C3%A3o%20de%20Processos" target="_blank" style="color:#C8102E;text-decoration:none;">Fale agora no WhatsApp</a>
-        </p>
+    <footer class="footer-v2">
+        <div class="footer-inner-v2">
+            <div class="footer-col-v2 footer-brand-v2">
+                <img src="../logo_.png" alt="Somar.IA" class="footer-logo-v2">
+                <p class="footer-tagline-v2">Tecnologia e inteligência artificial sob medida para empresas em Fortaleza e no Brasil.</p>
+                <div class="trust-badges-v2">
+                    <span class="trust-badge-v2"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>SSL Seguro</span>
+                    <span class="trust-badge-v2"><svg viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.4 8.9 8 11 4.6-2.1 8-6 8-11V5l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>CNPJ Verificado</span>
+                    <span class="trust-badge-v2"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>Atendimento no Brasil</span>
+                </div>
+            </div>
+
+            <div class="footer-col-v2">
+                <h5>Links rápidos</h5>
+                <ul>
+                    <li><a href="../sistemas.html">Sistemas</a></li>
+                    <li><a href="./">Soluções</a></li>
+                    <li><a href="../planos/">Planos</a></li>
+                    <li><a href="../como-funciona/">Como Funciona</a></li>
+                    <li><a href="../diagnostico/">Diagnóstico IA</a></li>
+                    <li><a href="../contato/">Fale Conosco</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col-v2">
+                <h5>Contato</h5>
+                <a href="mailto:somar.solucoes.suporte@gmail.com" class="footer-tagline-v2" style="display:block;margin-bottom:0.9rem;text-decoration:none;">somar.solucoes.suporte@gmail.com</a>
+                <a href="https://wa.me/5585992556672?text=Ol%C3%A1%21%20Vim%20do%20site%20-%20Automa%C3%A7%C3%A3o%20de%20Processos" class="footer-phone-card-v2" target="_blank" rel="noopener noreferrer">
+                    <div class="footer-phone-icon-v2">
+                        <svg viewBox="0 0 448 512" aria-hidden="true"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.1 0-65.6-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.1-3.2-5.5-.3-8.5 2.4-11.2 2.5-2.5 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.3 1.9-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.7 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.5 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
+                    </div>
+                    <div>
+                        <span class="footer-phone-region-v2">Nordeste</span>
+                        <span class="footer-phone-number-v2">(85) 99255-6672</span>
+                    </div>
+                </a>
+                <a href="https://wa.me/5585992556672?text=Ol%C3%A1%21%20Vim%20do%20site%20-%20Automa%C3%A7%C3%A3o%20de%20Processos" target="_blank" rel="noopener noreferrer" style="font-size:0.85rem;color:var(--accent);text-decoration:none;font-weight:600;">Fale agora no WhatsApp →</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom-v2">
+            <p>&copy; 2026 Somar.IA &mdash; Todos os direitos reservados.<br>SOMMAR SOLUÇÕES DIGITAIS &mdash; CNPJ: 65.771.133/0001-07 &mdash; Brasil</p>
+            <p class="footer-legal-v2">
+                <a href="/politica-de-privacidade/">Política de Privacidade</a>
+                &nbsp;·&nbsp;
+                <a href="/termos-de-uso/">Termos de Uso</a>
+                &nbsp;·&nbsp;
+                <a href="/exclusao-de-dados/">Exclusão de Dados</a>
+            </p>
+        </div>
     </footer>
     <!-- Google tag (gtag.js) -->
     <script defer src="https://www.googletagmanager.com/gtag/js?id=AW-18061457090"></script>
@@ -532,136 +499,8 @@
       gtag('config', 'AW-18061457090');
     </script>
 
-    <!-- Carrossel coverflow — "Não é conceito. Está funcionando." -->
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const track = document.getElementById('phoneCarouselTrack');
-        if (!track) return;
-
-        const cards = Array.from(track.querySelectorAll('.phone-card'));
-        const prevBtn = document.querySelector('.carousel-arrow--prev');
-        const nextBtn = document.querySelector('.carousel-arrow--next');
-        const dotsWrap = document.querySelector('.carousel-dots');
-
-        // Monta os dots dinamicamente a partir dos cards existentes
-        cards.forEach((card, i) => {
-            const name = card.querySelector('h3') ? card.querySelector('h3').textContent : `projeto ${i + 1}`;
-            const dot = document.createElement('button');
-            dot.type = 'button';
-            dot.className = 'carousel-dot';
-            dot.setAttribute('aria-label', `Ver ${name}`);
-            dot.addEventListener('click', () => goTo(i));
-            dotsWrap.appendChild(dot);
-        });
-        const dots = Array.from(dotsWrap.querySelectorAll('.carousel-dot'));
-
-        let activeIndex = 0;
-        let ticking = false;
-
-        function setActive(index) {
-            if (index === activeIndex) return;
-            activeIndex = index;
-            cards.forEach((card, i) => card.classList.toggle('is-active', i === index));
-            dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
-        }
-
-        // Coverflow: escala/opacidade em função da distância do centro do track
-        function updateCarousel() {
-            ticking = false;
-            const trackRect = track.getBoundingClientRect();
-            const centerX = trackRect.left + trackRect.width / 2;
-            let closest = 0;
-            let closestDist = Infinity;
-
-            cards.forEach((card, i) => {
-                const r = card.getBoundingClientRect();
-                const cardCenter = r.left + r.width / 2;
-                const dist = Math.abs(cardCenter - centerX);
-                const norm = Math.min(dist / (trackRect.width / 2), 1);
-                const scale = 1 - norm * 0.14;
-                const opacity = 1 - norm * 0.4;
-                card.style.transform = `scale(${scale})`;
-                card.style.opacity = opacity;
-                if (dist < closestDist) { closestDist = dist; closest = i; }
-            });
-
-            setActive(closest);
-        }
-
-        function requestUpdate() {
-            if (!ticking) {
-                ticking = true;
-                requestAnimationFrame(updateCarousel);
-            }
-        }
-
-        track.addEventListener('scroll', requestUpdate, { passive: true });
-        window.addEventListener('resize', requestUpdate);
-        updateCarousel();
-        cards[0].classList.add('is-active');
-        if (dots[0]) dots[0].classList.add('is-active');
-
-        function goTo(index) {
-            const target = cards[Math.max(0, Math.min(index, cards.length - 1))];
-            target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-        }
-
-        if (prevBtn) prevBtn.addEventListener('click', () => goTo(activeIndex - 1));
-        if (nextBtn) nextBtn.addEventListener('click', () => goTo(activeIndex + 1));
-
-        // Pausa vídeos bem distantes do centro (fora do track visível) para não travar o scroll com 6 vídeos rodando ao mesmo tempo
-        const videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                const video = entry.target;
-                if (entry.isIntersecting) {
-                    video.play().catch(() => {});
-                } else {
-                    video.pause();
-                }
-            });
-        }, { root: track, rootMargin: '0px', threshold: 0.1 });
-
-        cards.forEach((card) => {
-            const video = card.querySelector('video');
-            if (video) videoObserver.observe(video);
-        });
-
-        // Convite ao swipe: pulso sutil nos cards laterais nos primeiros
-        // segundos após o carrossel entrar na viewport; some na primeira
-        // interação do usuário ou após ~4.5s, o que vier primeiro.
-        const carousel = document.querySelector('.phone-carousel');
-        if (carousel && window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
-            let hintTimeout = null;
-
-            const stopHint = () => {
-                carousel.classList.remove('hint-active');
-                if (hintTimeout) clearTimeout(hintTimeout);
-                track.removeEventListener('scroll', stopHint);
-                track.removeEventListener('touchstart', stopHint);
-                track.removeEventListener('pointerdown', stopHint);
-                if (prevBtn) prevBtn.removeEventListener('click', stopHint);
-                if (nextBtn) nextBtn.removeEventListener('click', stopHint);
-            };
-
-            const hintObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        carousel.classList.add('hint-active');
-                        hintTimeout = setTimeout(stopHint, 4500);
-                        track.addEventListener('scroll', stopHint, { once: true, passive: true });
-                        track.addEventListener('touchstart', stopHint, { once: true, passive: true });
-                        track.addEventListener('pointerdown', stopHint, { once: true });
-                        if (prevBtn) prevBtn.addEventListener('click', stopHint, { once: true });
-                        if (nextBtn) nextBtn.addEventListener('click', stopHint, { once: true });
-                        hintObserver.disconnect();
-                    }
-                });
-            }, { threshold: 0.4 });
-
-            hintObserver.observe(carousel);
-        }
-    });
-    </script>
+    <!-- Header, menu, carrossel, contadores, reveal -->
+    <script src="../landing-v2.js"></script>
 
     <!--
       Somar Automacao — Eventos de conversao para a campanha de Busca
@@ -819,4 +658,3 @@
 
 </body>
 </html>
-

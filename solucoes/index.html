@@ -82,6 +82,15 @@
         /* ── Carrossel de vídeos: centraliza o card ativo verticalmente, sem sobra ── */
         .phone-carousel { justify-content: center; }
         .videos-grid { align-items: center; }
+
+        /* ── Carrossel: remove o espaço vazio antes do primeiro card ──
+           .videos-grid é o container com scroll (não .phone-carousel, que só
+           agrupa as setas). O padding-inline simétrico centraliza os cards do
+           meio ao rolar, mas deixava uma folga grande antes do 1º card em
+           scrollLeft:0. Zeramos só o lado inicial e fixamos o snap do 1º
+           card em "start" — os demais continuam centralizando (efeito peek). */
+        .videos-grid { padding-inline-start: 0; scroll-padding-inline-start: 0; }
+        .videos-grid .phone-card:first-child { scroll-snap-align: start; }
     </style>
 </head>
 <body>
@@ -156,6 +165,18 @@
                             <a href="https://wa.me/5511925203237?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20CRM%20com%20IA%20Integrada" class="ag-courses-item_link" target="_blank" rel="noopener noreferrer">
                                 <div class="ag-courses-item_bg" style="background-color:#4527A0;"></div>
                                 <h3 class="ag-courses-item_title">CRM com IA integrada</h3>
+                            </a>
+                        </div>
+                        <div class="ag-courses_item">
+                            <a href="https://wa.me/5511925203237?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Automa%C3%A7%C3%A3o%20de%20processos" class="ag-courses-item_link" target="_blank" rel="noopener noreferrer">
+                                <div class="ag-courses-item_bg" style="background-color:#00695C;"></div>
+                                <h3 class="ag-courses-item_title">Automação de processos</h3>
+                            </a>
+                        </div>
+                        <div class="ag-courses_item">
+                            <a href="https://wa.me/5511925203237?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20Contratos%20digitais" class="ag-courses-item_link" target="_blank" rel="noopener noreferrer">
+                                <div class="ag-courses-item_bg" style="background-color:#1565C0;"></div>
+                                <h3 class="ag-courses-item_title">Contratos digitais</h3>
                             </a>
                         </div>
                     </div>

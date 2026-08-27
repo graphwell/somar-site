@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Dashboard Somar.IA</title>
+<meta name="theme-color" content="#0b0e14">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="../logo_.png">
+<link rel="apple-touch-icon" href="../logo_.png">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<header class="top-bar">
+  <h1>📊 Dashboard Somar.IA <span class="data-badge" id="period-badge">últimos 7 dias</span></h1>
+</header>
+
+<!-- KPI cards -->
+<section class="kpi-grid" id="kpi-grid" aria-label="Indicadores principais">
+  <!-- preenchido via JS -->
+</section>
+
+<!-- Charts -->
+<section class="charts-grid">
+  <div class="chart-card">
+    <h3>Cliques por dia (7 dias)</h3>
+    <div id="chart-daily"></div>
+  </div>
+  <div class="chart-card">
+    <h3>Cliques por serviço</h3>
+    <div id="chart-servicos"></div>
+  </div>
+  <div class="chart-card full-width">
+    <h3>Horários de pico (cliques por dia da semana × hora)</h3>
+    <div id="chart-heatmap"></div>
+  </div>
+</section>
+
+<!-- Tabs -->
+<nav class="tabs-nav" role="tablist" aria-label="Detalhamento">
+  <button class="tab-btn active" data-tab="tab-keywords" role="tab" aria-selected="true">🔑 Palavras-chave</button>
+  <button class="tab-btn" data-tab="tab-servicos" role="tab" aria-selected="false">🧩 Serviços</button>
+  <button class="tab-btn" data-tab="tab-horarios" role="tab" aria-selected="false">🕒 Horários</button>
+  <button class="tab-btn" data-tab="tab-recomendacoes" role="tab" aria-selected="false">💡 Recomendações</button>
+</nav>
+
+<section id="tab-keywords" class="tab-panel active">
+  <div class="data-table-wrap">
+    <div class="table-scroll">
+      <table class="data-table" id="table-keywords">
+        <thead>
+          <tr>
+            <th>Termo pesquisado</th>
+            <th>Cliques</th>
+            <th>Custo</th>
+            <th>CTR</th>
+            <th>Converteu no WhatsApp?</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <p class="section-note">"Converteu no WhatsApp?" por termo de pesquisa individual não é atribuível sem GA4 configurado — ver aba Serviços.</p>
+</section>
+
+<section id="tab-servicos" class="tab-panel">
+  <div class="empty-state">
+    <strong>⚠️ GA4 não configurado</strong>
+    <span id="ga4-motivo"></span>
+  </div>
+</section>
+
+<section id="tab-horarios" class="tab-panel">
+  <div class="data-table-wrap">
+    <div class="table-scroll">
+      <table class="data-table" id="table-horarios">
+        <thead>
+          <tr>
+            <th>Dia</th>
+            <th>Hora</th>
+            <th>Cliques</th>
+            <th>Impressões</th>
+            <th>Custo</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="tab-recomendacoes" class="tab-panel">
+  <div id="recommendations-list"></div>
+</section>
+
+<footer class="bottom-bar">
+  <div>
+    <div>Última atualização: <strong id="last-updated">—</strong></div>
+    <div class="footer-note">Dados de um snapshot gerado manualmente (não são consultados ao vivo no navegador, por segurança da credencial da API).</div>
+  </div>
+  <button id="refresh-btn" type="button">
+    <span class="spin-icon">🔄</span> Atualizar dados agora
+  </button>
+</footer>
+
+<script src="./app.js"></script>
+</body>
+</html>

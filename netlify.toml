@@ -3,3 +3,16 @@
   [headers.values]
     Content-Type = "image/jpeg"
     Cache-Control = "public, max-age=604800"
+
+# Dashboard executivo — protegido por Basic Auth via edge function
+# (netlify/edge-functions/dashboard-auth.js). Requer as env vars
+# DASHBOARD_USER e DASHBOARD_PASSWORD configuradas no Netlify.
+[[edge_functions]]
+  path = "/dashboard/*"
+  function = "dashboard-auth"
+
+[[headers]]
+  for = "/dashboard/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Robots-Tag = "noindex, nofollow"

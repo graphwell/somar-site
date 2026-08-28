@@ -82,48 +82,60 @@
         .ag-courses-item_title { margin: 0; font-weight: bold; font-size: 10px; color: #fff; z-index: 2; position: relative; line-height: 1.3; }
         .ag-courses-item_bg { height: 90px; width: 90px; z-index: 1; position: absolute; top: -55px; right: -55px; border-radius: 50%; transition: all 0.5s ease; }
 
-        /* ── Mobile ≤768px: cards de serviço em grid responsivo automático ──
-           Continuam dentro do <header> (não movi no DOM): .header-inner-v2
-           ganha flex-wrap e .services-nav força quebra de linha própria
-           (order + flex-basis:100%) — cai numa faixa abaixo de logo+burger,
-           sem disputar espaço com o botão do menu. */
+        /* ── Cards de serviço no corpo (mobile) — seção própria após o hero.
+           Duplica os mesmos 10 cards que ficam na nav do header (visível só
+           no desktop); no mobile a nav do header some e esta seção assume.
+           display:none aqui fora do media query garante que não apareça
+           duas vezes em telas >768px, onde a nav do header já os mostra. */
+        .services-body-section {
+            display: none;
+        }
+
         @media (max-width: 768px) {
-            .header-inner-v2 { flex-wrap: wrap; }
-
             .services-nav {
-                order: 10;
-                flex-basis: 100%;
-                margin: 0;
-                width: 100%;
-                padding: 8px 12px;
+                display: none !important;
             }
 
-            .services-cluster {
+            .services-body-section {
+                display: block;
+                padding: 32px 16px;
+                width: 100%;
+            }
+
+            .services-body-label {
+                display: block;
+                font-size: 11px;
+                letter-spacing: 0.12em;
+                text-transform: uppercase;
+                color: #888;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .services-body-grid {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-                gap: 8px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .services-body-grid .ag-courses_item {
                 width: 100%;
-                align-items: stretch;
+                border-radius: 16px;
             }
 
-            .service-row {
-                display: contents !important;
+            .services-body-grid .ag-courses-item_link {
+                padding: 18px 14px;
+                min-height: 76px;
+                display: flex;
+                align-items: center;
             }
 
-            .ag-courses_item {
-                width: 100%;
-            }
-
-            .ag-courses-item_link {
-                padding: 12px 14px;
-                width: 100%;
-            }
-
-            .ag-courses-item_title {
+            .services-body-grid .ag-courses-item_title {
                 font-size: 12px;
-                min-height: unset;
+                line-height: 1.35;
                 white-space: normal;
-                line-height: 1.3;
+                min-height: unset;
+                margin: 0;
             }
         }
 
@@ -139,6 +151,35 @@
            card em "start" — os demais continuam centralizando (efeito peek). */
         .videos-grid { padding-inline-start: 0; scroll-padding-inline-start: 0; }
         .videos-grid .phone-card:first-child { scroll-snap-align: start; }
+
+        /* ── Mobile ≤768px: carrossel full-bleed (edge-to-edge), sem faixa
+           branca lateral. Nenhum ancestral tem overflow:hidden que corte
+           isso — só body tem overflow-x:hidden, que é inofensivo/complementar
+           a essa técnica. Reafirma padding-inline-start:0 no .videos-grid
+           depois do padding-inline:5vw para não reabrir o vão antes do 1º
+           card (fix acima). */
+        @media (max-width: 768px) {
+            .phone-carousel,
+            .videos-grid {
+                width: 100vw;
+                max-width: 100vw;
+                margin-left: calc(-50vw + 50%);
+                margin-right: calc(-50vw + 50%);
+                padding-inline: 5vw;
+                box-sizing: border-box;
+                overflow-x: auto;
+            }
+
+            .videos-grid {
+                padding-inline-start: 0;
+                scroll-padding-inline-start: 0;
+            }
+
+            .phone-carousel::-webkit-scrollbar,
+            .videos-grid::-webkit-scrollbar {
+                display: none;
+            }
+        }
 
         /* ── Seta de "deslize" sobre o carrossel — some no 1º swipe ou em 3s ── */
         .swipe-hint {
@@ -284,6 +325,74 @@
             <p class="hero-anim">Da ideia à execução — criamos sistemas com IA que trabalham por você enquanto você foca no que importa.</p>
             <div class="cta-wrap hero-anim">
                 <a href="../diagnostico/" class="btn-primary btn-sm">Fazer Diagnóstico Gratuito →</a>
+            </div>
+        </section>
+
+        <!-- Cards de serviço para mobile — mesmos 10 cards da nav do header,
+             só visível em ≤768px (ver .services-body-section no <style>) -->
+        <section class="services-body-section">
+            <span class="services-body-label">O que fazemos</span>
+            <div class="services-body-grid">
+                <div class="ag-courses_item">
+                    <a href="https://wa.me/5511925203237?text=Ol%C3%A1%21+Tenho+interesse+em+Agente+de+IA+no+WhatsApp+da+Somar.IA.+Podem+me+contar+mais%3F" class="ag-courses-item_link" target="_blank" rel="noopener noreferrer" data-servico="Agente de IA no WhatsApp">
+                        <div class="ag-courses-item_bg" style="background-color:#C0392B;"></div>
+                        <h3 class="ag-courses-item_title">Agente de IA no WhatsApp</h3>
+                    </a>
+                </div>
+                <div class="ag-courses_item">
+                    <a href="https://wa.me/5511925203237?text=Ol%C3%A1%21+Tenho+interesse+em+Gerador+de+cobran%C3%A7as+autom%C3%A1ticas+da+Somar.IA.+Podem+me+contar+mais%3F" class="ag-courses-item_link" target="_blank" rel="noopener noreferrer" data-servico="Gerador de cobranças automáticas">
+                        <div class="ag-courses-item_bg" style="background-color:#E65100;"></div>
+                        <h3 class="ag-courses-item_title">Gerador de cobranças automáticas</h3>
+                    </a>
+                </div>
+                <div class="ag-courses_item">
+                    <a href="https://wa.me/5511925203237?text=Ol%C3%A1%21+Tenho+interesse+em+Desenvolvimento+de+sistema+da+Somar.IA.+Podem+me+contar+mais%3F" class="ag-courses-item_link" target="_blank" rel="noopener noreferrer" data-servico="Desenvolvimento de sistema">
+                        <div class="ag-courses-item_bg" style="background-color:#1565C0;"></div>
+                        <h3 class="ag-courses-item_title">Desenvolvimento de sistema</h3>
+                    </a>
+                </div>
+                <div class="ag-courses_item">
+                    <a href="https://wa.me/5511925203237?text=Ol%C3%A1%21+Tenho+interesse+em+Desenvolvimento+de+app+mobile+da+Somar.IA.+Podem+me+contar+mais%3F" class="ag-courses-item_link" target="_blank" rel="noopener noreferrer" data-servico="Desenvolvimento de app mobile">
+                        <div class="ag-courses-item_bg" style="background-color:#2E7D32;"></div>
+                        <h3 class="ag-courses-item_title">Desenvolvimento de app mobile</h3>
+                    </a>
+                </div>
+                <div class="ag-courses_item">
+                    <a href="https://wa.me/5511925203237?text=Ol%C3%A1%21+Tenho+interesse+em+SaaS+personalizado+da+Somar.IA.+Podem+me+contar+mais%3F" class="ag-courses-item_link" target="_blank" rel="noopener noreferrer" data-servico="SaaS personalizado">
+                        <div class="ag-courses-item_bg" style="background-color:#6A1B9A;"></div>
+                        <h3 class="ag-courses-item_title">SaaS personalizado</h3>
+                    </a>
+                </div>
+                <div class="ag-courses_item">
+                    <a href="https://wa.me/5511925203237?text=Ol%C3%A1%21+Tenho+interesse+em+SDR+automatizado+da+Somar.IA.+Podem+me+contar+mais%3F" class="ag-courses-item_link" target="_blank" rel="noopener noreferrer" data-servico="SDR automatizado">
+                        <div class="ag-courses-item_bg" style="background-color:#AD1457;"></div>
+                        <h3 class="ag-courses-item_title">SDR automatizado</h3>
+                    </a>
+                </div>
+                <div class="ag-courses_item">
+                    <a href="https://wa.me/5511925203237?text=Ol%C3%A1%21+Tenho+interesse+em+Integra%C3%A7%C3%A3o+de+sistemas+da+Somar.IA.+Podem+me+contar+mais%3F" class="ag-courses-item_link" target="_blank" rel="noopener noreferrer" data-servico="Integração de sistemas">
+                        <div class="ag-courses-item_bg" style="background-color:#00695C;"></div>
+                        <h3 class="ag-courses-item_title">Integração de sistemas</h3>
+                    </a>
+                </div>
+                <div class="ag-courses_item">
+                    <a href="https://wa.me/5511925203237?text=Ol%C3%A1%21+Tenho+interesse+em+CRM+com+IA+integrada+da+Somar.IA.+Podem+me+contar+mais%3F" class="ag-courses-item_link" target="_blank" rel="noopener noreferrer" data-servico="CRM com IA integrada">
+                        <div class="ag-courses-item_bg" style="background-color:#4527A0;"></div>
+                        <h3 class="ag-courses-item_title">CRM com IA integrada</h3>
+                    </a>
+                </div>
+                <div class="ag-courses_item">
+                    <a href="https://wa.me/5511925203237?text=Ol%C3%A1%21+Tenho+interesse+em+Automa%C3%A7%C3%A3o+de+processos+da+Somar.IA.+Podem+me+contar+mais%3F" class="ag-courses-item_link" target="_blank" rel="noopener noreferrer" data-servico="Automação de processos">
+                        <div class="ag-courses-item_bg" style="background-color:#00695C;"></div>
+                        <h3 class="ag-courses-item_title">Automação de processos</h3>
+                    </a>
+                </div>
+                <div class="ag-courses_item">
+                    <a href="https://wa.me/5511925203237?text=Ol%C3%A1%21+Tenho+interesse+em+Contratos+digitais+da+Somar.IA.+Podem+me+contar+mais%3F" class="ag-courses-item_link" target="_blank" rel="noopener noreferrer" data-servico="Contratos digitais">
+                        <div class="ag-courses-item_bg" style="background-color:#1565C0;"></div>
+                        <h3 class="ag-courses-item_title">Contratos digitais</h3>
+                    </a>
+                </div>
             </div>
         </section>
 

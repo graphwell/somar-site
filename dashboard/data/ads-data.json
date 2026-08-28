@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-08-27T12:42:03.675408-03:00",
+  "generated_at": "2026-08-28T11:12:26.005120-03:00",
   "period": "LAST_7_DAYS",
   "overview": {
-    "cost_brl": 80.63,
-    "clicks": 39,
-    "impressions": 661,
-    "ctr_pct": 5.9,
-    "avg_cpc_brl": 2.07,
-    "whatsapp_conversions": 13.0,
-    "whatsapp_rate_pct": 33.3,
+    "cost_brl": 90.55,
+    "clicks": 24,
+    "impressions": 781,
+    "ctr_pct": 3.07,
+    "avg_cpc_brl": 3.77,
+    "whatsapp_conversions": 2.0,
+    "whatsapp_rate_pct": 8.3,
     "whatsapp_action_found": true,
     "daily_budget_active_brl": 50.0
   },
@@ -42,118 +42,78 @@
       "text": "desenvolvimento de sistemas",
       "match_type": "PHRASE",
       "quality_score": 3,
-      "clicks": 7,
-      "impressions": 58,
-      "cost_brl": 31.94,
-      "ctr": 12.07,
-      "avg_cpc_brl": 4.56
-    },
-    {
-      "text": "ai atendimento inteligente",
-      "match_type": "EXACT",
-      "quality_score": null,
-      "clicks": 10,
-      "impressions": 18,
-      "cost_brl": 10.8,
-      "ctr": 55.56,
-      "avg_cpc_brl": 1.08
-    },
-    {
-      "text": "criação de plataforma digital",
-      "match_type": "PHRASE",
-      "quality_score": null,
-      "clicks": 3,
-      "impressions": 19,
-      "cost_brl": 10.67,
-      "ctr": 15.79,
-      "avg_cpc_brl": 3.56
-    },
-    {
-      "text": "atendimento com IA",
-      "match_type": "PHRASE",
-      "quality_score": null,
-      "clicks": 4,
-      "impressions": 31,
-      "cost_brl": 8.26,
-      "ctr": 12.9,
-      "avg_cpc_brl": 2.06
+      "clicks": 9,
+      "impressions": 85,
+      "cost_brl": 38.67,
+      "ctr": 10.59,
+      "avg_cpc_brl": 4.3
     },
     {
       "text": "empresa de software",
       "match_type": "PHRASE",
       "quality_score": null,
-      "clicks": 2,
-      "impressions": 324,
-      "cost_brl": 6.43,
-      "ctr": 0.62,
-      "avg_cpc_brl": 3.21
+      "clicks": 7,
+      "impressions": 496,
+      "cost_brl": 26.21,
+      "ctr": 1.41,
+      "avg_cpc_brl": 3.74
     },
     {
-      "text": "whatsapp com inteligência artificial",
+      "text": "criação de plataforma digital",
       "match_type": "PHRASE",
       "quality_score": null,
-      "clicks": 5,
-      "impressions": 37,
-      "cost_brl": 3.33,
-      "ctr": 13.51,
-      "avg_cpc_brl": 0.67
+      "clicks": 4,
+      "impressions": 47,
+      "cost_brl": 14.45,
+      "ctr": 8.51,
+      "avg_cpc_brl": 3.61
+    },
+    {
+      "text": "desenvolvimento de software personalizado",
+      "match_type": "PHRASE",
+      "quality_score": null,
+      "clicks": 1,
+      "impressions": 2,
+      "cost_brl": 4.49,
+      "ctr": 50.0,
+      "avg_cpc_brl": 4.49
+    },
+    {
+      "text": "atendimento com IA",
+      "match_type": "PHRASE",
+      "quality_score": null,
+      "clicks": 1,
+      "impressions": 6,
+      "cost_brl": 3.61,
+      "ctr": 16.67,
+      "avg_cpc_brl": 3.61
     },
     {
       "text": "automação de atendimento",
       "match_type": "PHRASE",
       "quality_score": null,
       "clicks": 1,
-      "impressions": 36,
+      "impressions": 35,
       "cost_brl": 2.4,
-      "ctr": 2.78,
+      "ctr": 2.86,
       "avg_cpc_brl": 2.4
-    },
-    {
-      "text": "inteligencia artificial atendimento ao cliente",
-      "match_type": "PHRASE",
-      "quality_score": null,
-      "clicks": 2,
-      "impressions": 4,
-      "cost_brl": 2.36,
-      "ctr": 50.0,
-      "avg_cpc_brl": 1.18
-    },
-    {
-      "text": "IA para atendimento",
-      "match_type": "PHRASE",
-      "quality_score": null,
-      "clicks": 2,
-      "impressions": 9,
-      "cost_brl": 2.02,
-      "ctr": 22.22,
-      "avg_cpc_brl": 1.01
     },
     {
       "text": "automatizar atendimento",
       "match_type": "PHRASE",
       "quality_score": null,
-      "clicks": 2,
-      "impressions": 13,
-      "cost_brl": 1.48,
-      "ctr": 15.38,
-      "avg_cpc_brl": 0.74
-    },
-    {
-      "text": "automação atendimento whatsapp",
-      "match_type": "PHRASE",
-      "quality_score": null,
       "clicks": 1,
-      "impressions": 9,
-      "cost_brl": 0.94,
-      "ctr": 11.11,
-      "avg_cpc_brl": 0.94
+      "impressions": 8,
+      "cost_brl": 0.72,
+      "ctr": 12.5,
+      "avg_cpc_brl": 0.72
     },
     {
-      "text": "automatizar whatsapp",
+      "text": "IA para atendimento",
       "match_type": "PHRASE",
       "quality_score": null,
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 3,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "avg_cpc_brl": 0.0
@@ -163,23 +123,13 @@
       "match_type": "PHRASE",
       "quality_score": 1,
       "clicks": 0,
-      "impressions": 19,
+      "impressions": 10,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "avg_cpc_brl": 0.0
     },
     {
       "text": "IA para empresas",
-      "match_type": "PHRASE",
-      "quality_score": null,
-      "clicks": 0,
-      "impressions": 17,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "avg_cpc_brl": 0.0
-    },
-    {
-      "text": "automação de processos com IA",
       "match_type": "PHRASE",
       "quality_score": null,
       "clicks": 0,
@@ -193,7 +143,7 @@
       "match_type": "PHRASE",
       "quality_score": 1,
       "clicks": 0,
-      "impressions": 23,
+      "impressions": 28,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "avg_cpc_brl": 0.0
@@ -213,17 +163,7 @@
       "match_type": "PHRASE",
       "quality_score": null,
       "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "avg_cpc_brl": 0.0
-    },
-    {
-      "text": "desenvolvimento de software personalizado",
-      "match_type": "PHRASE",
-      "quality_score": null,
-      "clicks": 0,
-      "impressions": 1,
+      "impressions": 3,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "avg_cpc_brl": 0.0
@@ -233,7 +173,7 @@
       "match_type": "PHRASE",
       "quality_score": null,
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 23,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "avg_cpc_brl": 0.0
@@ -243,7 +183,7 @@
       "match_type": "PHRASE",
       "quality_score": null,
       "clicks": 0,
-      "impressions": 18,
+      "impressions": 25,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "avg_cpc_brl": 0.0
@@ -251,84 +191,12 @@
   ],
   "search_terms": [
     {
-      "term": "ai atendimento inteligente",
-      "status": "ADDED",
-      "clicks": 10,
-      "impressions": 17,
-      "cost_brl": 10.8,
-      "ctr": 58.82,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "ai whatsapp",
-      "status": "NONE",
-      "clicks": 2,
-      "impressions": 5,
-      "cost_brl": 1.59,
-      "ctr": 40.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "inteligencia artificial atendimento ao cliente",
-      "status": "ADDED",
-      "clicks": 2,
-      "impressions": 4,
-      "cost_brl": 2.36,
-      "ctr": 50.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "reset ai whatsapp",
-      "status": "NONE",
-      "clicks": 2,
-      "impressions": 5,
-      "cost_brl": 0.19,
-      "ctr": 40.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "ajuda da ia",
-      "status": "NONE",
-      "clicks": 1,
-      "impressions": 2,
-      "cost_brl": 2.04,
-      "ctr": 50.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "atendimento automatizado",
-      "status": "NONE",
-      "clicks": 1,
-      "impressions": 5,
-      "cost_brl": 0.76,
-      "ctr": 20.0,
-      "whatsapp_convertido": null
-    },
-    {
       "term": "chatbot",
       "status": "NONE",
       "clicks": 1,
-      "impressions": 2,
+      "impressions": 4,
       "cost_brl": 3.61,
-      "ctr": 50.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "chatbot inteligencia artificial",
-      "status": "NONE",
-      "clicks": 1,
-      "impressions": 1,
-      "cost_brl": 0.89,
-      "ctr": 100.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "chatbot para atendimento whatsapp",
-      "status": "NONE",
-      "clicks": 1,
-      "impressions": 2,
-      "cost_brl": 0.99,
-      "ctr": 50.0,
+      "ctr": 25.0,
       "whatsapp_convertido": null
     },
     {
@@ -341,48 +209,30 @@
       "whatsapp_convertido": null
     },
     {
-      "term": "ia no atendimento ao cliente",
+      "term": "cis live",
       "status": "NONE",
       "clicks": 1,
       "impressions": 1,
-      "cost_brl": 1.03,
+      "cost_brl": 4.4,
       "ctr": 100.0,
       "whatsapp_convertido": null
     },
     {
-      "term": "sendinblue whatsapp",
+      "term": "controla",
       "status": "NONE",
       "clicks": 1,
-      "impressions": 6,
-      "cost_brl": 0.94,
-      "ctr": 16.67,
+      "impressions": 5,
+      "cost_brl": 3.89,
+      "ctr": 20.0,
       "whatsapp_convertido": null
     },
     {
-      "term": "whatsapp ai chat",
-      "status": "NONE",
+      "term": "desenvolvimento de sistemas",
+      "status": "ADDED",
       "clicks": 1,
-      "impressions": 1,
-      "cost_brl": 1.55,
-      "ctr": 100.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "agente ia whatsapp",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "ai inteligente",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
+      "impressions": 20,
+      "cost_brl": 3.86,
+      "ctr": 5.0,
       "whatsapp_convertido": null
     },
     {
@@ -413,15 +263,6 @@
       "whatsapp_convertido": null
     },
     {
-      "term": "chatbot whatsapp",
-      "status": "ADDED",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
       "term": "clickchat",
       "status": "NONE",
       "clicks": 0,
@@ -440,43 +281,16 @@
       "whatsapp_convertido": null
     },
     {
-      "term": "conversa com ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 4,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "conversar com a ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "conversar com ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 6,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
       "term": "criando chatbot whatsapp",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 1,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
     },
     {
-      "term": "criar um chatbot para whatsapp",
+      "term": "evolution go",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -485,73 +299,10 @@
       "whatsapp_convertido": null
     },
     {
-      "term": "desativar ia do whatsapp",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "devzapp",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "falar com a ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "falar com ia",
+      "term": "gigachat app",
       "status": "NONE",
       "clicks": 0,
       "impressions": 2,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "fale com ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "grupo de ia whatsapp",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "ia do whatsapp",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 3,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "ia respondendo whatsapp",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -566,100 +317,10 @@
       "whatsapp_convertido": null
     },
     {
-      "term": "jet sales brasil",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "luzia ia whatsapp",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 2,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "luzia numero",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "mega ultrafox",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
       "term": "onvio messenger",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "queria falar com a ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "quero ajuda da ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "quero conversar com a ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 2,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "quero falar com a ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 2,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "quero falar com a inteligência artificial",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "quero falar com ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 2,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -683,34 +344,16 @@
       "whatsapp_convertido": null
     },
     {
-      "term": "voca ai",
+      "term": "unocrm",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
     },
     {
       "term": "wacrm",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "whatsapp ai bot",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "whatsapp automação",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -737,62 +380,8 @@
       "whatsapp_convertido": null
     },
     {
-      "term": "whatsapp ura",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "zapsender",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
       "term": "automatizar processos",
       "status": "ADDED",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "automação digital",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "collaborai ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 2,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "double ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 4,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "headoffice ia",
-      "status": "NONE",
       "clicks": 0,
       "impressions": 1,
       "cost_brl": 0.0,
@@ -809,52 +398,7 @@
       "whatsapp_convertido": null
     },
     {
-      "term": "ia para nomes de empresas",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
       "term": "industri ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "leap ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "mercos ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "mule rum ia",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "noimosai",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -885,15 +429,6 @@
       "status": "NONE",
       "clicks": 0,
       "impressions": 2,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
-      "term": "tech for humans",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 1,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -948,6 +483,15 @@
       "status": "NONE",
       "clicks": 0,
       "impressions": 2,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "adv sistema",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -1070,7 +614,34 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "automatiza tec",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "avante sistema",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "belle software",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "benu erp",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -1083,6 +654,15 @@
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "bluesoft erp mobile",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -1115,6 +695,15 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "ciss sistema",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "citel software",
       "status": "NONE",
       "clicks": 0,
@@ -1125,6 +714,15 @@
     },
     {
       "term": "clairis software",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "cloud fy",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -1172,7 +770,16 @@
       "term": "comhub",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 22,
+      "impressions": 25,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "composio",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -1196,15 +803,6 @@
       "whatsapp_convertido": null
     },
     {
-      "term": "controla",
-      "status": "NONE",
-      "clicks": 0,
-      "impressions": 2,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
       "term": "criar loja virtual",
       "status": "NONE",
       "clicks": 0,
@@ -1217,13 +815,22 @@
       "term": "criar plataforma",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
     },
     {
       "term": "criar saas",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "criar um site para vender produtos",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -1245,6 +852,15 @@
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "cwi ponto",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -1286,15 +902,6 @@
       "whatsapp_convertido": null
     },
     {
-      "term": "desenvolvimento de sistemas",
-      "status": "ADDED",
-      "clicks": 0,
-      "impressions": 9,
-      "cost_brl": 0.0,
-      "ctr": 0.0,
-      "whatsapp_convertido": null
-    },
-    {
       "term": "desenvolvimento de sistemas etec grade curricular",
       "status": "NONE",
       "clicks": 0,
@@ -1316,7 +923,7 @@
       "term": "desenvolvimento de software",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 3,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -1376,6 +983,24 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "durable ai",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "durable ia",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "dvsi erp",
       "status": "NONE",
       "clicks": 0,
@@ -1421,8 +1046,35 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "empresa db1",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "empresa de desenvolvimento de software",
       "status": "ADDED",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "empresa devops",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "empresa digai",
+      "status": "NONE",
       "clicks": 0,
       "impressions": 1,
       "cost_brl": 0.0,
@@ -1448,6 +1100,15 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "empresa kis",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "empresa nexdom",
       "status": "NONE",
       "clicks": 0,
@@ -1458,6 +1119,15 @@
     },
     {
       "term": "empresa oracle",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "empresa qyon",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -1505,7 +1175,7 @@
       "term": "empresas de saas",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 3,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -1529,7 +1199,7 @@
       "whatsapp_convertido": null
     },
     {
-      "term": "firebase studio",
+      "term": "explend tecnologia da informação",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -1538,10 +1208,46 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "fabrica de software",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "firebase studio",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "flutterflow",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 7,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "flutterflow io",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "fortes",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -1565,6 +1271,15 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "gestor tec pro",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "harpia sistema",
       "status": "NONE",
       "clicks": 0,
@@ -1574,7 +1289,34 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "hcl digital experience",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "https turing com",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "i manager",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "ideias de sistemas para desenvolver",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -1610,6 +1352,24 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "izap com",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 6,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "izap com br",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "jet sistemas planejamento",
       "status": "NONE",
       "clicks": 0,
@@ -1629,6 +1389,15 @@
     },
     {
       "term": "linx erp",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "linx sistema",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -1682,10 +1451,19 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "micro 1 empresa",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "micro saas com ia",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 8,
+      "impressions": 11,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -1701,6 +1479,15 @@
     },
     {
       "term": "mobirise ai",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "modelar tecnologia da informacao ltda",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -1730,7 +1517,7 @@
       "term": "mult softcenter br",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -1757,7 +1544,7 @@
       "term": "multi softcenter br",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 12,
+      "impressions": 17,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -1772,10 +1559,19 @@
       "whatsapp_convertido": null
     },
     {
-      "term": "multisoft center br",
+      "term": "multi software center br",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "multisoft center br",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 4,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -1785,6 +1581,24 @@
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "mysystem",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "n3uron",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -1844,7 +1658,34 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "odo com",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "oficina 5 uberaba",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "onticket automação",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "opencloud",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -1874,7 +1715,7 @@
       "term": "paipe conecta",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 3,
+      "impressions": 4,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -1952,7 +1793,25 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "praqt sistema",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "primavera software",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "proa ai",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -1979,6 +1838,15 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "puglisi desenvolvimento de sistemas",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "quasar tecnologia e gestão",
       "status": "NONE",
       "clicks": 0,
@@ -1988,7 +1856,34 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "requestia service management",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "runtask",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "saas com ia",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "saas erp",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -2009,7 +1904,16 @@
       "term": "saurus v4",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "se suite",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -2018,7 +1922,25 @@
       "term": "senior cloud",
       "status": "NONE",
       "clicks": 0,
+      "impressions": 2,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "senior gestão empresarial",
+      "status": "NONE",
+      "clicks": 0,
       "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "senior platform",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -2027,7 +1949,7 @@
       "term": "senior x platform",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 4,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -2051,6 +1973,24 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "sga hinova soluções digitais",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "sigma bi",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "sigma sistema de gestão",
       "status": "NONE",
       "clicks": 0,
@@ -2064,6 +2004,15 @@
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "singlec",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -2105,6 +2054,42 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "sistema mk",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "sistema scanntech",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "sistema wmc",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "sisteplan softwares e equipamentos ltda",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "skalo",
       "status": "NONE",
       "clicks": 0,
@@ -2117,7 +2102,16 @@
       "term": "skywork ai",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 9,
+      "impressions": 17,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "skywork ia",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -2136,6 +2130,15 @@
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "softage",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 3,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -2171,7 +2174,16 @@
       "term": "software house",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 2,
+      "impressions": 6,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "software senior",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -2180,7 +2192,7 @@
       "term": "software show",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 7,
+      "impressions": 9,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -2208,6 +2220,15 @@
       "status": "NONE",
       "clicks": 0,
       "impressions": 3,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "somos ed",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
@@ -2261,13 +2282,31 @@
       "term": "sydle empresa",
       "status": "NONE",
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 2,
       "cost_brl": 0.0,
       "ctr": 0.0,
       "whatsapp_convertido": null
     },
     {
       "term": "sys map",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "system pro",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "t sistem",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -2304,6 +2343,24 @@
     },
     {
       "term": "v8sistema",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "vbs sistema",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 1,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
+      "term": "versecode",
       "status": "NONE",
       "clicks": 0,
       "impressions": 1,
@@ -2357,6 +2414,15 @@
       "whatsapp_convertido": null
     },
     {
+      "term": "www argon com br",
+      "status": "NONE",
+      "clicks": 0,
+      "impressions": 2,
+      "cost_brl": 0.0,
+      "ctr": 0.0,
+      "whatsapp_convertido": null
+    },
+    {
       "term": "www softclass com br",
       "status": "NONE",
       "clicks": 0,
@@ -2376,12 +2442,6 @@
     }
   ],
   "daily_clicks": [
-    {
-      "date": "2026-08-20",
-      "clicks": 24,
-      "impressions": 150,
-      "cost_brl": 24.86
-    },
     {
       "date": "2026-08-21",
       "clicks": 0,
@@ -2405,6 +2465,12 @@
       "clicks": 2,
       "impressions": 50,
       "cost_brl": 5.19
+    },
+    {
+      "date": "2026-08-27",
+      "clicks": 9,
+      "impressions": 270,
+      "cost_brl": 34.78
     }
   ],
   "hourly_heatmap": [
@@ -2732,73 +2798,101 @@
     },
     {
       "day_of_week": "THURSDAY",
-      "hour": 7,
-      "clicks": 1,
-      "impressions": 4,
-      "cost_brl": 0.1
-    },
-    {
-      "day_of_week": "THURSDAY",
-      "hour": 8,
-      "clicks": 6,
-      "impressions": 28,
-      "cost_brl": 6.9
-    },
-    {
-      "day_of_week": "THURSDAY",
-      "hour": 9,
-      "clicks": 4,
-      "impressions": 20,
-      "cost_brl": 5.12
-    },
-    {
-      "day_of_week": "THURSDAY",
       "hour": 10,
-      "clicks": 1,
-      "impressions": 22,
-      "cost_brl": 1.35
+      "clicks": 0,
+      "impressions": 10,
+      "cost_brl": 0.0
     },
     {
       "day_of_week": "THURSDAY",
       "hour": 11,
-      "clicks": 4,
-      "impressions": 19,
-      "cost_brl": 3.74
+      "clicks": 3,
+      "impressions": 26,
+      "cost_brl": 11.49
     },
     {
       "day_of_week": "THURSDAY",
       "hour": 12,
-      "clicks": 3,
-      "impressions": 19,
-      "cost_brl": 3.33
+      "clicks": 1,
+      "impressions": 24,
+      "cost_brl": 3.89
     },
     {
       "day_of_week": "THURSDAY",
       "hour": 13,
       "clicks": 0,
-      "impressions": 15,
+      "impressions": 11,
       "cost_brl": 0.0
     },
     {
       "day_of_week": "THURSDAY",
       "hour": 14,
-      "clicks": 5,
-      "impressions": 18,
-      "cost_brl": 4.32
+      "clicks": 3,
+      "impressions": 21,
+      "cost_brl": 10.51
     },
     {
       "day_of_week": "THURSDAY",
       "hour": 15,
       "clicks": 0,
-      "impressions": 4,
+      "impressions": 1,
       "cost_brl": 0.0
+    },
+    {
+      "day_of_week": "THURSDAY",
+      "hour": 16,
+      "clicks": 0,
+      "impressions": 7,
+      "cost_brl": 0.0
+    },
+    {
+      "day_of_week": "THURSDAY",
+      "hour": 17,
+      "clicks": 0,
+      "impressions": 12,
+      "cost_brl": 0.0
+    },
+    {
+      "day_of_week": "THURSDAY",
+      "hour": 18,
+      "clicks": 0,
+      "impressions": 26,
+      "cost_brl": 0.0
+    },
+    {
+      "day_of_week": "THURSDAY",
+      "hour": 19,
+      "clicks": 1,
+      "impressions": 12,
+      "cost_brl": 4.4
     },
     {
       "day_of_week": "THURSDAY",
       "hour": 20,
       "clicks": 0,
-      "impressions": 1,
+      "impressions": 18,
       "cost_brl": 0.0
+    },
+    {
+      "day_of_week": "THURSDAY",
+      "hour": 21,
+      "clicks": 0,
+      "impressions": 50,
+      "cost_brl": 0.0
+    },
+    {
+      "day_of_week": "THURSDAY",
+      "hour": 22,
+      "clicks": 0,
+      "impressions": 42,
+      "cost_brl": 0.0
+    },
+    {
+      "day_of_week": "THURSDAY",
+      "hour": 23,
+      "clicks": 1,
+      "impressions": 10,
+      "cost_brl": 4.49
     },
     {
       "day_of_week": "FRIDAY",
@@ -2818,7 +2912,7 @@
   "recommendations": [
     {
       "severity": "alerta",
-      "texto": "Keyword 'empresa de software' (PHRASE) está desperdiçando impressão: 324 impressões, CTR de 0.62% (muito abaixo da média). Considere revisar o match type ou pausar."
+      "texto": "Keyword 'empresa de software' (PHRASE) está desperdiçando impressão: 496 impressões, CTR de 1.41% (muito abaixo da média). Considere revisar o match type ou pausar."
     }
   ]
 }

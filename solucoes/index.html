@@ -82,8 +82,7 @@
         .ag-courses-item_title { margin: 0; font-weight: bold; font-size: 10px; color: #fff; z-index: 2; position: relative; line-height: 1.3; }
         .ag-courses-item_bg { height: 90px; width: 90px; z-index: 1; position: absolute; top: -55px; right: -55px; border-radius: 50%; transition: all 0.5s ease; }
 
-        /* ── Mobile ≤768px: cards de serviço em 2 linhas fixas, cada uma com
-           scroll horizontal independente (uma linha por .service-row) ──
+        /* ── Mobile ≤768px: cards de serviço em grid responsivo automático ──
            Continuam dentro do <header> (não movi no DOM): .header-inner-v2
            ganha flex-wrap e .services-nav força quebra de linha própria
            (order + flex-basis:100%) — cai numa faixa abaixo de logo+burger,
@@ -96,43 +95,35 @@
                 flex-basis: 100%;
                 margin: 0;
                 width: 100%;
-                padding: 8px 0;
+                padding: 8px 12px;
             }
 
             .services-cluster {
-                display: flex;
-                flex-direction: column;
-                gap: 6px;
-                align-items: flex-start;
-                overflow: visible;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+                gap: 8px;
+                width: 100%;
+                align-items: stretch;
             }
 
             .service-row {
-                display: flex !important;
-                flex-direction: row;
-                flex-wrap: nowrap;
-                overflow-x: auto;
-                overflow-y: hidden;
-                -webkit-overflow-scrolling: touch;
-                scroll-snap-type: x mandatory;
-                gap: 6px;
-                padding: 0 12px;
-                width: 100%;
-            }
-
-            .service-row::-webkit-scrollbar {
-                display: none;
+                display: contents !important;
             }
 
             .ag-courses_item {
-                scroll-snap-align: start;
-                flex-shrink: 0;
+                width: 100%;
+            }
+
+            .ag-courses-item_link {
+                padding: 12px 14px;
+                width: 100%;
             }
 
             .ag-courses-item_title {
-                white-space: nowrap;
-                font-size: 11px;
+                font-size: 12px;
                 min-height: unset;
+                white-space: normal;
+                line-height: 1.3;
             }
         }
 
@@ -148,6 +139,40 @@
            card em "start" — os demais continuam centralizando (efeito peek). */
         .videos-grid { padding-inline-start: 0; scroll-padding-inline-start: 0; }
         .videos-grid .phone-card:first-child { scroll-snap-align: start; }
+
+        /* ── Seta de "deslize" sobre o carrossel — some no 1º swipe ou em 3s ── */
+        .swipe-hint {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 32px;
+            color: white;
+            background: rgba(0,0,0,0.35);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: swipePulse 1s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 10;
+            transition: opacity 0.4s;
+        }
+
+        .swipe-hint.hidden {
+            opacity: 0;
+        }
+
+        @keyframes swipePulse {
+            0%, 100% { transform: translateY(-50%) translateX(0); opacity: 1; }
+            50% { transform: translateY(-50%) translateX(6px); opacity: 0.5; }
+        }
+
+        @media (min-width: 769px) {
+            .swipe-hint { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -414,6 +439,7 @@
                 <button type="button" class="carousel-arrow carousel-arrow--next" aria-label="Próximo projeto">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
+                <div class="swipe-hint" id="swipeHint" aria-hidden="true"><span>›</span></div>
             </div>
             <div class="carousel-dots" role="tablist" aria-label="Selecionar projeto"></div>
         </section>
@@ -669,6 +695,19 @@
 
     <!-- Header, menu, carrossel, contadores, reveal -->
     <script src="../landing-v2.js"></script>
+
+    <!-- Some a dica de swipe do carrossel apos primeiro toque ou 3s -->
+    <script>
+    (function () {
+      "use strict";
+      var hint = document.getElementById("swipeHint");
+      if (!hint) return;
+      var hideHint = function () { hint.classList.add("hidden"); };
+      setTimeout(hideHint, 3000);
+      var container = hint.closest(".phone-carousel, section");
+      if (container) container.addEventListener("touchstart", hideHint, { once: true });
+    })();
+    </script>
 
     <!--
       Somar Automacao — Eventos de conversao para a campanha de Busca

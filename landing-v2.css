@@ -801,6 +801,12 @@
 
 .footer-bottom-v2 .footer-legal-v2 a:hover { color: var(--text-primary); }
 
+/* Evita que o texto dos links legais passe por baixo do botão flutuante
+   do WhatsApp (fixed, canto inferior direito, ~60px + margem) no mobile. */
+@media (max-width: 480px) {
+  .footer-legal-v2 { padding-right: 80px; }
+}
+
 /* ─────────────────────────────────────────────────────
    REVEAL UTILITY
 ───────────────────────────────────────────────────── */
@@ -831,7 +837,7 @@
 
   .cta-final-v2 { padding: 2.25rem 1.25rem; }
 
-  .footer-inner-v2 { grid-template-columns: 1fr; gap: 2rem; text-align: left; }
+  .footer-inner-v2 { grid-template-columns: 1fr; gap: 2rem; text-align: left; margin-bottom: 2rem; }
   .footer-brand-v2 .footer-tagline-v2 { max-width: none; }
   .footer-bottom-v2 { flex-direction: column; align-items: flex-start; text-align: left; }
 }

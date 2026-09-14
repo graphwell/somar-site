@@ -1,0 +1,49 @@
+{
+  "task": "fix-footer-mobile",
+  "timestamp": "2026-09-14T00:00:00-03:00",
+  "requested_by": "Francisco",
+  "scope_note": "mesa-certa/index.html tem o mesmo texto de CNPJ mas esta untracked no git (junto de BACKLOG.md, README-mesa-certa.md, ads-somar/, assinatura-eletronica/) -- excluido desta correcao por decisao explicita do usuario, para nao misturar trabalho em andamento nao versionado neste commit.",
+  "problems": [
+    {
+      "id": 1,
+      "description": "Links legais do rodape (Politica de Privacidade / Termos de Uso / Exclusao de Dados) cortados pelo botao flutuante do WhatsApp no mobile.",
+      "shared_component": true,
+      "fix": "Adicionado padding-right: 80px em .footer-legal-v2 dentro de @media (max-width: 480px), em landing-v2.css.",
+      "files_changed": ["landing-v2.css"],
+      "pages_affected": 19,
+      "note": "landing-v2.css e carregado via caminho absoluto /landing-v2.css pelas 19 paginas que usam a classe footer-v2 -- uma unica edicao corrige todas."
+    },
+    {
+      "id": 2,
+      "description": "CNPJ 65.771.133/0001-07 quebrando de linha entre '0001-' e '07' no rodape.",
+      "shared_component": false,
+      "fix": "Envolvido '65.771.133/0001-07' em <span style=\"white-space: nowrap\"> em cada arquivo. Nao existe componente de rodape compartilhado no nivel de HTML (cada pagina tem o markup do footer duplicado) -- so o CSS (landing-v2.css) e compartilhado.",
+      "files_changed": [
+        "index.html", "sistemas.html", "marketlens.html", "domvia.html",
+        "automacao-ia-empresas.html", "consultoria-ia-negocios.html",
+        "criacao-plataformas-web.html", "desenvolvimento-sistemas-personalizados.html",
+        "links.html", "termos-de-uso/index.html", "solucoes/index.html",
+        "politica-de-privacidade/index.html", "planos/index.html",
+        "gerador-qr-code-gratis/index.html", "exclusao-de-dados/index.html",
+        "diagnostico/index.html", "contato/index.html", "como-funciona/index.html",
+        "automacao-whatsapp-ia/index.html"
+      ],
+      "excluded_not_touched": [
+        "contato/index.html linha ~176: outra ocorrencia do CNPJ (bloco 'Sede em Fortaleza, CE'), fora do rodape -- fora do escopo desta tarefa, nao alterado.",
+        "JSON-LD 'taxID': '65.771.133/0001-07' em varios arquivos -- e valor de string JSON, nao texto renderizado; nao deve receber tag HTML.",
+        "mesa-certa/index.html -- untracked no git, excluido por decisao do usuario."
+      ]
+    },
+    {
+      "id": 3,
+      "description": "Espaco excessivo entre o ultimo card de WhatsApp (Nordeste) e o bloco de copyright no mobile.",
+      "shared_component": true,
+      "root_cause": ".footer-inner-v2 tinha margin-bottom: 2.5rem (40px) herdado do desktop, que no mobile (colunas em pilha) some visualmente colado ao padding-top: 1.75rem (28px) de .footer-bottom-v2, totalizando ~68px. Nao havia elemento vazio (div/hr) -- era margin explicito.",
+      "fix": "Adicionado margin-bottom: 2rem (32px) em .footer-inner-v2 dentro do @media (max-width: 768px) ja existente em landing-v2.css, substituindo o valor herdado de 40px.",
+      "files_changed": ["landing-v2.css"],
+      "pages_affected": 19
+    }
+  ],
+  "files_changed_total": 20,
+  "git_commit_message": "fix: rodapé mobile — links legais, CNPJ nowrap, espaçamento"
+}

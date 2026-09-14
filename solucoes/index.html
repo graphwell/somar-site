@@ -48,9 +48,14 @@
             max-width: var(--max-w, 1100px);
         }
 
-        .hero .cta-wrap { text-align: center; }
-        @media (min-width: 769px) {
-            .hero .cta-wrap { text-align: left; }
+        /* Botão da hero foi removido (2026-09-14) -- .hero p tinha margin-bottom
+           de 2.5rem (herdado de lp-styles.css) pensado como respiro antes do
+           botão; sem ele, esse valor só soma com o padding-bottom do .hero
+           acima e cria vão duplicado. Zera aqui para o padding do .hero virar
+           a única fonte de espaço também na base, mesma lógica do comentário
+           do topo desta tag <style>. */
+        .hero p {
+            margin-bottom: 0;
         }
 
         .section-videos-v2 { padding: 0.5rem 1.5rem 0; }
@@ -322,9 +327,6 @@
             <div class="hero-glow" aria-hidden="true"></div>
             <h1 class="hero-anim">Automações inteligentes para cada desafio do seu negócio</h1>
             <p class="hero-anim">Da ideia à execução — criamos sistemas com IA que trabalham por você enquanto você foca no que importa.</p>
-            <div class="cta-wrap hero-anim">
-                <a href="https://wa.me/5585992556672?text=Ol%C3%A1%21+Quero+fazer+o+diagn%C3%B3stico+gratuito+de+automa%C3%A7%C3%A3o+para+minha+empresa." class="btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Fazer Diagnóstico Gratuito →</a>
-            </div>
         </section>
 
         <!-- Cards de serviço para mobile — mesmos 10 cards da nav do header,

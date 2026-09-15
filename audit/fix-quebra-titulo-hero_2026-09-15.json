@@ -1,0 +1,35 @@
+{
+  "task": "fix-quebra-titulo-hero",
+  "file": "solucoes/index.html",
+  "timestamp_log_escrito_antes_de_commit_e_push": "2026-09-15T00:00:00-03:00",
+  "status": "APPLIED_LOCALMENTE_AGUARDANDO_COMMIT_PUSH",
+  "motivo": "\"Sistemas e automações sob medida\" quebrava depois de \"sob\" no desktop, deixando \"medida\" sozinha na segunda linha.",
+  "leitura_passo_1": {
+    "font_size_desktop": "clamp(2.5rem, 6vw, 4rem) -- .hero h1, styles.css:127. Trava em 4rem (64px) a partir de ~1067px de viewport (6vw=64px quando W=1066.67px).",
+    "container_hero": "styles.css define .hero max-width:1200px (compartilhado), mas solucoes/index.html:48 sobrescreve localmente para max-width: var(--max-w, 1100px), padding 1.5rem (24px) cada lado -- 1052px de largura útil quando o viewport permite o .hero atingir o cap de 1100px.",
+    "max_width_h1_original": "900px (styles.css:130) -- essa era a causa direta da quebra: o texto ultrapassa 900px de largura natural.",
+    "white_space_original": "não definido em nenhum arquivo -- ausência confirmada.",
+    "achado_extra_nao_pedido_explicitamente": "font-weight do h1 na prática é 300 (light), não 700/800: h1{font-weight} é setado 3x com a mesma especificidade (0,0,0,1) em styles.css (700), lp-styles.css (800) e lp-migration.css (300, por último no <head> -- vence a cascata). .hero-v2 h1 em landing-v2.css só seta text-align, não interfere. Isso reduz a largura média do texto renderizado em relação a uma suposição de peso bold, o que pesou a favor de 1050px ser suficiente."
+  },
+  "escopo": {
+    "shared_component_check": "h1 dentro de <section class=\"hero hero-v2\">, compartilhada com automacao-whatsapp-ia/index.html (também usa hero-v2) e com a home (estrutura de hero diferente, hero-inner, não afetada). A nova regra entra só no <style> local de solucoes/index.html -- não toca .hero, .hero-v2 nem h1 em styles.css/lp-styles.css/lp-migration.css/landing-v2.css, então automacao-whatsapp-ia/ e a home ficam intocadas.",
+    "arquivos_tocados": ["solucoes/index.html"],
+    "arquivos_explicitamente_nao_tocados": ["styles.css", "lp-styles.css", "lp-migration.css", "landing-v2.css"]
+  },
+  "mudanca_css": {
+    "localizacao": "solucoes/index.html, dentro da tag <style> local, logo após o bloco @media (max-width: 480px) existente (h1 1.875rem)",
+    "regra_adicionada": "@media (min-width: 769px) { .hero h1 { max-width: 1050px; white-space: nowrap; } }",
+    "abordagem_escolhida": "(b) aumentar max-width do h1, não reduzir o clamp -- preserva o tamanho visual da fonte em telas largas (a abordagem (a) teria reduzido o cap do clamp de 4rem para 3.25rem, diminuindo a hero em toda tela >=867px de largura, considerado mais invasivo)",
+    "mobile_intocado": "@media (max-width: 480px) com .hero h1{font-size:1.875rem} não foi alterado -- continua permitindo quebra em 2 linhas no mobile, como antes."
+  },
+  "verificacao_faixa_769_1067px": {
+    "pedido": "verificar se o nowrap causa transbordo horizontal entre 769px (onde a nav do header vira hero de largura total) e ~1067px (onde o clamp trava em 4rem/64px), já que nessa faixa o font-size ainda está subindo com 6vw.",
+    "metodo": "estimativa matemática (largura de container - largura de padding) vs (nº de caracteres * largura média estimada de glifo em Fraunces peso 300) -- SEM navegador conectado nesta sessão para medir o pixel real renderizado.",
+    "texto": "Sistemas e automações sob medida (28 letras + 4 espaços = 32 caracteres)",
+    "estimativa_pior_caso_w769": "container útil ~721px (769 - 48 de padding); largura estimada do texto a 46px (6vw de 769) ~696px -- cabe, margem ~25px (~3.5%)",
+    "estimativa_no_cap_w1067": "container útil ~1019px (1067 capado a 1100, - 48 padding); largura estimada do texto a 64px (cap do clamp) ~965px -- cabe, margem ~54px (~5.6%)",
+    "resultado": "estimativa indica que CABE em toda a faixa 769-1067px e também acima (viewport >=1100px, container útil 1052px vs texto estimado ~965px a 64px), sem necessidade de reduzir o clamp.",
+    "confianca": "MÉDIA -- estimativa de largura média de glifo (~0.5em/letra, ~0.27em/espaço) é aproximação, não medição real da fonte Fraunces renderizada. Erro de estimativa de ±15% ainda deixaria a faixa 769-1067px dentro da margem calculada, mas não elimina 100% o risco visual.",
+    "recomendacao": "aplicado como pedido (nowrap garante 1 linha mesmo se a estimativa estiver errada -- o risco nesse caso é o texto encostar/ultrapassar visualmente a borda do container em vez de quebrar, não voltar a quebrar). Sugerido: conferir visualmente numa tela ~800-900px de largura na próxima vez que o Chrome estiver conectado; se transbordar, reduzir o clamp (ex.: 4rem -> 3.5rem) é o próximo passo, não descartar o nowrap."
+  }
+}

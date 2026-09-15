@@ -76,6 +76,19 @@
             .hero { padding: 2rem 1.25rem 2.25rem; }
         }
 
+        /* ── Hero enxuta (2026-09-14): título+subtítulo menores em telas bem
+           estreitas, para os cards de serviço entrarem mais perto da dobra.
+           .hero h1 herda de styles.css (clamp 2.5rem–4rem, efetivamente
+           2.5rem fixo em qualquer largura <=576px) e .hero p de
+           lp-styles.css (1.25rem fixo) -- nenhum dos dois é tocado, só
+           sobrescrito aqui, local a esta página (não afeta
+           automacao-whatsapp-ia/index.html, que também usa .hero-v2). */
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.875rem; margin-bottom: 1.1rem; }
+            .hero p { font-size: 1rem; }
+            .hero { padding: 1.5rem 1.25rem 1.75rem; }
+        }
+
         /* ── Cards de serviço na nav (canto superior direito) ── */
         /* From Uiverse.io by Bodyhc — padding/font-size escalados para caber na altura da nav */
         .services-nav { display: flex; align-items: center; margin-left: auto; margin-right: 1.25rem; }
@@ -325,8 +338,8 @@
     <main>
         <section class="hero hero-v2">
             <div class="hero-glow" aria-hidden="true"></div>
-            <h1 class="hero-anim">Automações inteligentes para cada desafio do seu negócio</h1>
-            <p class="hero-anim">Da ideia à execução — criamos sistemas com IA que trabalham por você enquanto você foca no que importa.</p>
+            <h1 class="hero-anim">Sistemas e automações sob medida</h1>
+            <p class="hero-anim">Da ideia à execução.</p>
         </section>
 
         <!-- Cards de serviço para mobile — mesmos 10 cards da nav do header,

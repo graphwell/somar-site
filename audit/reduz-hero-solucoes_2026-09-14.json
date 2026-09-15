@@ -1,0 +1,50 @@
+{
+  "task": "reduz-hero-solucoes",
+  "file": "solucoes/index.html",
+  "timestamp_log_escrito_antes_de_aplicar": "2026-09-14T00:00:00-03:00",
+  "status": "APPLIED",
+  "motivo": "No mobile o titulo ocupava 4 linhas e o subtitulo 3, empurrando os cards de servico para fora da dobra. GA4 do dia mostrou 10 usuarios na pagina e so 2 registrando scroll -- a maioria nunca chega aos cards, e a campanha esta pagando por esse trafego.",
+  "escopo": {
+    "shared_component_check": "A hero usa class=\"hero hero-v2\", combinacao tambem usada por automacao-whatsapp-ia/index.html. O font-size de .hero h1 vem de styles.css (compartilhado, clamp(2.5rem,6vw,4rem)) e .hero p de lp-styles.css (compartilhado, 1.25rem fixo). NENHUM desses 2 arquivos compartilhados sera tocado -- o override de mobile entra so no <style> local de solucoes/index.html, exatamente como ja foi feito antes nesta mesma pagina (ver comentario original do topo do <style>). automacao-whatsapp-ia/index.html e a home (index.html, estrutura de hero totalmente diferente -- .hero-inner/.hero-kicker/.hero-actions/.hero-stats-strip, sem hero-v2) ficam intocadas.",
+    "arquivos_tocados": ["solucoes/index.html"],
+    "arquivos_explicitamente_nao_tocados": ["styles.css", "lp-styles.css", "landing-v2.css"]
+  },
+  "mudancas_de_texto": {
+    "titulo": {
+      "antes": "Automações inteligentes para cada desafio do seu negócio",
+      "depois": "Sistemas e automações sob medida"
+    },
+    "subtitulo": {
+      "antes": "Da ideia à execução — criamos sistemas com IA que trabalham por você enquanto você foca no que importa.",
+      "depois": "Da ideia à execução."
+    }
+  },
+  "mudancas_de_tamanho_mobile_max_width_480px": {
+    "novo_bloco_media_query": true,
+    "h1": {
+      "valor_atual_efetivo_mobile": "2.5rem / 40px (clamp(2.5rem,6vw,4rem) -- o componente vw fica abaixo do piso em qualquer largura <=576px, entao o valor renderizado e sempre 2.5rem nesse range)",
+      "valor_novo": "1.875rem / 30px",
+      "reducao_pct": "25%",
+      "escopo": "apenas dentro de @media (max-width: 480px), local a esta pagina -- desktop e telas 481-768px nao mudam"
+    },
+    "p": {
+      "valor_atual": "1.25rem / 20px (fixo, sem media query hoje)",
+      "valor_novo": "1rem / 16px",
+      "reducao_pct": "20%",
+      "escopo": "apenas dentro de @media (max-width: 480px)"
+    }
+  },
+  "mudancas_de_espacamento_mobile_480px": {
+    "motivo": "Com titulo e subtitulo menores, o padding vertical da hero (herdado do bloco @media 768px existente: 2rem/1.25rem/2.25rem) ficaria desproporcional -- reduzido na mesma proporcao para nao sobrar vao vazio.",
+    "hero_padding": {
+      "antes_768px": "2rem 1.25rem 2.25rem (32px/20px/36px)",
+      "depois_480px": "1.5rem 1.25rem 1.75rem (24px/20px/28px)",
+      "nota": "reducao de ~25% no padding vertical (topo e base), mantendo os 1.25rem laterais -- mesma proporcao da reducao do h1"
+    },
+    "h1_margin_bottom": {
+      "antes": "1.5rem (herdado de styles.css .hero h1, compartilhado)",
+      "depois_480px": "1.1rem",
+      "escopo": "override local, so 480px, nao toca styles.css"
+    }
+  }
+}

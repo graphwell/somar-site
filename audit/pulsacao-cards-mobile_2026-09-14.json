@@ -1,0 +1,42 @@
+{
+  "task": "pulsacao-cards-mobile",
+  "file": "solucoes/index.html",
+  "timestamp_log_escrito_antes_de_aplicar": "2026-09-14T00:00:00-03:00",
+  "status": "APPLIED",
+  "motivo": "No mobile nao existe :hover, entao os cards pareciam blocos estaticos. A seta adicionada na tarefa anterior (opacity 0.45) foi testada visualmente e o usuario nao percebeu.",
+  "mudanca_de_criterio_registrada": {
+    "criterio_anterior": "Tarefa affordance-cards (mesmo dia): 'Nenhuma animacao em loop, nada que se mova sozinho' -- decisao explicita do usuario naquele momento.",
+    "novo_criterio": "Substituido por movimento alternado em loop continuo, por decisao do usuario APOS teste visual real (a versao estatica com seta em opacity 0.45 nao comunicou clicabilidade). Nao e uma correcao minha -- e uma mudanca de direcao deliberada, registrada aqui para nao ser tratada como inconsistencia em sessao futura."
+  },
+  "passo_1_hover_desktop_atual": {
+    "selector": ".ag-courses-item_link:hover .ag-courses-item_bg",
+    "transform": "scale(10)",
+    "duration": "0.5s",
+    "easing": "ease",
+    "mecanismo": "transition (nao @keyframes) -- disparado por :hover, nao alterado por esta tarefa",
+    "elemento_base": ".ag-courses-item_bg { height:90px; width:90px; position:absolute; top:-55px; right:-55px; border-radius:50%; }"
+  },
+  "escopo": {
+    "shared_component_check": "Escopado inteiramente em .services-body-grid (mesmo padrao das 2 tarefas anteriores no mesmo dia). O dropdown do header (.services-nav/.services-cluster) usa as mesmas classes base mas NAO recebe nenhuma das regras novas -- .ag-courses-item_link:hover .ag-courses-item_bg (desktop) fica intocado.",
+    "arquivos_tocados": ["solucoes/index.html"]
+  },
+  "mudancas": {
+    "a_opacidade_seta": {"antes": 0.45, "depois": 0.8},
+    "b_animacao_alternada": {
+      "ativa_apenas_em": "@media (max-width: 768px) and (prefers-reduced-motion: no-preference)",
+      "variaveis_css_expostas": {
+        "--card-pulse-cycle": "10s -- duracao total do ciclo (animation-duration)",
+        "--card-pulse-active": "1s -- documenta a janela ativa pretendida (usada para escolher os % das @keyframes: 10% de 10s = 1s). Limitacao do CSS: percentuais dentro de @keyframes nao aceitam var(), entao mudar so --card-pulse-cycle sem tocar nos % das keyframes escala a janela ativa proporcionalmente (ex.: cycle=8s -> janela ativa vira 0.8s automaticamente). Documentado em comentario no CSS.",
+        "--card-pulse-stagger": "1s -- multiplicador de animation-delay por card via calc(var(--card-pulse-stagger) * N), N de 0 a 9 (nth-child 1 a 10). Mudar essa variavel ajusta o delay dos 10 cards de uma vez, sem reescrever cada nth-child."
+      },
+      "keyframes": {
+        "card-pulse-bg": "0% scale(1) -> 3% scale(10) [rampa entrada 0.3s] -> 7% scale(10) [pico, hold 0.4s] -> 10% scale(1) [rampa saida 0.3s] -> 100% scale(1) [parado, resto do ciclo]. Janela ativa total = 10% de 10s = 1.0s.",
+        "card-pulse-arrow": "mesmo timing, opacity 0.8 -> 1 -> 1 -> 0.8 -> 0.8, sincronizado com o mesmo animation-delay do card."
+      },
+      "stagger": "animation-delay: calc(var(--card-pulse-stagger) * N) para nth-child(N+1), N=0..9 -- cada card ativo numa janela de 1s exclusiva dentro do ciclo de 10s, nunca dois ao mesmo tempo (delays espacados exatamente pela duracao da janela ativa).",
+      "timing_function": "ease-in-out (mesma familia do ease do hover desktop)"
+    },
+    "c_reduced_motion": "Bloco inteiro (b) dentro de @media (...) and (prefers-reduced-motion: no-preference) -- se o usuario tiver reduced motion ativado no sistema, a regra inteira nao se aplica: cards ficam estaticos, seta fixa em opacity 0.8.",
+    "d_desktop_dropdown": "Nao alterados -- nenhuma regra nova toca .services-nav/.services-cluster nem a transition/hover base de .ag-courses-item_bg."
+  }
+}

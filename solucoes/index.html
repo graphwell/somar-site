@@ -172,10 +172,88 @@
                 bottom: 14px;
                 right: 14px;
                 font-size: 1rem;
-                opacity: 0.45;
+                opacity: 0.8;
                 color: #fff;
                 line-height: 1;
                 pointer-events: none;
+            }
+        }
+
+        /* ── Pulsação alternada nos cards (mobile, 2026-09-14) ──
+           No mobile não existe :hover, então nada comunicava que os cards são
+           clicáveis -- testado com a seta estática em opacity 0.45 e o usuário
+           não percebeu. Substitui o critério anterior ("nenhuma animação em
+           loop") por decisão explícita após esse teste. Reproduz o mesmo
+           transform do :hover do desktop (scale(10), .ag-courses-item_bg),
+           um card de cada vez, em @keyframes de verdade (não depende de
+           :hover). Desktop e o dropdown do header (.services-nav) não usam
+           nenhuma destas regras -- só .services-body-grid. */
+        @media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+            .services-body-grid {
+                /* Ajustar só estas 3 variáveis para mudar o timing, sem tocar
+                   nos @keyframes abaixo.
+                   --card-pulse-active é informativo: os % das @keyframes
+                   foram escolhidos para render 10% de --card-pulse-cycle
+                   (10% de 10s = 1s). Se mudar só --card-pulse-cycle sem
+                   também ajustar os %, a janela ativa escala proporcional
+                   (ex.: cycle=8s -> janela vira 0.8s) -- limitação do CSS,
+                   percentual de @keyframes não aceita var(). */
+                --card-pulse-cycle: 10s;
+                --card-pulse-active: 1s;
+                --card-pulse-stagger: 1s;
+            }
+
+            .services-body-grid .ag-courses-item_bg {
+                animation-name: card-pulse-bg;
+                animation-duration: var(--card-pulse-cycle);
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: infinite;
+            }
+
+            .services-body-grid .ag-courses-item_arrow {
+                animation-name: card-pulse-arrow;
+                animation-duration: var(--card-pulse-cycle);
+                animation-timing-function: ease-in-out;
+                animation-iteration-count: infinite;
+            }
+
+            /* Delay escalonado: card N ativo durante [(N-1)s, Ns] do ciclo de
+               10s -- nunca dois cards ativos ao mesmo tempo. */
+            .services-body-grid .ag-courses_item:nth-child(1) .ag-courses-item_bg,
+            .services-body-grid .ag-courses_item:nth-child(1) .ag-courses-item_arrow { animation-delay: calc(var(--card-pulse-stagger) * 0); }
+            .services-body-grid .ag-courses_item:nth-child(2) .ag-courses-item_bg,
+            .services-body-grid .ag-courses_item:nth-child(2) .ag-courses-item_arrow { animation-delay: calc(var(--card-pulse-stagger) * 1); }
+            .services-body-grid .ag-courses_item:nth-child(3) .ag-courses-item_bg,
+            .services-body-grid .ag-courses_item:nth-child(3) .ag-courses-item_arrow { animation-delay: calc(var(--card-pulse-stagger) * 2); }
+            .services-body-grid .ag-courses_item:nth-child(4) .ag-courses-item_bg,
+            .services-body-grid .ag-courses_item:nth-child(4) .ag-courses-item_arrow { animation-delay: calc(var(--card-pulse-stagger) * 3); }
+            .services-body-grid .ag-courses_item:nth-child(5) .ag-courses-item_bg,
+            .services-body-grid .ag-courses_item:nth-child(5) .ag-courses-item_arrow { animation-delay: calc(var(--card-pulse-stagger) * 4); }
+            .services-body-grid .ag-courses_item:nth-child(6) .ag-courses-item_bg,
+            .services-body-grid .ag-courses_item:nth-child(6) .ag-courses-item_arrow { animation-delay: calc(var(--card-pulse-stagger) * 5); }
+            .services-body-grid .ag-courses_item:nth-child(7) .ag-courses-item_bg,
+            .services-body-grid .ag-courses_item:nth-child(7) .ag-courses-item_arrow { animation-delay: calc(var(--card-pulse-stagger) * 6); }
+            .services-body-grid .ag-courses_item:nth-child(8) .ag-courses-item_bg,
+            .services-body-grid .ag-courses_item:nth-child(8) .ag-courses-item_arrow { animation-delay: calc(var(--card-pulse-stagger) * 7); }
+            .services-body-grid .ag-courses_item:nth-child(9) .ag-courses-item_bg,
+            .services-body-grid .ag-courses_item:nth-child(9) .ag-courses-item_arrow { animation-delay: calc(var(--card-pulse-stagger) * 8); }
+            .services-body-grid .ag-courses_item:nth-child(10) .ag-courses-item_bg,
+            .services-body-grid .ag-courses_item:nth-child(10) .ag-courses-item_arrow { animation-delay: calc(var(--card-pulse-stagger) * 9); }
+
+            @keyframes card-pulse-bg {
+                0%   { transform: scale(1); }
+                3%   { transform: scale(10); }
+                7%   { transform: scale(10); }
+                10%  { transform: scale(1); }
+                100% { transform: scale(1); }
+            }
+
+            @keyframes card-pulse-arrow {
+                0%   { opacity: 0.8; }
+                3%   { opacity: 1; }
+                7%   { opacity: 1; }
+                10%  { opacity: 0.8; }
+                100% { opacity: 0.8; }
             }
         }
 

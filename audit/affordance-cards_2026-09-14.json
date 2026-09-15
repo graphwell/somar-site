@@ -1,0 +1,31 @@
+{
+  "task": "affordance-cards",
+  "file": "solucoes/index.html",
+  "timestamp_log_escrito_antes_de_aplicar": "2026-09-14T00:00:00-03:00",
+  "status": "APPLIED",
+  "motivo": "Os cards de servico sao links para WhatsApp mas nada comunica que sao clicaveis -- nenhuma affordance visual hoje.",
+  "escopo": {
+    "shared_component_check": "Existem DOIS lugares nesta mesma pagina usando as mesmas classes base (.ag-courses_item / .ag-courses-item_link / .ag-courses-item_bg / .ag-courses-item_title): o dropdown de servicos do header (.services-nav / .services-cluster, desktop >768px) e a secao 'O que fazemos' do corpo (.services-body-section / .services-body-grid, mobile <=768px). Confirmado via grep que .services-body-grid NAO existe em nenhuma outra pagina do site -- so aqui. Todas as mudancas deste log sao escopadas com o seletor .services-body-grid .ag-courses-item_* (mesmo padrao ja usado no arquivo para as regras de mobile existentes) para nao alterar o dropdown do header.",
+    "regra_nao_tocada_de_proposito": ".ag-courses-item_link:hover .ag-courses-item_bg { transform: scale(10); } -- regra base, nao escopada, que ja produz o efeito de zoom do circulo colorido tanto no dropdown quanto (hoje) no body-grid em dispositivos com hover. Nao foi alterada, conforme pedido explicito de preservar o comportamento do dropdown."
+  },
+  "mudancas": {
+    "a_rotulo": {
+      "antes": "O que fazemos",
+      "depois": "Toque em um serviço para conversar",
+      "css_tocado": false,
+      "nota": "Texto puro no HTML, sem caixa alta -- o text-transform:uppercase de .services-body-label (nao alterado) continua fazendo a renderizacao em maiusculas."
+    },
+    "b_seta": {
+      "elemento_novo": "<span class=\"ag-courses-item_arrow\" aria-hidden=\"true\">→</span>, adicionado dentro de cada um dos 10 <a class=\"ag-courses-item_link\"> da secao services-body-grid (nao no dropdown)",
+      "css_novo": ".services-body-grid .ag-courses-item_arrow { position: absolute; bottom: 14px; right: 14px; font-size: 1rem; opacity: 0.45; color: #fff; line-height: 1; pointer-events: none; }",
+      "cor": "#fff -- mesma cor de .ag-courses-item_title (color:#fff)",
+      "colisao_texto_3_linhas": "Card 'Gerador de cobranças automáticas' e o mais longo (3 palavras compostas, fonte 12px, coluna ~127px de largura, provavel quebra em 2-3 linhas). Para garantir clareza sem depender de teste visual (sem acesso a navegador nesta sessao), aumentei o padding-bottom do link de 18px para 28px SO na secao services-body-grid -- como o link e flex com align-items:center e o texto passa a ser o fator limitante de altura quando quebra em varias linhas, esse padding extra vira uma faixa reservada embaixo do texto onde soh a seta fica, sem sobreposicao, independente de quantas linhas o titulo tiver."
+    },
+    "c_hover_active": {
+      "css_novo": ".services-body-grid .ag-courses-item_link { transition: transform 150ms ease, filter 150ms ease; } .services-body-grid .ag-courses-item_link:hover, .services-body-grid .ag-courses-item_link:active { filter: brightness(0.85); transform: translateY(-2px); }",
+      "escurecimento": "filter: brightness(0.85) -- escolhido em vez de uma nova cor hex porque o fundo do link ja e quase preto (#121212); brightness aplica um escurecimento relativo e proporcional sem precisar escolher um tom novo.",
+      "sem_loop": true,
+      "aplica_hover_e_active": true
+    }
+  }
+}

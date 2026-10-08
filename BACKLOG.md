@@ -86,3 +86,9 @@ inteligentes para sua empresa") estava indexada no Google. Foi configurado 301 d
 **A fazer (não executado):** no Google Search Console, solicitar remoção/atualização da
 URL antiga (Remoções → Remoção temporária ou inspecionar URL para reprocessar). Opcional —
 o 301 já transfere o sinal e desindexa com o tempo.
+
+## 2026-10-08 — Pendente: reindexar home no Search Console (favicon novo)
+
+Favicon oficial publicado (`/favicon.ico`, `/favicon-96.png`, `/apple-touch-icon.png`).
+**A fazer (não executado):** Search Console → Inspeção de URL → `https://somar.ia.br/` →
+"Solicitar indexação", para o Google atualizar o ícone nos resultados.
